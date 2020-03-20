@@ -1,0 +1,159 @@
+.container-wrapper {
+    width: 95%;
+}
+
+.title-wrapper {
+    height: 50px;
+}
+
+.title-wrapper h3, .title-wrapper h6 {
+    letter-spacing: 1px;
+}
+
+.getting-start {
+    margin: 15px;
+    background-color: #f7f7f7;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.welcome-desc {
+    font-size: 13px;
+}
+
+.welcome-card {
+    border: 1px solid #F5F5F5;
+    background-color: white;
+    height: 140px;
+    border-radius: 2px;
+}
+
+.welcome-card:hover {
+    background-color: #f0f0f0;
+}
+
+.welcome-card-wrapper {
+    width: 80%;
+    height: 90%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-card-icon {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.welcome-card-title {
+    font-size: 13px;
+}
+
+.welcome-card-desc {
+    font-size: 12px;
+}
+
+.post-container {
+    min-height: 150px;
+}
+
+.avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.post-input {
+    border: 1px solid #3EC5F2;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: none;
+    font-size: 12px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.post-btn {
+    font-size: 12px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #3EC5F2;
+    color: white;
+}
+
+.post-author-name {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.post-author-title, .post-time {
+    font-size: 10px;
+}
+
+.post-content {
+    font-size: 14px;
+}
+
+.emoji-btn {
+    border: 1px solid #F0F0F0;
+    color: #515B5B;
+    background-color: transparent;
+    padding: 2px 7px 2px;
+    font-size: 12px;
+}
+
+.more-btn {
+    border: 1px solid #F0F0F0;
+    color: #3EC5F2;
+    background-color: transparent;
+    padding: 2px 7px 2px;
+    font-size: 11px;
+}
+
+.img-container {
+    width: 250px;
+}
+
+.workspace {
+    height: 120px;
+}
+
+/***************************/
+/*         util            */
+/***************************/
+
+.top-split-line {
+    border-top: 1px solid #F5F5F5;
+}
+
+.bottom-split-line {
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.left-split-line {
+    border-left: 1px solid #F5F5F5;
+}
+
+.right-split-line {
+    border-right: 1px solid #F5F5F5;
+}
+
+.color-title {
+    color: #909495;
+}
+
+.color-dark {
+    color: #515B5B;
+}
+
+.color-light {
+    color: #babec0;
+}
+
+.color-blue {
+    color: #3EC5F2;
+}
+

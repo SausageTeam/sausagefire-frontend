@@ -4,7 +4,6 @@ import { VisaManagementComponent } from './visa-management/visa-management.compo
 import { VisaManagementRoutingModule } from './visa-management-routing.module';
 
 
-
 @NgModule({
   declarations: [VisaManagementComponent],
   imports: [

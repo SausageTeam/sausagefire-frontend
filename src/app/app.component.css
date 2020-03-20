@@ -31,7 +31,7 @@
     z-index: 1050;
     padding: 0;
     width: 180px;
-    background-color: #414042;
+    background-color: #003282;
 }
 
 .sidebar-item {
@@ -41,7 +41,7 @@
 }
 
 .sidebar-item.active {
-    background-color: #d13f3e;
+    background-color: #3F66A1;
 }
 
 .sidebar-item:not(.active):hover {
@@ -65,6 +65,7 @@
 
 .main-navbar {
     height: 60px;
+    background-color: white;
 }
 
 .main-navbar-link {

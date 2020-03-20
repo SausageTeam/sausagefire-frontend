@@ -1,16 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Bellota+Text&display=swap');
 
 html, body {
     font-family: 'Roboto', sans-serif;
+    background-color: #F6F8F6;
 }
 
 .box-shadow {
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.01), 0 3px 1px -2px rgba(0,0,0,.05), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0,0,0,.14);
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.navbar-holder {
+    height: 60px;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }

@@ -1,0 +1,32 @@
+<div class="my-3 p-3 mx-auto box-shadow bg-white">
+  <form (ngSubmit)="onSubmit()" #pf="ngForm">
+
+    <div class="form-group">
+      <label class="color-dark" for="first-name">First Name: <span class="color-red">*</span></label>
+      <input type="text" class="form-control onboard-input" id="first-name" name="firstName"
+        required 
+        [(ngModel)]="firstName"
+        #fn="ngModel">
+      <div [hidden]="fn.valid || fn.pristine" class="error color-red">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        <span>Please enter first name</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="color-dark" for="last-name">Last Name: <span class="color-red">*</span></label>
+      <input type="text" class="form-control onboard-input" id="last-name" name="lastName"
+        required 
+        [(ngModel)]="lastName"
+        #fn="ngModel">
+      <div [hidden]="fn.valid || fn.pristine" class="error color-red">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        <span>Please enter last name</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn next-btn" [disabled]="!pf.form.valid">
+      Next
+    </button>
+  </form>
+</div>

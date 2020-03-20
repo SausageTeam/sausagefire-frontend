@@ -14,7 +14,7 @@
         <label class="color-dark" for="first-name">First Name: <span class="color-red">*</span></label>
         <input type="text" class="form-control onboard-input" id="first-name" name="firstName"
           required 
-          [(ngModel)]="firstName"
+          [(ngModel)]="onboardingPerson.firstName"
           (ngModelChange)="onFirstNameEdit($event)"
           [ngClass]="{'error-input':(!fn.valid && !fn.pristine) || ifFirstNameEnter === false}"
           #fn="ngModel">
@@ -28,7 +28,7 @@
       <div class="form-group col-md-4">
         <label class="color-dark" for="middle-name">Middle Name:</label>
         <input type="text" class="form-control onboard-input" id="middle-name" name="middleName"
-          [(ngModel)]="middleName"
+          [(ngModel)]="onboardingPerson.middleName"
           placeholder="Optional">
       </div>
 
@@ -37,7 +37,7 @@
         <label class="color-dark" for="last-name">Last Name: <span class="color-red">*</span></label>
         <input type="text" class="form-control onboard-input" id="last-name" name="lastName"
           required 
-          [(ngModel)]="lastName"
+          [(ngModel)]="onboardingPerson.lastName"
           (ngModelChange)="onLastNameEdit($event)"
           [ngClass]="{'error-input':(!ln.valid && !ln.pristine) || ifLastNameEnter === false}"
           #ln="ngModel">
@@ -57,7 +57,7 @@
         <label class="color-dark" for="phone">Phone: <span class="color-red">*</span></label>
         <input type="text" class="form-control onboard-input" id="phone" name="cellPhone"
           required 
-          [(ngModel)]="cellPhone"
+          [(ngModel)]="onboardingPerson.cellPhone"
           (ngModelChange)="onCellPhoneEdit($event)"
           [ngClass]="{'error-input':(!cp.valid && !cp.pristine) || ifPhoneEnter === false}"
           #cp="ngModel">
@@ -72,7 +72,7 @@
         <label class="color-dark" for="phone">Alternate Phone:</label>
         <input type="text" class="form-control onboard-input" id="phone" name="alternatePhone"
           placeholder="Optional"
-          [(ngModel)]="alternatePhone">
+          [(ngModel)]="onboardingPerson.alternatePhone">
       </div>
 
     </div>
@@ -85,7 +85,7 @@
         <label class="color-dark" for="gender">Gender: <span class="color-red">*</span></label>
         <select class="form-control onboard-input" id="gender" name="gender"
           required
-          [(ngModel)]="gender"
+          [(ngModel)]="onboardingPerson.gender"
           (ngModelChange)="onGenderSelect($event)"
           [ngClass]="{'error-input': ifGenderSelect === false}">
           <option *ngFor="let o of genderOptions" 
@@ -105,7 +105,7 @@
         <label class="color-dark" for="dob">Date of Birth: <span class="color-red">*</span></label>
         <input type="date" class="form-control onboard-input" id="dob" name="dob" 
           required 
-          [(ngModel)]="dob"
+          [(ngModel)]="onboardingPerson.DOB"
           (ngModelChange)="onDOBSelect($event)"
           [ngClass]="{'error-input':(!birth.valid && !birth.pristine) || ifDobSelect === false, 'active':birth.dirty}"
           #birth="ngModel">
@@ -125,7 +125,7 @@
         <label class="color-dark" for="ssn">Social Security Number:</label>
         <input type="text" class="form-control onboard-input" id="ssn" name="ssn"
           required 
-          [(ngModel)]="ssn"
+          [(ngModel)]="onboardingPerson.SSN"
           (ngModelChange)="onSSNEdit($event)"
           [ngClass]="{'error-input':(!s.valid && !s.pristine) || ifSSNEnter === false}"
           #s="ngModel">
@@ -140,7 +140,7 @@
         <label class="color-dark" for="email">Email:</label>
         <input type="text" class="form-control onboard-input" id="email" name="email"
           readonly
-          [(ngModel)]="email">
+          [(ngModel)]="onboardingPerson.email">
       </div>
     </div>
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OnboardingPerson } from 'src/app/domain/onboardingPerson.module';
 
 @Component({
   selector: 'app-person',
@@ -7,15 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonComponent implements OnInit {
 
-  firstName: string = '';
-  lastName: string = '';
-  middleName: string = '';
-  email: string = '';
-  cellPhone: string = '';
-  alternatePhone: string = '';
-  gender: string = '';
-  ssn: string = '';
-  dob: string = '';
+  onboardingPerson : OnboardingPerson = new OnboardingPerson();
 
   ifFirstNameEnter : boolean = true;
   ifLastNameEnter : boolean = true;
@@ -33,42 +26,44 @@ export class PersonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.onboardingPerson.email = "martin@sausage.com";
   }
 
   onFirstNameEdit(event: any) : void {
-    this.ifFirstNameEnter = this.firstName === '' ? false : true;
+    this.ifFirstNameEnter = this.onboardingPerson.firstName === '' ? false : true;
   }
 
   onLastNameEdit(event: any) : void {
-    this.ifLastNameEnter = this.lastName === '' ? false : true;
+    this.ifLastNameEnter = this.onboardingPerson.lastName === '' ? false : true;
   }
 
   onCellPhoneEdit(event: any) : void {
-    this.ifPhoneEnter = this.cellPhone === '' ? false : true;
+    this.ifPhoneEnter = this.onboardingPerson.cellPhone === '' ? false : true;
   }
 
   onGenderSelect(event: any) : void {
-    this.ifGenderSelect = this.gender === '' ? false : true;
+    this.ifGenderSelect = this.onboardingPerson.gender === '' ? false : true;
   }
 
   onDOBSelect(event: any) : void {
-    this.ifDobSelect = this.dob === '' ? false : true;
+    this.ifDobSelect = this.onboardingPerson.DOB === '' ? false : true;
   }
 
   onSSNEdit(event: any) : void {
-    this.ifSSNEnter = this.ssn === '' ? false : true;
+    this.ifSSNEnter = this.onboardingPerson.SSN === '' ? false : true;
   }
 
   onSubmit() { 
     console.log("on submit is called");
 
-    if(this.firstName === '') this.ifFirstNameEnter = false;
-    if(this.lastName === '') this.ifLastNameEnter = false;
-    if(this.cellPhone === '') this.ifPhoneEnter = false;
-    if(this.gender === '') this.ifGenderSelect = false;
-    if(this.dob === '') this.ifDobSelect = false;
-    if(this.ssn === '') this.ifSSNEnter = false;
+    if(this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
+    if(this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
+    if(this.onboardingPerson.cellPhone === '') this.ifPhoneEnter = false;
+    if(this.onboardingPerson.gender === '') this.ifGenderSelect = false;
+    if(this.onboardingPerson.DOB === '') this.ifDobSelect = false;
+    if(this.onboardingPerson.SSN === '') this.ifSSNEnter = false;
 
+    console.log(this.onboardingPerson);
   }
 
 }

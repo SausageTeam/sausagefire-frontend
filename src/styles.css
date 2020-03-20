@@ -28,3 +28,39 @@ html, body {
     outline: none !important;
     box-shadow: none;
  }
+
+.top-split-line {
+    border-top: 1px solid #F5F5F5;
+}
+
+.bottom-split-line {
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.left-split-line {
+    border-left: 1px solid #F5F5F5;
+}
+
+.right-split-line {
+    border-right: 1px solid #F5F5F5;
+}
+
+.color-title {
+    color: #909495;
+}
+
+.color-dark {
+    color: #515B5B;
+}
+
+.color-light {
+    color: #babec0;
+}
+
+.color-blue {
+    color: #3EC5F2;
+}
+
+.color-red {
+    color: #c63316;
+}

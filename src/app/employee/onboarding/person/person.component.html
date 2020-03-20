@@ -1,0 +1,156 @@
+<div class="my-3 mx-auto box-shadow bg-white">
+
+  <h3 class="color-dark m-0 p-3">Personal Information</h3>
+
+  <div class="bottom-split-line"></div>
+
+  <form (ngSubmit)="onSubmit()" class="p-3" #pf="ngForm">
+
+    <!-- first name, last name, middle name -->
+    <div class="row">
+
+      <!-- first name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="first-name">First Name: <span class="color-red">*</span></label>
+        <input type="text" class="form-control onboard-input" id="first-name" name="firstName"
+          required 
+          [(ngModel)]="firstName"
+          (ngModelChange)="onFirstNameEdit($event)"
+          [ngClass]="{'error-input':(!fn.valid && !fn.pristine) || ifFirstNameEnter === false}"
+          #fn="ngModel">
+        <div [hidden]="ifFirstNameEnter&&(fn.valid||fn.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter first name</span>
+        </div>
+      </div>
+
+      <!-- middle name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="middle-name">Middle Name:</label>
+        <input type="text" class="form-control onboard-input" id="middle-name" name="middleName"
+          [(ngModel)]="middleName"
+          placeholder="Optional">
+      </div>
+
+      <!-- last name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="last-name">Last Name: <span class="color-red">*</span></label>
+        <input type="text" class="form-control onboard-input" id="last-name" name="lastName"
+          required 
+          [(ngModel)]="lastName"
+          (ngModelChange)="onLastNameEdit($event)"
+          [ngClass]="{'error-input':(!ln.valid && !ln.pristine) || ifLastNameEnter === false}"
+          #ln="ngModel">
+        <div [hidden]="ifLastNameEnter&&(ln.valid||ln.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter last name</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- phone, alternate phone -->
+    <div class="row">
+
+      <!-- phone -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="phone">Phone: <span class="color-red">*</span></label>
+        <input type="text" class="form-control onboard-input" id="phone" name="cellPhone"
+          required 
+          [(ngModel)]="cellPhone"
+          (ngModelChange)="onCellPhoneEdit($event)"
+          [ngClass]="{'error-input':(!cp.valid && !cp.pristine) || ifPhoneEnter === false}"
+          #cp="ngModel">
+        <div [hidden]="ifPhoneEnter&&(cp.valid||cp.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter your phone number</span>
+        </div>
+      </div>
+
+      <!-- alternate phone -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="phone">Alternate Phone:</label>
+        <input type="text" class="form-control onboard-input" id="phone" name="alternatePhone"
+          placeholder="Optional"
+          [(ngModel)]="alternatePhone">
+      </div>
+
+    </div>
+
+    <!-- gender, dob -->
+    <div class="row">
+
+      <!-- gender -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="gender">Gender: <span class="color-red">*</span></label>
+        <select class="form-control onboard-input" id="gender" name="gender"
+          required
+          [(ngModel)]="gender"
+          (ngModelChange)="onGenderSelect($event)"
+          [ngClass]="{'error-input': ifGenderSelect === false}">
+          <option *ngFor="let o of genderOptions" 
+            [value]="o.value">
+            {{o.name}}
+          </option>
+        </select>
+
+        <div [hidden]="ifGenderSelect" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select a gender</span>
+        </div>
+      </div>
+
+      <!-- dob -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="dob">Date of Birth: <span class="color-red">*</span></label>
+        <input type="date" class="form-control onboard-input" id="dob" name="dob" 
+          required 
+          [(ngModel)]="dob"
+          (ngModelChange)="onDOBSelect($event)"
+          [ngClass]="{'error-input':(!birth.valid && !birth.pristine) || ifDobSelect === false, 'active':birth.dirty}"
+          #birth="ngModel">
+
+        <div [hidden]="ifDobSelect&&(birth.valid||birth.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select your date of birth</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ssn, email -->
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="ssn">Social Security Number:</label>
+        <input type="text" class="form-control onboard-input" id="ssn" name="ssn"
+          required 
+          [(ngModel)]="ssn"
+          (ngModelChange)="onSSNEdit($event)"
+          [ngClass]="{'error-input':(!s.valid && !s.pristine) || ifSSNEnter === false}"
+          #s="ngModel">
+        <div [hidden]="ifSSNEnter&&(s.valid||s.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter your SSN</span>
+        </div>
+      </div>
+
+      <!-- email -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="email">Email:</label>
+        <input type="text" class="form-control onboard-input" id="email" name="email"
+          readonly
+          [(ngModel)]="email">
+      </div>
+    </div>
+    
+
+    <button type="submit" class="btn save-btn mr-2">
+      Save
+    </button>
+
+    <button type="submit" class="btn next-btn">
+      Next
+    </button>
+  </form>
+</div>

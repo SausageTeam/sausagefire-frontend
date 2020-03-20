@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OnboardingComponent } from './onboarding/onboarding.component';
+import { PersonComponent } from './person/person.component';
 
 const onboardingRoutes: Routes = [
   { 
     path: '',
+    component: OnboardingComponent,
+
     children: [
       {
-        path: '', 
+        path: '',
         children: [
           {
-            path: '',
-            component: OnboardingComponent
+            path: 'person', 
+            component: PersonComponent
           }
         ]
+        
       }
     ]
     

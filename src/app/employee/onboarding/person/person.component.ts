@@ -16,6 +16,8 @@ export class PersonComponent implements OnInit {
   ifGenderSelect : boolean = true;
   ifDobSelect: boolean = true;
   ifSSNEnter : boolean = true;
+  
+  ifUnclockNext : boolean = false;
 
   genderOptions = [
     { name: "Male", value: "male" },
@@ -30,31 +32,72 @@ export class PersonComponent implements OnInit {
   }
 
   onFirstNameEdit(event: any) : void {
-    this.ifFirstNameEnter = this.onboardingPerson.firstName === '' ? false : true;
+    if(this.onboardingPerson.firstName === '') {
+      this.ifFirstNameEnter = false;
+      this.ifUnclockNext = false;
+    } else {
+      this.ifFirstNameEnter = true;
+    }
   }
 
   onLastNameEdit(event: any) : void {
-    this.ifLastNameEnter = this.onboardingPerson.lastName === '' ? false : true;
+    if(this.onboardingPerson.lastName === '') {
+      this.ifLastNameEnter = false;
+      this.ifUnclockNext = false;
+    } else {
+      this.ifLastNameEnter = true;
+    }
   }
 
   onCellPhoneEdit(event: any) : void {
-    this.ifPhoneEnter = this.onboardingPerson.cellPhone === '' ? false : true;
+    if(this.onboardingPerson.cellPhone === '') {
+      this.ifPhoneEnter = false;
+      this.ifUnclockNext = false;
+    } else {
+      this.ifLastNameEnter = true;
+    }
   }
 
   onGenderSelect(event: any) : void {
-    this.ifGenderSelect = this.onboardingPerson.gender === '' ? false : true;
+    if(this.onboardingPerson.gender === '') {
+      this.ifGenderSelect = false;
+      this.ifUnclockNext = false;
+    } else {
+      this.ifGenderSelect = true;
+    }
   }
 
   onDOBSelect(event: any) : void {
-    this.ifDobSelect = this.onboardingPerson.DOB === '' ? false : true;
+    if(this.onboardingPerson.DOB === '') {
+      this.ifDobSelect = false;
+      this.ifUnclockNext = false;
+    } else {
+      this.ifDobSelect = true;
+    }
   }
 
   onSSNEdit(event: any) : void {
-    this.ifSSNEnter = this.onboardingPerson.SSN === '' ? false : true;
+    if(this.onboardingPerson.SSN === '') {
+      this.ifSSNEnter = false;
+      this.ifUnclockNext = false;
+    } else {
+      this.ifSSNEnter = true;
+    }
   }
 
-  onSubmit() { 
-    console.log("on submit is called");
+  onSaveClick(): void { 
+    console.log("on save click");
+    if(this.inputCheck()) {
+      this.ifUnclockNext = true;
+    }
+  }
+
+  onNextClick(): void {
+    
+  }
+
+  inputCheck() : boolean {
+    const test = (flag : boolean) => flag === true;
 
     if(this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
     if(this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
@@ -63,7 +106,14 @@ export class PersonComponent implements OnInit {
     if(this.onboardingPerson.DOB === '') this.ifDobSelect = false;
     if(this.onboardingPerson.SSN === '') this.ifSSNEnter = false;
 
-    console.log(this.onboardingPerson);
+    return [
+      this.ifFirstNameEnter, 
+      this.ifLastNameEnter, 
+      this.ifPhoneEnter,
+      this.ifGenderSelect,
+      this.ifDobSelect,
+      this.ifSSNEnter
+    ].every(test);
   }
 
 }

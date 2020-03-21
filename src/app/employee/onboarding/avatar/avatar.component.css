@@ -1,4 +1,4 @@
-.next-btn, .save-btn {
+.next-btn, .save-btn, .skip-btn {
     border-radius: 2px;
     line-height: 1;
     font-size: 14px;
@@ -8,6 +8,10 @@
 
 .save-btn {
     background-color: #29C178;
+}
+
+.skip-btn {
+    background-color: #3F66A1;
 }
 
 .next-btn {

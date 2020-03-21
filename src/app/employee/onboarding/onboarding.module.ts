@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { PersonComponent } from './person/person.component';
+import { AvatarComponent } from './avatar/avatar.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PersonComponent } from './person/person.component';
   ],
   declarations: [
     OnboardingComponent,
-    PersonComponent
+    PersonComponent,
+    AvatarComponent
   ],
 })
 export class OnboardingModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OnboardingPerson } from 'src/app/domain/onboardingPerson.module';
+import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
 
 @Component({
   selector: 'app-person',
@@ -23,10 +24,18 @@ export class PersonComponent implements OnInit {
     { name: "I don't want to answer", value: "na"}
   ]
 
-  constructor() { }
+  constructor(private onBoardingService : OnboardingService) { }
 
   ngOnInit(): void {
-    this.onboardingPerson.email = "martin@sausage.com";
+    //do the service and get the data
+    // console.log(this.onboardingPerson);
+    this.onBoardingService.onboarding(this.onboardingPerson).subscribe(
+      (res) => {
+        console.log(res);
+        this.onboardingPerson.email = res.onboardingPerson.email;
+      }
+    )
+    
   }
 
   onFirstNameEdit(event: any) : void {
@@ -54,7 +63,7 @@ export class PersonComponent implements OnInit {
   }
 
   onSubmit() { 
-    console.log("on submit is called");
+    // console.log("on submit is called");
 
     if(this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
     if(this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
@@ -63,7 +72,12 @@ export class PersonComponent implements OnInit {
     if(this.onboardingPerson.DOB === '') this.ifDobSelect = false;
     if(this.onboardingPerson.SSN === '') this.ifSSNEnter = false;
 
-    console.log(this.onboardingPerson);
+    // console.log(this.onboardingPerson);
+    // this.onBoardingService.onboarding(this.onboardingPerson).subscribe(
+    //   (res) => {
+    //     console.log(res);
+    //   }
+    // )
   }
 
 }

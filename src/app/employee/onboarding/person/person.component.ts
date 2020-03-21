@@ -44,12 +44,12 @@ export class PersonComponent implements OnInit {
         this.onboardingPerson.gender = res.onboardingPerson.gender;
         this.onboardingPerson.dob = res.onboardingPerson.dob;
         this.onboardingPerson.ssn = res.onboardingPerson.ssn;
+
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
       }
     )
-
-    if(this.nextCheck()) {
-      this.ifUnclockNext = true;
-    }
   }
 
   onSaveClick(): void { 
@@ -61,7 +61,7 @@ export class PersonComponent implements OnInit {
 
       this.onboardingService.postOnboardingService(this.onboardingPerson).subscribe(
         (res) => {
-          console.log(res);
+          // console.log(res);
         }
       )
     }

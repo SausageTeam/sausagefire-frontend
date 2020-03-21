@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OnboardingPerson } from 'src/app/domain/onboardingPerson.module';
 import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
 
@@ -26,18 +27,67 @@ export class PersonComponent implements OnInit {
     { name: "I don't want to answer", value: "na"}
   ]
 
-  constructor(private onBoardingService : OnboardingService) { }
+  constructor(
+    private onBoardingService : OnboardingService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    //do the service and get the data
-    // console.log(this.onboardingPerson);
     this.onBoardingService.onboarding(this.onboardingPerson).subscribe(
       (res) => {
         console.log(res);
+        this.onboardingPerson.firstName = res.onboardingPerson.firstName;
+        this.onboardingPerson.middleName = res.onboardingPerson.middleName;
+        this.onboardingPerson.lastName = res.onboardingPerson.lastName;
         this.onboardingPerson.email = res.onboardingPerson.email;
+        this.onboardingPerson.cellPhone = res.onboardingPerson.cellPhone;
+        this.onboardingPerson.alternatePhone = res.onboardingPerson.alternatePhone;
+        this.onboardingPerson.gender = res.onboardingPerson.gender;
+        this.onboardingPerson.DOB = res.onboardingPerson.DOB;
+        this.onboardingPerson.SSN = res.onboardingPerson.SSN;
       }
     )
-    
+
+    if(this.nextCheck()) {
+      this.ifUnclockNext = true;
+    }
+  }
+
+  onSaveClick(): void { 
+    this.inputCheck();
+
+    if(this.nextCheck()) {
+      this.ifUnclockNext = true;
+
+      // TODO: do backend update here
+    }
+  }
+
+  onNextClick(): void {
+    this.router.navigate(['/employee/onboarding/avatar']);
+  }
+
+  nextCheck() : boolean {
+    const test = (field : string) => field !== '';
+
+    return [
+      this.onboardingPerson.firstName,
+      this.onboardingPerson.lastName,
+      this.onboardingPerson.cellPhone,
+      this.onboardingPerson.gender,
+      this.onboardingPerson.DOB,
+      this.onboardingPerson.SSN
+    ].every(test);
+  }
+
+  inputCheck() : void {
+
+    if(this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
+    if(this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
+    if(this.onboardingPerson.cellPhone === '') this.ifPhoneEnter = false;
+    if(this.onboardingPerson.gender === '') this.ifGenderSelect = false;
+    if(this.onboardingPerson.DOB === '') this.ifDobSelect = false;
+    if(this.onboardingPerson.SSN === '') this.ifSSNEnter = false;
   }
 
   onFirstNameEdit(event: any) : void {
@@ -63,7 +113,7 @@ export class PersonComponent implements OnInit {
       this.ifPhoneEnter = false;
       this.ifUnclockNext = false;
     } else {
-      this.ifLastNameEnter = true;
+      this.ifPhoneEnter = true;
     }
   }
 
@@ -93,36 +143,4 @@ export class PersonComponent implements OnInit {
       this.ifSSNEnter = true;
     }
   }
-
-  onSaveClick(): void { 
-    console.log("on save click");
-    if(this.inputCheck()) {
-      this.ifUnclockNext = true;
-    }
-  }
-
-  onNextClick(): void {
-    
-  }
-
-  inputCheck() : boolean {
-    const test = (flag : boolean) => flag === true;
-
-    if(this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
-    if(this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
-    if(this.onboardingPerson.cellPhone === '') this.ifPhoneEnter = false;
-    if(this.onboardingPerson.gender === '') this.ifGenderSelect = false;
-    if(this.onboardingPerson.DOB === '') this.ifDobSelect = false;
-    if(this.onboardingPerson.SSN === '') this.ifSSNEnter = false;
-
-    return [
-      this.ifFirstNameEnter, 
-      this.ifLastNameEnter, 
-      this.ifPhoneEnter,
-      this.ifGenderSelect,
-      this.ifDobSelect,
-      this.ifSSNEnter
-    ].every(test);
-  }
-
 }

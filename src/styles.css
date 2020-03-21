@@ -75,7 +75,7 @@ html, body {
     border-radius: 2px !important;
 }
 
-.form-control:disabled, .form-control[readonly] {
+.form-control:disabled, .form-control[read-only] {
     background-color: #F5F5F5;
 }
 
@@ -95,6 +95,6 @@ input[type=date].form-control.active, input[type=date].form-control:focus {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.01), 0 3px 1px -2px rgba(0,0,0,.05), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 
-.form-control:read-only:focus, .form-control:read-only:active {
+.form-control[readonly]:focus, .form-control[readonly]:active {
     box-shadow: none;
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { PersonComponent } from './person/person.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import { VisaComponent } from './visa/visa.component';
 
 const onboardingRoutes: Routes = [
   { 
@@ -20,6 +21,10 @@ const onboardingRoutes: Routes = [
           {
             path: 'avatar',
             component: AvatarComponent
+          },
+          {
+            path: 'visa',
+            component: VisaComponent
           }
         ]
         

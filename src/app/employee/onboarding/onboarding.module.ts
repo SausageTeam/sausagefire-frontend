@@ -6,6 +6,7 @@ import { OnboardingComponent } from './onboarding/onboarding.component';
 import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { PersonComponent } from './person/person.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import { VisaComponent } from './visa/visa.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AvatarComponent } from './avatar/avatar.component';
   declarations: [
     OnboardingComponent,
     PersonComponent,
-    AvatarComponent
+    AvatarComponent,
+    VisaComponent
   ],
 })
 export class OnboardingModule { }

@@ -3,19 +3,23 @@
 
   <div class="bottom-split-line"></div>
 
-  <form (ngSubmit)="onSaveClick()" class="p-3" #pf="ngForm">
+  <form class="p-3" #pf="ngForm">
 
 
 
-    <button type="submit" class="btn save-btn mr-2">
+    <button (click)="onSaveClick()" class="btn save-btn mr-2">
       Save
     </button>
 
-    <button type="submit" class="btn skip-btn mr-2">
+    <button (click)="onSkipClick()" class="btn skip-btn mr-2">
       Skip
     </button>
 
-    <button type="submit" class="btn next-btn">
+    <button (click)="onPrevClick()" class="btn next-btn mr-2">
+      Prev
+    </button>
+
+    <button [disabled]="!ifUnclockNext" (click)="onNextClick()" class="btn next-btn">
       Next
     </button>
   </form>

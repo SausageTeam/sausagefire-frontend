@@ -28,14 +28,13 @@ export class PersonComponent implements OnInit {
   ]
 
   constructor(
-    private onBoardingService : OnboardingService,
+    private onboardingService : OnboardingService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.onBoardingService.getOnboardingService(this.onboardingPerson).subscribe(
+    this.onboardingService.getOnboardingService(this.onboardingPerson).subscribe(
       (res) => {
-        console.log(res);
         this.onboardingPerson.firstName = res.onboardingPerson.firstName;
         this.onboardingPerson.middleName = res.onboardingPerson.middleName;
         this.onboardingPerson.lastName = res.onboardingPerson.lastName;
@@ -43,8 +42,8 @@ export class PersonComponent implements OnInit {
         this.onboardingPerson.cellPhone = res.onboardingPerson.cellPhone;
         this.onboardingPerson.alternatePhone = res.onboardingPerson.alternatePhone;
         this.onboardingPerson.gender = res.onboardingPerson.gender;
-        this.onboardingPerson.DOB = res.onboardingPerson.DOB;
-        this.onboardingPerson.SSN = res.onboardingPerson.SSN;
+        this.onboardingPerson.dob = res.onboardingPerson.dob;
+        this.onboardingPerson.ssn = res.onboardingPerson.ssn;
       }
     )
 
@@ -54,12 +53,13 @@ export class PersonComponent implements OnInit {
   }
 
   onSaveClick(): void { 
+
     this.inputCheck();
 
     if(this.nextCheck()) {
       this.ifUnclockNext = true;
 
-      this.onBoardingService.postOnboardingService(this.onboardingPerson).subscribe(
+      this.onboardingService.postOnboardingService(this.onboardingPerson).subscribe(
         (res) => {
           console.log(res);
         }
@@ -72,30 +72,30 @@ export class PersonComponent implements OnInit {
   }
 
   nextCheck() : boolean {
-    const test = (field : string) => field !== '';
+    const test = (field : string) => field && field !== '';
 
     return [
       this.onboardingPerson.firstName,
       this.onboardingPerson.lastName,
       this.onboardingPerson.cellPhone,
       this.onboardingPerson.gender,
-      this.onboardingPerson.DOB,
-      this.onboardingPerson.SSN
+      this.onboardingPerson.dob,
+      this.onboardingPerson.ssn
     ].every(test);
   }
 
   inputCheck() : void {
 
-    if(this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
-    if(this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
-    if(this.onboardingPerson.cellPhone === '') this.ifPhoneEnter = false;
-    if(this.onboardingPerson.gender === '') this.ifGenderSelect = false;
-    if(this.onboardingPerson.DOB === '') this.ifDobSelect = false;
-    if(this.onboardingPerson.SSN === '') this.ifSSNEnter = false;
+    if(!this.onboardingPerson.firstName || this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
+    if(!this.onboardingPerson.lastName || this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
+    if(!this.onboardingPerson.cellPhone || this.onboardingPerson.cellPhone === '') this.ifPhoneEnter = false;
+    if(!this.onboardingPerson.gender || this.onboardingPerson.gender === '') this.ifGenderSelect = false;
+    if(!this.onboardingPerson.dob|| this.onboardingPerson.dob === '') this.ifDobSelect = false;
+    if(!this.onboardingPerson.ssn || this.onboardingPerson.ssn === '') this.ifSSNEnter = false;
   }
 
   onFirstNameEdit(event: any): void {
-    if (this.onboardingPerson.firstName === '') {
+    if (!this.onboardingPerson.firstName || this.onboardingPerson.firstName === '') {
       this.ifFirstNameEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -104,7 +104,7 @@ export class PersonComponent implements OnInit {
   }
 
   onLastNameEdit(event: any): void {
-    if (this.onboardingPerson.lastName === '') {
+    if (!this.onboardingPerson.lastName || this.onboardingPerson.lastName === '') {
       this.ifLastNameEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -113,7 +113,7 @@ export class PersonComponent implements OnInit {
   }
 
   onCellPhoneEdit(event: any): void {
-    if (this.onboardingPerson.cellPhone === '') {
+    if (!this.onboardingPerson.cellPhone || this.onboardingPerson.cellPhone === '') {
       this.ifPhoneEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -122,7 +122,7 @@ export class PersonComponent implements OnInit {
   }
 
   onGenderSelect(event: any): void {
-    if (this.onboardingPerson.gender === '') {
+    if (!this.onboardingPerson.gender || this.onboardingPerson.gender === '') {
       this.ifGenderSelect = false;
       this.ifUnclockNext = false;
     } else {
@@ -131,7 +131,7 @@ export class PersonComponent implements OnInit {
   }
 
   onDOBSelect(event: any): void {
-    if (this.onboardingPerson.DOB === '') {
+    if (!this.onboardingPerson.dob|| this.onboardingPerson.dob === '') {
       this.ifDobSelect = false;
       this.ifUnclockNext = false;
     } else {
@@ -140,7 +140,7 @@ export class PersonComponent implements OnInit {
   }
 
   onSSNEdit(event: any): void {
-    if (this.onboardingPerson.SSN === '') {
+    if (!this.onboardingPerson.ssn || this.onboardingPerson.ssn === '') {
       this.ifSSNEnter = false;
       this.ifUnclockNext = false;
     } else {

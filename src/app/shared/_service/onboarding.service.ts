@@ -12,6 +12,7 @@ export class OnboardingService {
 
   getOnboardingService(onboardingPerson: OnboardingPerson) {
     return this.http.get('http://localhost:4200/api/employee/onboarding/person/').map((res: Response) => {
+      console.log("get");
       console.log(res);
       return res;
     })
@@ -19,6 +20,7 @@ export class OnboardingService {
 
   postOnboardingService(onboardingPerson: OnboardingPerson) {
     return this.http.post('http://localhost:4200/api/employee/onboarding/person/', { onboardingPerson }).map((res: Response) => {
+      console.log("post");
       console.log(res);
       return res;
     })

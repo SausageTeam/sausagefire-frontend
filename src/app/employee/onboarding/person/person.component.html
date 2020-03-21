@@ -4,7 +4,7 @@
 
   <div class="bottom-split-line"></div>
 
-  <form (ngSubmit)="onSubmit()" class="p-3" #pf="ngForm">
+  <form class="p-3" #pf="ngForm">
 
     <!-- first name, last name, middle name -->
     <div class="row">
@@ -12,7 +12,7 @@
       <!-- first name -->
       <div class="form-group col-md-4">
         <label class="color-dark" for="first-name">First Name: <span class="color-red">*</span></label>
-        <input type="text" class="form-control onboard-input" id="first-name" name="firstName"
+        <input type="text" class="form-control" id="first-name" name="firstName"
           required 
           [(ngModel)]="onboardingPerson.firstName"
           (ngModelChange)="onFirstNameEdit($event)"
@@ -27,7 +27,7 @@
       <!-- middle name -->
       <div class="form-group col-md-4">
         <label class="color-dark" for="middle-name">Middle Name:</label>
-        <input type="text" class="form-control onboard-input" id="middle-name" name="middleName"
+        <input type="text" class="form-control" id="middle-name" name="middleName"
           [(ngModel)]="onboardingPerson.middleName"
           placeholder="Optional">
       </div>
@@ -35,7 +35,7 @@
       <!-- last name -->
       <div class="form-group col-md-4">
         <label class="color-dark" for="last-name">Last Name: <span class="color-red">*</span></label>
-        <input type="text" class="form-control onboard-input" id="last-name" name="lastName"
+        <input type="text" class="form-control" id="last-name" name="lastName"
           required 
           [(ngModel)]="onboardingPerson.lastName"
           (ngModelChange)="onLastNameEdit($event)"
@@ -55,7 +55,7 @@
       <!-- phone -->
       <div class="form-group col-md-6">
         <label class="color-dark" for="phone">Phone: <span class="color-red">*</span></label>
-        <input type="text" class="form-control onboard-input" id="phone" name="cellPhone"
+        <input type="text" class="form-control" id="phone" name="cellPhone"
           required 
           [(ngModel)]="onboardingPerson.cellPhone"
           (ngModelChange)="onCellPhoneEdit($event)"
@@ -70,7 +70,7 @@
       <!-- alternate phone -->
       <div class="form-group col-md-6">
         <label class="color-dark" for="phone">Alternate Phone:</label>
-        <input type="text" class="form-control onboard-input" id="phone" name="alternatePhone"
+        <input type="text" class="form-control" id="phone" name="alternatePhone"
           placeholder="Optional"
           [(ngModel)]="onboardingPerson.alternatePhone">
       </div>
@@ -83,7 +83,7 @@
       <!-- gender -->
       <div class="form-group col-md-6">
         <label class="color-dark" for="gender">Gender: <span class="color-red">*</span></label>
-        <select class="form-control onboard-input" id="gender" name="gender"
+        <select class="form-control" id="gender" name="gender"
           required
           [(ngModel)]="onboardingPerson.gender"
           (ngModelChange)="onGenderSelect($event)"
@@ -103,7 +103,7 @@
       <!-- dob -->
       <div class="form-group col-md-6">
         <label class="color-dark" for="dob">Date of Birth: <span class="color-red">*</span></label>
-        <input type="date" class="form-control onboard-input" id="dob" name="dob" 
+        <input type="date" class="form-control" id="dob" name="dob" 
           required 
           [(ngModel)]="onboardingPerson.DOB"
           (ngModelChange)="onDOBSelect($event)"
@@ -123,7 +123,7 @@
 
       <div class="form-group col-md-6">
         <label class="color-dark" for="ssn">Social Security Number:</label>
-        <input type="text" class="form-control onboard-input" id="ssn" name="ssn"
+        <input type="text" class="form-control" id="ssn" name="ssn"
           required 
           [(ngModel)]="onboardingPerson.SSN"
           (ngModelChange)="onSSNEdit($event)"
@@ -138,18 +138,18 @@
       <!-- email -->
       <div class="form-group col-md-6">
         <label class="color-dark" for="email">Email:</label>
-        <input type="text" class="form-control onboard-input" id="email" name="email"
+        <input type="text" class="form-control" id="email" name="email"
           readonly
           [(ngModel)]="onboardingPerson.email">
       </div>
     </div>
     
 
-    <button type="submit" class="btn save-btn mr-2">
+    <button (click)="onSaveClick()" class="btn save-btn mr-2">
       Save
     </button>
 
-    <button type="submit" class="btn next-btn">
+    <button [disabled]="!ifUnclockNext" class="btn next-btn">
       Next
     </button>
   </form>

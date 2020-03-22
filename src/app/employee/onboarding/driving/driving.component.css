@@ -13,3 +13,10 @@
 .next-btn {
   background-color: #3EC5F2;
 }
+
+
+.driving-options {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

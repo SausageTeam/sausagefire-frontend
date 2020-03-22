@@ -1,10 +1,135 @@
 <div class="my-3 mx-auto box-shadow bg-white">
-  <h3 class="color-dark m-0 p-3">Driving Related</h3>
+  <h3 class="color-dark m-0 p-3">Driving Information</h3>
 
   <div class="bottom-split-line"></div>
 
   <div class="p-3">
 
+    <p class="color-dark">
+      Do you have a driver license?
+      <span class="color-red">*</span>
+    </p>
+
+    <ul class="driving-options">
+      <li *ngFor="let option of driverLisenseOptions; let i = index">
+        <input id="option-{{i}}" type="checkbox" class="cursor-pointer mr-2"
+          [checked]="driverLisenseOptionsIndex === i"
+          (click)="selectDriverLisenseOption(i)">
+
+        <label for="option-{{i}}" class="color-dark">{{option}}</label>
+      </li>
+    </ul>
+    
+  </div>
+
+  <div *ngIf="driverLisenseOptionsIndex === 0" class="p-3 top-split-line">
+    
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="driverLicense">Driver License: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="driverLicense" name="driverLicense"
+          required 
+          [(ngModel)]="driverLicense"
+          (ngModelChange)="onDriverLiceseEdit($event)"
+          [ngClass]="{'error-input':(!dl.valid && !dl.pristine) || ifDriverLicense === false}"
+          #dl="ngModel">
+        <div [hidden]="ifDriverLicense&&(dl.valid||dl.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter your driver license number</span>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="expiration-date">Expiration Date: <span class="color-red">*</span></label>
+        <input type="date" class="form-control" id="expiration-date" name="expiration-date" 
+          required 
+          [(ngModel)]="driverLicenseExpirationDate"
+          (ngModelChange)="onDriverLicenseExpirationDateEdit($event)"
+          [ngClass]="{'error-input':(!ed.valid && !ed.pristine) || ifDriverLicenseExpirationDate === false, 'active': driverLicenseExpirationDate !== ''}"
+          #ed="ngModel">
+
+        <div [hidden]="ifDriverLicenseExpirationDate&&(ed.valid||ed.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter your driver license expiration date</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <p class="color-dark">
+      Do you have a car?
+      <span class="color-red">*</span>
+    </p>
+
+    <ul class="driving-options">
+      <li *ngFor="let option of carOptions; let i = index">
+        <input id="option-{{i}}" type="checkbox" class="cursor-pointer mr-2"
+          [checked]="carOptionsIndex === i"
+          (click)="selectCarOption(i)">
+
+        <label for="option-{{i}}" class="color-dark">{{option}}</label>
+      </li>
+    </ul>
+    
+  </div>
+
+  <div *ngIf="carOptionsIndex === 0" class="p-3 top-split-line">
+    <div class="row">
+
+      <!-- maker -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="ssn">Maker: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="maker" name="maker"
+          required 
+          [(ngModel)]="maker"
+          (ngModelChange)="onMakerEdit($event)"
+          [ngClass]="{'error-input':(!cmaker.valid && !cmaker.pristine) || ifMakerEnter === false}"
+          placeholder="Audi"
+          #cmaker="ngModel">
+        <div [hidden]="ifMakerEnter&&(cmaker.valid||cmaker.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the car maker</span>
+        </div>
+      </div>
+
+      <!-- model -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="model">Model: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="model" name="model"
+          required 
+          [(ngModel)]="model"
+          (ngModelChange)="onModelEdit($event)"
+          [ngClass]="{'error-input':(!cmodel.valid && !cmodel.pristine) || ifModelEnter === false}"
+          placeholder="Q7"
+          #cmodel="ngModel">
+        <div [hidden]="ifModelEnter&&(cmodel.valid||cmodel.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the car model</span>
+        </div>
+      </div>
+
+      <!-- color -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="ssn">Color: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="ssn" name="ssn"
+          required 
+          [(ngModel)]="color"
+          (ngModelChange)="onColorEdit($event)"
+          [ngClass]="{'error-input':(!ccolor.valid && !ccolor.pristine) || ifColorEnter === false}"
+          placeholder="Black"
+          #ccolor="ngModel">
+        <div [hidden]="ifColorEnter&&(ccolor.valid||ccolor.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the car color</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <div class="bottom-split-line"></div>

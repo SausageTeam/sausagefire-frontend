@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OnboardingPerson } from 'src/app/domain/onboardingPerson.module';
+import { Router } from '@angular/router';
+import { OnboardingPerson } from 'src/app/domain/onboarding-person.module';
 import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
 
 @Component({
@@ -9,39 +10,92 @@ import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
 })
 export class PersonComponent implements OnInit {
 
-  onboardingPerson : OnboardingPerson = new OnboardingPerson();
+  onboardingPerson: OnboardingPerson = new OnboardingPerson();
 
-  ifFirstNameEnter : boolean = true;
-  ifLastNameEnter : boolean = true;
+  ifFirstNameEnter: boolean = true;
+  ifLastNameEnter: boolean = true;
   ifPhoneEnter: boolean = true;
-  ifGenderSelect : boolean = true;
+  ifGenderSelect: boolean = true;
   ifDobSelect: boolean = true;
-  ifSSNEnter : boolean = true;
-  
-  ifUnclockNext : boolean = false;
+  ifSSNEnter: boolean = true;
+
+  ifUnclockNext: boolean = false;
 
   genderOptions = [
     { name: "Male", value: "male" },
     { name: "Female", value: "female" },
-    { name: "I don't want to answer", value: "na"}
+    { name: "I don't want to answer", value: "na" }
   ]
 
-  constructor(private onBoardingService : OnboardingService) { }
+  constructor(
+    private onboardingService : OnboardingService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    //do the service and get the data
-    // console.log(this.onboardingPerson);
-    this.onBoardingService.onboarding(this.onboardingPerson).subscribe(
+    this.onboardingService.getOnboardingPersonService(this.onboardingPerson).subscribe(
       (res) => {
-        console.log(res);
+        this.onboardingPerson.firstName = res.onboardingPerson.firstName;
+        this.onboardingPerson.middleName = res.onboardingPerson.middleName;
+        this.onboardingPerson.lastName = res.onboardingPerson.lastName;
         this.onboardingPerson.email = res.onboardingPerson.email;
+        this.onboardingPerson.cellPhone = res.onboardingPerson.cellPhone;
+        this.onboardingPerson.alternatePhone = res.onboardingPerson.alternatePhone;
+        this.onboardingPerson.gender = res.onboardingPerson.gender;
+        this.onboardingPerson.dob = res.onboardingPerson.dob;
+        this.onboardingPerson.ssn = res.onboardingPerson.ssn;
+
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
       }
     )
-    
   }
 
-  onFirstNameEdit(event: any) : void {
-    if(this.onboardingPerson.firstName === '') {
+  onSaveClick(): void { 
+
+    this.inputCheck();
+
+    if(this.nextCheck()) {
+      this.ifUnclockNext = true;
+
+      this.onboardingService.postOnboardingPersonService(this.onboardingPerson).subscribe(
+        (res) => {
+          // console.log(res);
+        }
+      )
+    }
+  }
+
+  onNextClick(): void {
+    this.router.navigate(['/employee/onboarding/avatar']);
+  }
+
+  nextCheck() : boolean {
+    const test = (field : string) => field && field !== '';
+
+    return [
+      this.onboardingPerson.firstName,
+      this.onboardingPerson.lastName,
+      this.onboardingPerson.cellPhone,
+      this.onboardingPerson.gender,
+      this.onboardingPerson.dob,
+      this.onboardingPerson.ssn
+    ].every(test);
+  }
+
+  inputCheck() : void {
+
+    if(!this.onboardingPerson.firstName || this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
+    if(!this.onboardingPerson.lastName || this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
+    if(!this.onboardingPerson.cellPhone || this.onboardingPerson.cellPhone === '') this.ifPhoneEnter = false;
+    if(!this.onboardingPerson.gender || this.onboardingPerson.gender === '') this.ifGenderSelect = false;
+    if(!this.onboardingPerson.dob|| this.onboardingPerson.dob === '') this.ifDobSelect = false;
+    if(!this.onboardingPerson.ssn || this.onboardingPerson.ssn === '') this.ifSSNEnter = false;
+  }
+
+  onFirstNameEdit(event: any): void {
+    if (!this.onboardingPerson.firstName || this.onboardingPerson.firstName === '') {
       this.ifFirstNameEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -49,8 +103,8 @@ export class PersonComponent implements OnInit {
     }
   }
 
-  onLastNameEdit(event: any) : void {
-    if(this.onboardingPerson.lastName === '') {
+  onLastNameEdit(event: any): void {
+    if (!this.onboardingPerson.lastName || this.onboardingPerson.lastName === '') {
       this.ifLastNameEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -58,17 +112,17 @@ export class PersonComponent implements OnInit {
     }
   }
 
-  onCellPhoneEdit(event: any) : void {
-    if(this.onboardingPerson.cellPhone === '') {
+  onCellPhoneEdit(event: any): void {
+    if (!this.onboardingPerson.cellPhone || this.onboardingPerson.cellPhone === '') {
       this.ifPhoneEnter = false;
       this.ifUnclockNext = false;
     } else {
-      this.ifLastNameEnter = true;
+      this.ifPhoneEnter = true;
     }
   }
 
-  onGenderSelect(event: any) : void {
-    if(this.onboardingPerson.gender === '') {
+  onGenderSelect(event: any): void {
+    if (!this.onboardingPerson.gender || this.onboardingPerson.gender === '') {
       this.ifGenderSelect = false;
       this.ifUnclockNext = false;
     } else {
@@ -76,8 +130,8 @@ export class PersonComponent implements OnInit {
     }
   }
 
-  onDOBSelect(event: any) : void {
-    if(this.onboardingPerson.DOB === '') {
+  onDOBSelect(event: any): void {
+    if (!this.onboardingPerson.dob|| this.onboardingPerson.dob === '') {
       this.ifDobSelect = false;
       this.ifUnclockNext = false;
     } else {
@@ -85,44 +139,12 @@ export class PersonComponent implements OnInit {
     }
   }
 
-  onSSNEdit(event: any) : void {
-    if(this.onboardingPerson.SSN === '') {
+  onSSNEdit(event: any): void {
+    if (!this.onboardingPerson.ssn || this.onboardingPerson.ssn === '') {
       this.ifSSNEnter = false;
       this.ifUnclockNext = false;
     } else {
       this.ifSSNEnter = true;
     }
   }
-
-  onSaveClick(): void { 
-    console.log("on save click");
-    if(this.inputCheck()) {
-      this.ifUnclockNext = true;
-    }
-  }
-
-  onNextClick(): void {
-    
-  }
-
-  inputCheck() : boolean {
-    const test = (flag : boolean) => flag === true;
-
-    if(this.onboardingPerson.firstName === '') this.ifFirstNameEnter = false;
-    if(this.onboardingPerson.lastName === '') this.ifLastNameEnter = false;
-    if(this.onboardingPerson.cellPhone === '') this.ifPhoneEnter = false;
-    if(this.onboardingPerson.gender === '') this.ifGenderSelect = false;
-    if(this.onboardingPerson.DOB === '') this.ifDobSelect = false;
-    if(this.onboardingPerson.SSN === '') this.ifSSNEnter = false;
-
-    return [
-      this.ifFirstNameEnter, 
-      this.ifLastNameEnter, 
-      this.ifPhoneEnter,
-      this.ifGenderSelect,
-      this.ifDobSelect,
-      this.ifSSNEnter
-    ].every(test);
-  }
-
 }

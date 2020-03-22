@@ -1,0 +1,29 @@
+<div class="my-3 mx-auto box-shadow bg-white">
+
+  <h3 class="color-dark m-0 p-3">Documentation</h3>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    placeholder
+
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <button (click)="onSaveClick()" class="btn save-btn mr-2">
+      Save
+    </button>
+
+    <button (click)="onPrevClick()" class="btn next-btn mr-2">
+      Prev
+    </button>
+
+    <button [disabled]="!ifUnclockNext" (click)="onNextClick()" class="btn next-btn">
+      Next
+    </button>
+  </div>
+</div>

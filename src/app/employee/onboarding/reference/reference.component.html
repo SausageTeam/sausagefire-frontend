@@ -1,0 +1,204 @@
+<div class="my-3 mx-auto box-shadow bg-white">
+
+  <h3 class="color-dark m-0 p-3">Reference Person Information</h3>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <!-- first name, last name, middle name -->
+    <div class="row">
+
+      <!-- first name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="first-name">First Name: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="first-name" name="firstName"
+          required 
+          [(ngModel)]="onboardingReference.firstName"
+          (ngModelChange)="onFirstNameEdit($event)"
+          [ngClass]="{'error-input':(!fn.valid && !fn.pristine) || ifFirstNameEnter === false}"
+          #fn="ngModel">
+        <div [hidden]="ifFirstNameEnter&&(fn.valid||fn.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter his first name</span>
+        </div>
+      </div>
+
+      <!-- middle name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="middle-name">Middle Name:</label>
+        <input type="text" class="form-control" id="middle-name" name="middleName"
+          [(ngModel)]="onboardingReference.middleName"
+          placeholder="Optional">
+      </div>
+
+      <!-- last name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="last-name">Last Name: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="last-name" name="lastName"
+          required 
+          [(ngModel)]="onboardingReference.lastName"
+          (ngModelChange)="onLastNameEdit($event)"
+          [ngClass]="{'error-input':(!ln.valid && !ln.pristine) || ifLastNameEnter === false}"
+          #ln="ngModel">
+        <div [hidden]="ifLastNameEnter&&(ln.valid||ln.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter his last name</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- phone, email -->
+    <div class="row">
+
+      <!-- phone -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="phone">Phone: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="phone" name="cellPhone"
+          required 
+          [(ngModel)]="onboardingReference.cellPhone"
+          (ngModelChange)="onCellPhoneEdit($event)"
+          [ngClass]="{'error-input':(!cp.valid && !cp.pristine) || ifPhoneEnter === false}"
+          #cp="ngModel">
+        <div [hidden]="ifPhoneEnter&&(cp.valid||cp.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter his phone number</span>
+        </div>
+      </div>
+
+      <!-- email-->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="phone">Email: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="email" name="email"
+          required 
+          [(ngModel)]="onboardingReference.email"
+          (ngModelChange)="onEmailEdit($event)"
+          [ngClass]="{'error-input':(!e.valid && !e.pristine) || ifEmailEnter === false}"
+          #e="ngModel">
+        <div [hidden]="ifEmailEnter&&(e.valid||e.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter his email</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Address -->
+    <div class="row">
+
+      <!-- address line 1 -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="street-addres">Street Address: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="street-addres" name="street-addres"
+          required 
+          [(ngModel)]="onboardingReference.address.addressLine1"
+          (ngModelChange)="onAddressLine1Edit($event)"
+          [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLine1Enter === false}"
+          #sa="ngModel">
+        <div [hidden]="ifAddressLine1Enter&&(sa.valid||sa.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the street address</span>
+        </div>
+      </div>
+
+      <!-- address line 1 -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="street-addres-2">Street Address Line 2:</label>
+        <input type="text" class="form-control" id="street-addres-2" name="street-addres-2"
+          required 
+          placeholder="Apt, Suite, Bldg. (optional)"
+          [(ngModel)]="onboardingReference.address.addressLine2">
+      </div>
+
+      <!-- city -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="city">City: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="city" name="city"
+          required 
+          [(ngModel)]="onboardingReference.address.city"
+          (ngModelChange)="onCityEdit($event)"
+          [ngClass]="{'error-input':(!aCity.valid && !aCity.pristine) || ifAddressCityEnter === false}"
+          #aCity="ngModel">
+        <div [hidden]="ifAddressCityEnter&&(aCity.valid||aCity.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the city</span>
+        </div>
+      </div>
+
+      <!-- state -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="state">State: <span class="color-red">*</span></label>
+        
+        <select class="form-control" id="state" name="state"
+          required
+          [(ngModel)]="onboardingReference.address.stateAbbr"
+          (ngModelChange)="onStateSelect($event)"
+          [ngClass]="{'error-input': ifAddessStateSelect === false}">
+          <option *ngFor="let s of state" 
+            [value]="s.name">
+            {{s.name}}
+          </option>
+        </select>
+
+        <div [hidden]="ifAddessStateSelect" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select the state</span>
+        </div>
+      </div>
+
+      <!-- zipcode -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="zipcode">Zipcode: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="zipcode" name="zipcode"
+          required 
+          [(ngModel)]="onboardingReference.address.zipcode"
+          (ngModelChange)="onZipcodeEdit($event)"
+          [ngClass]="{'error-input':(!aZipcode.valid && !aZipcode.pristine) || ifAddressZipcodeEnter === false}"
+          #aZipcode="ngModel">
+        <div [hidden]="ifAddressZipcodeEnter&&(aZipcode.valid||aZipcode.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the zipcode</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- relationship -->
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="relationship">Relationship: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="relationship" name="relationship"
+          required 
+          [(ngModel)]="onboardingReference.relationship"
+          (ngModelChange)="onRelationshipEdit($event)"
+          [ngClass]="{'error-input':(!r.valid && !r.pristine) || ifRelationshipEnter === false}"
+          #r="ngModel">
+        <div [hidden]="ifRelationshipEnter&&(r.valid||r.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the relationship</span>
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <button (click)="onSaveClick()" class="btn save-btn mr-2">
+      Save
+    </button>
+
+    <button (click)="onPrevClick()" class="btn next-btn mr-2">
+      Prev
+    </button>
+
+    <button [disabled]="!ifUnclockNext" (click)="onNextClick()" class="btn next-btn">
+      Next
+    </button>
+  </div>
+</div>

@@ -17,3 +17,21 @@
 .next-btn {
     background-color: #3EC5F2;
 }
+
+.avatar-container {
+    background-color: #f7f7f7;
+}
+
+.avatar-desc {
+    font-size: 13px;
+}
+
+.avatar-display {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.avatar-btn {
+    font-size: 13px;
+}

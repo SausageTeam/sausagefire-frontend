@@ -5,6 +5,7 @@ import { PersonComponent } from './person/person.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { VisaComponent } from './visa/visa.component';
 import { DrivingComponent } from './driving/driving.component';
+import { ReferenceComponent } from './reference/reference.component';
 
 const onboardingRoutes: Routes = [
   { 
@@ -30,6 +31,10 @@ const onboardingRoutes: Routes = [
           {
             path: 'driving',
             component: DrivingComponent
+          },
+          {
+            path: 'reference',
+            component: ReferenceComponent
           }
         ]
         

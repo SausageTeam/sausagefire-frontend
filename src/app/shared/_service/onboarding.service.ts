@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { OnboardingPerson } from "src/app/domain/onboardingPerson.module"
+import { OnboardingPerson } from "src/app/domain/onboarding-person.module"
 import { Response } from "src/app/shared/domain/Response.model"
 
 @Injectable({

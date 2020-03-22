@@ -88,12 +88,12 @@
     <div class="row">
 
       <!-- address line 1 -->
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-6">
         <label class="color-dark" for="street-addres">Street Address: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="street-addres" name="street-addres"
           required 
           [(ngModel)]="onboardingReference.address.addressLine1"
-          (ngModelChange)="onAddressEdit($event)"
+          (ngModelChange)="onAddressLine1Edit($event)"
           [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLine1Enter === false}"
           #sa="ngModel">
         <div [hidden]="ifAddressLine1Enter&&(sa.valid||sa.pristine)" class="error color-red">
@@ -102,8 +102,17 @@
         </div>
       </div>
 
+      <!-- address line 1 -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="street-addres-2">Street Address Line 2:</label>
+        <input type="text" class="form-control" id="street-addres-2" name="street-addres-2"
+          required 
+          placeholder="Apt, Suite, Bldg. (optional)"
+          [(ngModel)]="onboardingReference.address.addressLine2">
+      </div>
+
       <!-- city -->
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-4">
         <label class="color-dark" for="city">City: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="city" name="city"
           required 
@@ -118,7 +127,7 @@
       </div>
 
       <!-- state -->
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-4">
         <label class="color-dark" for="state">State: <span class="color-red">*</span></label>
         
         <select class="form-control" id="state" name="state"
@@ -139,7 +148,7 @@
       </div>
 
       <!-- zipcode -->
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-4">
         <label class="color-dark" for="zipcode">Zipcode: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="zipcode" name="zipcode"
           required 

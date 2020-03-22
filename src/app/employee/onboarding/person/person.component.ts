@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingPerson } from 'src/app/domain/onboardingPerson.module';
+import { OnboardingPerson } from 'src/app/domain/onboarding-person.module';
 import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
 
 @Component({

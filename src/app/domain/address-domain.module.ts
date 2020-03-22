@@ -1,4 +1,4 @@
-export class Address {
+export class AddressDomain {
   
   addressLine1 : string = "";
   addressLine2 : string = "";

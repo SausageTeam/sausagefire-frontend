@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingReference } from 'src/app/domain/onboardingReference.module';
+import { OnboardingReference } from 'src/app/domain/onboarding-reference.module';
 import { AddressState } from 'src/app/shared/constant/addressState.module';
 
 @Component({
@@ -12,27 +12,22 @@ export class ReferenceComponent implements OnInit {
 
   onboardingReference: OnboardingReference = new OnboardingReference();
 
+  state = this.addressState.state;
+
   ifFirstNameEnter: boolean = true;
   ifLastNameEnter: boolean = true;
   ifPhoneEnter: boolean = true;
   ifEmailEnter: boolean = true;
 
   ifAddressLine1Enter : boolean = true;
+  ifAddressLine2Enter : boolean = true;
   ifAddressCityEnter : boolean = true;
   ifAddessStateSelect : boolean = true;
   ifAddressZipcodeEnter : boolean = true;
-  
-  state = this.addressState.state;
 
   ifRelationshipEnter: boolean = true;
 
   ifUnclockNext: boolean = false;
-
-  genderOptions = [
-    { name: "Male", value: "male" },
-    { name: "Female", value: "female" },
-    { name: "I don't want to answer", value: "na" }
-  ]
 
   constructor(
     private router: Router,
@@ -65,6 +60,15 @@ export class ReferenceComponent implements OnInit {
 
     if(this.nextCheck()) {
       this.ifUnclockNext = true;
+
+      // search the state full name (stateName)
+      var stateAbbr : string = this.onboardingReference.address.stateAbbr;
+      var stateName : string = "";
+      this.state.forEach(function(entry){
+        if(entry.name === stateAbbr)
+          stateName = entry.value;
+      });
+      this.onboardingReference.address.stateName = stateName;
 
       console.log(this.onboardingReference);
 
@@ -153,7 +157,7 @@ export class ReferenceComponent implements OnInit {
     }
   }
 
-  onAddressEdit(event: any): void {
+  onAddressLine1Edit(event: any): void {
     if (!this.onboardingReference.address.addressLine1 || this.onboardingReference.address.addressLine1 === '') {
       this.ifAddressLine1Enter = false;
       this.ifUnclockNext = false;

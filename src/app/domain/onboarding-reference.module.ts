@@ -1,4 +1,4 @@
-import { Address } from './address.module';
+import { AddressDomain } from './address-domain.module';
 
 export class OnboardingReference {
 
@@ -7,7 +7,7 @@ export class OnboardingReference {
   middleName : string = "";
   cellPhone : string = "";
   email : string = "";
-  address: Address = new Address();
+  address: AddressDomain = new AddressDomain();
   relationship : string = "";
 
   constructor() {}

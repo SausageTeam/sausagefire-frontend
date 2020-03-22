@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingDriving } from 'src/app/domain/onboardingDriving.module';
+import { OnboardingDriving } from 'src/app/domain/onboarding-driving.module';
 
 @Component({
   selector: 'app-driving',

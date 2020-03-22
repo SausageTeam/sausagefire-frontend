@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingVisa } from 'src/app/domain/onboardingVisa.module';
+import { OnboardingVisa } from 'src/app/domain/onboarding-visa.module';
 
 @Component({
   selector: 'app-visa',

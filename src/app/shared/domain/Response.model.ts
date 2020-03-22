@@ -1,4 +1,4 @@
-import { OnboardingPerson } from 'src/app/domain/onboardingPerson.module';
+import { OnboardingPerson } from 'src/app/domain/onboarding-person.module';
 
 export class ServiceStatus{
     statusCode: string;

@@ -33,7 +33,7 @@ export class PersonComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.onboardingService.getOnboardingService(this.onboardingPerson).subscribe(
+    this.onboardingService.getOnboardingPersonService(this.onboardingPerson).subscribe(
       (res) => {
         this.onboardingPerson.firstName = res.onboardingPerson.firstName;
         this.onboardingPerson.middleName = res.onboardingPerson.middleName;
@@ -59,7 +59,7 @@ export class PersonComponent implements OnInit {
     if(this.nextCheck()) {
       this.ifUnclockNext = true;
 
-      this.onboardingService.postOnboardingService(this.onboardingPerson).subscribe(
+      this.onboardingService.postOnboardingPersonService(this.onboardingPerson).subscribe(
         (res) => {
           // console.log(res);
         }

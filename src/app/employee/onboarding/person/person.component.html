@@ -4,7 +4,7 @@
 
   <div class="bottom-split-line"></div>
 
-  <form class="p-3" #pf="ngForm">
+  <div class="p-3">
 
     <!-- first name, last name, middle name -->
     <div class="row">
@@ -105,9 +105,9 @@
         <label class="color-dark" for="dob">Date of Birth: <span class="color-red">*</span></label>
         <input type="date" class="form-control" id="dob" name="dob" 
           required 
-          [(ngModel)]="onboardingPerson.DOB"
+          [(ngModel)]="onboardingPerson.dob"
           (ngModelChange)="onDOBSelect($event)"
-          [ngClass]="{'error-input':(!birth.valid && !birth.pristine) || ifDobSelect === false, 'active':birth.dirty}"
+          [ngClass]="{'error-input':(!birth.valid && !birth.pristine) || ifDobSelect === false, 'active': this.onboardingPerson.dob !== ''}"
           #birth="ngModel">
 
         <div [hidden]="ifDobSelect&&(birth.valid||birth.pristine)" class="error color-red">
@@ -125,7 +125,7 @@
         <label class="color-dark" for="ssn">Social Security Number:</label>
         <input type="text" class="form-control" id="ssn" name="ssn"
           required 
-          [(ngModel)]="onboardingPerson.SSN"
+          [(ngModel)]="onboardingPerson.ssn"
           (ngModelChange)="onSSNEdit($event)"
           [ngClass]="{'error-input':(!s.valid && !s.pristine) || ifSSNEnter === false}"
           #s="ngModel">
@@ -138,19 +138,24 @@
       <!-- email -->
       <div class="form-group col-md-6">
         <label class="color-dark" for="email">Email:</label>
-        <input type="text" class="form-control" id="email" name="email"
+        <input type="text" class="form-control" style="transition: none; border: none;" id="email" name="email"
           readonly
           [(ngModel)]="onboardingPerson.email">
       </div>
     </div>
     
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
 
     <button (click)="onSaveClick()" class="btn save-btn mr-2">
       Save
     </button>
 
-    <button [disabled]="!ifUnclockNext" class="btn next-btn">
+    <button [disabled]="!ifUnclockNext" (click)="onNextClick()" class="btn next-btn">
       Next
     </button>
-  </form>
+  </div>
 </div>

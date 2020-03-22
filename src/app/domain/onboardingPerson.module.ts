@@ -7,8 +7,8 @@ export class OnboardingPerson {
     cellPhone : string = "";
     alternatePhone : string = "";
     gender : string = "";
-    SSN : string = "";
-    DOB : string = "";
+    ssn : string = "";
+    dob : string = "";
 
     constructor() {}
 }

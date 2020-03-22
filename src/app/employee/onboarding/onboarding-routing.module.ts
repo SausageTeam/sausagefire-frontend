@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { PersonComponent } from './person/person.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import { VisaComponent } from './visa/visa.component';
+import { DrivingComponent } from './driving/driving.component';
+import { ReferenceComponent } from './reference/reference.component';
 
 const onboardingRoutes: Routes = [
   { 
@@ -20,6 +23,18 @@ const onboardingRoutes: Routes = [
           {
             path: 'avatar',
             component: AvatarComponent
+          },
+          {
+            path: 'visa',
+            component: VisaComponent
+          },
+          {
+            path: 'driving',
+            component: DrivingComponent
+          },
+          {
+            path: 'reference',
+            component: ReferenceComponent
           }
         ]
         

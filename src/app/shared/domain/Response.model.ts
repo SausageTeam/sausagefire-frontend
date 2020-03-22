@@ -1,4 +1,5 @@
 import { OnboardingPerson } from 'src/app/domain/onboardingPerson.module';
+import { OnboardingVisa } from 'src/app/domain/onboardingVisa.module';
 
 export class ServiceStatus{
     statusCode: string;
@@ -6,7 +7,12 @@ export class ServiceStatus{
     errorMessage: string
 }
 
-export class Response {
+export class OnboardingPersonResponse {
     serviceStatus: ServiceStatus;
     onboardingPerson: OnboardingPerson
+}
+
+export class OnboardingVisaResponse{
+    serviceStatus: ServiceStatus;
+    onboardingVisa: OnboardingVisa
 }

@@ -11,6 +11,7 @@ import { DrivingComponent } from './driving/driving.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { DocumentationComponent } from './documentation/documentation.component';
+import { FinalComponent } from './final/final.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DocumentationComponent } from './documentation/documentation.component'
     DrivingComponent,
     ReferenceComponent,
     EmergencyComponent,
-    DocumentationComponent
+    DocumentationComponent,
+    FinalComponent
   ],
 })
 export class OnboardingModule { }

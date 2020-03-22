@@ -6,7 +6,7 @@ import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
 @Component({
   selector: 'app-visa',
   templateUrl: './visa.component.html',
-  styleUrls: ['./visa.component.css']
+  styleUrls: ['./visa.component.css', '../onboarding.module.css']
 })
 export class VisaComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import { AddressState } from 'src/app/shared/constant/addressState.module';
 @Component({
   selector: 'app-emergency',
   templateUrl: './emergency.component.html',
-  styleUrls: ['./emergency.component.css']
+  styleUrls: ['./emergency.component.css', '../onboarding.module.css']
 })
 export class EmergencyComponent implements OnInit {
 

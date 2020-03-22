@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.css']
+  styleUrls: ['./avatar.component.css', '../onboarding.module.css']
 })
 export class AvatarComponent implements OnInit {
 

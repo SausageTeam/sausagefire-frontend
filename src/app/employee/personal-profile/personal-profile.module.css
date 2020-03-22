@@ -1,0 +1,11 @@
+.edit-btn {
+  border-radius: 2px;
+  line-height: 1;
+  font-size: 14px;
+  padding: 10px 15px;
+  color: white;
+}
+
+.edit-btn {
+  background-color: #3EC5F2;
+}

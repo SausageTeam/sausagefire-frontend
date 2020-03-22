@@ -6,7 +6,7 @@ import { AddressState } from 'src/app/shared/constant/addressState.module';
 @Component({
   selector: 'app-reference',
   templateUrl: './reference.component.html',
-  styleUrls: ['./reference.component.css']
+  styleUrls: ['./reference.component.css', '../onboarding.module.css']
 })
 export class ReferenceComponent implements OnInit {
 

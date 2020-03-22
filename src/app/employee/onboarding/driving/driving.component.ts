@@ -5,7 +5,7 @@ import { OnboardingDriving } from 'src/app/domain/onboarding-driving.module';
 @Component({
   selector: 'app-driving',
   templateUrl: './driving.component.html',
-  styleUrls: ['./driving.component.css']
+  styleUrls: ['./driving.component.css', '../onboarding.module.css']
 })
 export class DrivingComponent implements OnInit {
 

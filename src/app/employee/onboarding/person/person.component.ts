@@ -6,7 +6,7 @@ import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css', '../onboarding.module.css']
 })
 export class PersonComponent implements OnInit {
 

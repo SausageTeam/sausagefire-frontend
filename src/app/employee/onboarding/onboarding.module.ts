@@ -10,6 +10,7 @@ import { VisaComponent } from './visa/visa.component';
 import { DrivingComponent } from './driving/driving.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { EmergencyComponent } from './emergency/emergency.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EmergencyComponent } from './emergency/emergency.component';
     VisaComponent,
     DrivingComponent,
     ReferenceComponent,
-    EmergencyComponent
+    EmergencyComponent,
+    DocumentationComponent
   ],
 })
 export class OnboardingModule { }

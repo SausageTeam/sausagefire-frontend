@@ -7,6 +7,7 @@ import { VisaComponent } from './visa/visa.component';
 import { DrivingComponent } from './driving/driving.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { EmergencyComponent } from './emergency/emergency.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 const onboardingRoutes: Routes = [
   { 
@@ -40,6 +41,10 @@ const onboardingRoutes: Routes = [
           {
             path: 'emergency',
             component: EmergencyComponent
+          },
+          {
+            path: 'documentation',
+            component: DocumentationComponent
           }
         ]
         

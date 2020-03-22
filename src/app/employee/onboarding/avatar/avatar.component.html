@@ -5,6 +5,29 @@
 
   <form class="p-3" #pf="ngForm">
 
+    <div class="d-flex m-4 p-4 avatar-container">
+      <div class="m-auto">
+        <h6 class="color-dark text-center mb-1">Upload your avatar image</h6>
+        <p class="m-0 color-light avatar-desc text-center">Your employee avatar helps to inform your identity.</p>
+
+        <div class="d-flex flex-column">
+
+          <img class="avatar-display mx-auto my-4" [src]="imageSrc">
+
+          <label class="mx-auto mb-3" for="avatar">
+            <span class="btn btn-primary avatar-btn">Select an image...</span>
+          </label>
+
+          <input type="file" class="" id="avatar" name="avatar"
+            accept="image/png, image/jpeg"
+            required 
+            hidden
+            (change)=onFileSelected($event)>
+        </div>
+
+      </div>
+    </div>
+
     <button (click)="onSaveClick()" class="btn save-btn mr-2">
       Save
     </button>

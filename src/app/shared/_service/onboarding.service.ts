@@ -10,17 +10,22 @@ import { Response } from "src/app/shared/domain/Response.model"
 export class OnboardingService {
   constructor(private http: HttpClient) { }
 
-  getOnboardingService(onboardingPerson: OnboardingPerson) {
+  getOnboardingPersonService(onboardingPerson: OnboardingPerson) {
     return this.http.get('http://localhost:4200/api/employee/onboarding/person/').map((res: Response) => {
       console.log(res);
       return res;
     })
   };
 
-  postOnboardingService(onboardingPerson: OnboardingPerson) {
+  postOnboardingPersonService(onboardingPerson: OnboardingPerson) {
     return this.http.post('http://localhost:4200/api/employee/onboarding/person/', { onboardingPerson }).map((res: Response) => {
       console.log(res);
       return res;
     })
   };
+
+  getOnboardingVisaService(onboardingVisa : OnboardingVisa){
+
+  }
+
 }

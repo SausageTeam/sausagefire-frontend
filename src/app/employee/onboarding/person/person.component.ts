@@ -29,7 +29,7 @@ export class PersonComponent implements OnInit {
   constructor(private onBoardingService: OnboardingService) { }
 
   ngOnInit(): void {
-    this.onBoardingService.getOnboardingService(this.onboardingPerson).subscribe(
+    this.onBoardingService.getOnboardingPersonService(this.onboardingPerson).subscribe(
       (res) => {
         console.log(res);
         this.onboardingPerson.email = res.onboardingPerson.email;
@@ -94,7 +94,7 @@ export class PersonComponent implements OnInit {
   onSaveClick(): void {
     console.log("on save click");
     if (this.inputCheck()) {
-      this.onBoardingService.postOnboardingService(this.onboardingPerson).subscribe(
+      this.onBoardingService.postOnboardingPersonService(this.onboardingPerson).subscribe(
         (res) => {
           console.log(res);
         }

@@ -9,6 +9,7 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { VisaComponent } from './visa/visa.component';
 import { DrivingComponent } from './driving/driving.component';
 import { ReferenceComponent } from './reference/reference.component';
+import { EmergencyComponent } from './emergency/emergency.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ReferenceComponent } from './reference/reference.component';
     AvatarComponent,
     VisaComponent,
     DrivingComponent,
-    ReferenceComponent
+    ReferenceComponent,
+    EmergencyComponent
   ],
 })
 export class OnboardingModule { }

@@ -6,6 +6,7 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { VisaComponent } from './visa/visa.component';
 import { DrivingComponent } from './driving/driving.component';
 import { ReferenceComponent } from './reference/reference.component';
+import { EmergencyComponent } from './emergency/emergency.component';
 
 const onboardingRoutes: Routes = [
   { 
@@ -35,6 +36,10 @@ const onboardingRoutes: Routes = [
           {
             path: 'reference',
             component: ReferenceComponent
+          },
+          {
+            path: 'emergency',
+            component: EmergencyComponent
           }
         ]
         

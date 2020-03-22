@@ -3,7 +3,7 @@
 
   <div class="bottom-split-line"></div>
 
-  <form class="p-3" #pf="ngForm">
+  <div class="p-3">
 
     <div class="d-flex m-4 p-4 avatar-container">
       <div class="m-auto">
@@ -27,6 +27,12 @@
 
       </div>
     </div>
+  
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
 
     <button (click)="onSaveClick()" class="btn save-btn mr-2">
       Save
@@ -43,5 +49,5 @@
     <button [disabled]="!ifUnclockNext" (click)="onNextClick()" class="btn next-btn">
       Next
     </button>
-  </form>
+  </div>
 </div>

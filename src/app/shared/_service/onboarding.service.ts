@@ -3,8 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import { OnboardingPerson } from "src/app/domain/onboardingPerson.module"
 import { OnboardingVisa } from "src/app/domain/onboardingVisa.module"
-import { OnboardingPersonResponse } from "src/app/shared/domain/Response.model"
-import { OnboardingVisaResponse } from "src/app/shared/domain/Response.model"
+import { OnboardingPersonResponse } from "src/app/shared/domain/OnboardingResponse.model"
+import { OnboardingVisaResponse } from "src/app/shared/domain/OnboardingResponse.model"
 
 @Injectable({
   providedIn: 'root'

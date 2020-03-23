@@ -7,5 +7,10 @@
     "/api/employee/onboarding/visa":{
         "target": "http://localhost:8080",
         "secure": false
+    },
+
+    "/api/employee/housing/housingInfo":{
+        "target": "http://localhost:8080",
+        "secure": false
     }
 }

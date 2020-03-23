@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HousingInfo } from 'src/app/domain/housingInfo.module';
+import { HousingInfoService } from 'src/app/shared/_service/HousingInfo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-housing',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HousingComponent implements OnInit {
 
-  constructor() { }
+  housingInfo : HousingInfo = new HousingInfo();
+
+  constructor(
+    private housingInfoService : HousingInfoService,
+    private router : Router
+  ) { }
 
   ngOnInit(): void {
+    this.housingInfoService.getHousingInfoService(this.housingInfo).subscribe(
+      (res) => {
+        console.log(res);
+        this.housingInfo.address = res.housingInfo.address;
+        this.housingInfo.residentList = res.housingInfo.residentList;
+      }
+    )
   }
+
 
 }

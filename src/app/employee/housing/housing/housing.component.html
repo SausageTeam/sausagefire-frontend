@@ -1,1 +1,11 @@
 <p>housing works!</p>
+<p>{{housingInfo.address}}</p>
+<ul *ngFor="let resident of housingInfo.residentList">
+    <li>{{resident.firstName}}</li>
+    <li>{{resident.middleName}}</li>
+    <li>{{resident.lastName}}</li>
+    <li>{{resident.phoneNumber}}</li>
+</ul>
+
+<button (click)="onSubmitClick()">Facility Report</button>
+<button (click)="goToPage('employee/housing/detail')">Maintenance History</button>

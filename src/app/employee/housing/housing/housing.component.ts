@@ -27,5 +27,11 @@ export class HousingComponent implements OnInit {
     )
   }
 
+  onSubmitClick(): void { 
+    this.router.navigate(['/employee/housing/report']);
+  }
 
+  goToPage(pageName:string){
+    this.router.navigate([`${pageName}`]);
+  }
 }

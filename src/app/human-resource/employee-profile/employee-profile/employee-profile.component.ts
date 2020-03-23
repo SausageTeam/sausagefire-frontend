@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeProfileComponent implements OnInit {
 
+  displayColumn: string[] = ['Name', 'Social Security Number', 'Starting Date', 'Visa Status'];
+
+
   constructor() { }
 
   ngOnInit(): void {

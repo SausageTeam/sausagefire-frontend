@@ -6,10 +6,11 @@ import { EmployeeProfileRoutingModule } from './employee-profile-routing.module'
 
 
 @NgModule({
-  declarations: [EmployeeProfileComponent],
   imports: [
     EmployeeProfileRoutingModule,
-    CommonModule
-  ]
+    CommonModule,
+  ],
+  declarations: [EmployeeProfileComponent]
+
 })
 export class EmployeeProfileModule { }

@@ -8,11 +8,12 @@ import { ContactComponent } from './contact/contact.component';
 import { EmploymentComponent } from './employment/employment.component';
 import { EmergencyContactComponent } from './emergency-contact/emergency-contact.component';
 import { DocumentComponent } from './document/document.component';
+import { PersonalProfilePanelComponent } from './personal-profile-panel/personal-profile-panel.component';
 
 
 
 @NgModule({
-  declarations: [PersonalProfileComponent, NameComponent, AddressComponent, ContactComponent, EmploymentComponent, EmergencyContactComponent, DocumentComponent],
+  declarations: [PersonalProfileComponent, NameComponent, AddressComponent, ContactComponent, EmploymentComponent, EmergencyContactComponent, DocumentComponent, PersonalProfilePanelComponent],
   imports: [
     PersonalProfileRoutingModule,
     CommonModule

@@ -1,1 +1,38 @@
-<p>emergency-contact works!</p>
+<div class="box-shadow bg-white my-3">
+
+  <h6 class="color-dark m-0 p-3">
+    <i class="color-blue fas fa-address-book mr-2"></i>
+    <span>Emergency Contact</span>
+  </h6>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="px-3 p-3">
+    
+    <div>
+      <p class="feature-title">Name</p>
+      <p class="feature-value">{{fullName}}</p>
+    </div>
+
+    <div>
+      <p class="feature-title">Phone</p>
+      <p class="feature-value">{{profileEmergencyContact.cellPhone}}</p>
+    </div>
+
+    <div>
+      <p class="feature-title">Addres</p>
+      <p class="feature-value">{{displayAddress}}</p>
+    </div>
+
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="px-3 py-2 d-flex justify-content-center">
+    <button class="btn edit-btn">
+      <i class="fas fa-pen mr-2"></i>
+      <span>EDIT</span>
+    </button>
+  </div>
+
+</div>

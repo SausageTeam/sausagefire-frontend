@@ -74,11 +74,11 @@
       </label>
 
       <input type="text" class="form-control" id="other-international" name="other-international"
-        [(ngModel)]="otherVisa"
+        [(ngModel)]="customVisa"
         (ngModelChange)="onOtherVisaEdit($event)"
-        [ngClass]="{'error-input':(!oi.valid && !oi.pristine) || ifOtherVisa === false}"
+        [ngClass]="{'error-input':(!oi.valid && !oi.pristine) || ifCustomVisa === false}"
         #oi="ngModel">
-      <div [hidden]="ifOtherVisa&&(oi.valid||oi.pristine)" class="error color-red">
+      <div [hidden]="ifCustomVisa&&(oi.valid||oi.pristine)" class="error color-red">
         <i class="fas fa-exclamation-circle mr-2"></i>
         <span>Please specify the type</span>
       </div>

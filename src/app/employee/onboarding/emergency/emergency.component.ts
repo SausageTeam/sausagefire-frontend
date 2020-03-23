@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OnboardingEmergency } from 'src/app/domain/onboarding/onboarding-emergency.module';
+import { OnboardingEmergency } from 'src/app/domain/employee/onboarding/onboarding-emergency.module';
 import { Router } from '@angular/router';
-import { AddressState } from 'src/app/shared/constant/addressState.module';
+import { AddressState } from 'src/app/common/constant/addressState.module';
 
 @Component({
   selector: 'app-emergency',

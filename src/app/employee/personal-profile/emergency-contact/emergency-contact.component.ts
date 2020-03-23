@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileEmergencyContact } from 'src/app/domain/profile/profile-emergency-contact.module';
-import { AddressDomain } from 'src/app/domain/address-domain.module';
+import { AddressDomain } from 'src/app/domain/common/address-domain.module';
+import { ProfileEmergencyContact } from 'src/app/domain/employee/profile/profile-emergency-contact.module';
 
 @Component({
   selector: 'app-emergency-contact',

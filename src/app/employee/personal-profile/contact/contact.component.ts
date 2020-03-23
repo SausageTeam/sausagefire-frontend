@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileContact } from 'src/app/domain/profile/profile-contact.module';
+import { ProfileContact } from 'src/app/domain/employee/profile/profile-contact.module';
 
 @Component({
   selector: 'app-contact',

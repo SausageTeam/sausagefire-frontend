@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileAddress } from 'src/app/domain/profile/profile-address.module';
+import { ProfileAddress } from 'src/app/domain/employee/profile/profile-address.module';
 
 @Component({
   selector: 'app-address',

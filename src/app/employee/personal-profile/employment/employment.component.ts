@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileEmployment } from 'src/app/domain/profile/profile-employment.module';
+import { ProfileEmployment } from 'src/app/domain/employee/profile/profile-employment.module';
 
 @Component({
   selector: 'app-employment',

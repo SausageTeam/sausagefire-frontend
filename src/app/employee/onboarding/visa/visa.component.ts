@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingVisa } from 'src/app/domain/onboarding/onboarding-visa.module';
-import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
+import { OnboardingVisa } from 'src/app/domain/employee/onboarding/onboarding-visa.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-visa',

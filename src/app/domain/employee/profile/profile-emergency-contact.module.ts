@@ -1,4 +1,5 @@
-import { AddressDomain } from '../address-domain.module';
+import { AddressDomain } from '../../common/address-domain.module';
+
 
 export class ProfileEmergencyContact {
 

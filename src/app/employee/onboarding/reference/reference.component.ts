@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingReference } from 'src/app/domain/onboarding/onboarding-reference.module';
-import { AddressState } from 'src/app/shared/constant/addressState.module';
+import { OnboardingReference } from 'src/app/domain/employee/onboarding/onboarding-reference.module';
+import { AddressState } from 'src/app/common/constant/addressState.module';
 
 @Component({
   selector: 'app-reference',

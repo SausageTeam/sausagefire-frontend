@@ -9,6 +9,7 @@ export class EmployeeProfileComponent implements OnInit {
 
   displayColumn: string[] = ['Name', 'Social Security Number', 'Starting Date', 'Visa Status'];
 
+  // employees
 
   constructor() { }
 

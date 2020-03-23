@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingReference } from 'src/app/domain/onboarding-reference.module';
+import { OnboardingReference } from 'src/app/domain/onboarding/onboarding-reference.module';
 import { AddressState } from 'src/app/shared/constant/addressState.module';
 
 @Component({

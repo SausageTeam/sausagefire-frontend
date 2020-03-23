@@ -1,5 +1,5 @@
-import { OnboardingPerson } from 'src/app/domain/onboarding-person.module';
-import { OnboardingVisa } from 'src/app/domain/onboarding-visa.module'
+import { OnboardingPerson } from 'src/app/domain/onboarding/onboarding-person.module';
+import { OnboardingVisa } from 'src/app/domain/onboarding/onboarding-visa.module'
 
 export class ServiceStatus{
     statusCode: string;

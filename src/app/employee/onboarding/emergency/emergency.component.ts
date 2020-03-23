@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OnboardingEmergency } from 'src/app/domain/onboarding-emergency.module';
+import { OnboardingEmergency } from 'src/app/domain/onboarding/onboarding-emergency.module';
 import { Router } from '@angular/router';
 import { AddressState } from 'src/app/shared/constant/addressState.module';
 

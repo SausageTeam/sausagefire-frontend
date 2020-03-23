@@ -1,4 +1,4 @@
-import { AddressDomain } from './address-domain.module';
+import { AddressDomain } from '../address-domain.module';
 
 export class OnboardingEmergency {
 

@@ -1,1 +1,45 @@
-<p>visa-status works!</p>
+<div class="box-shadow bg-white m-3">
+
+  <h3 class="color-dark m-0 p-3">Visa Status Management</h3>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <ng-template *ngIf="currentStep !== 3; then withoutForm; else withForm"></ng-template>
+
+    <ng-template #withoutForm>
+      <p class="color-dark m-0">Please upload a copy of your {{displayMessage[currentStep]}}.</p>
+    </ng-template>
+
+    <ng-template #withForm>
+      <p class="color-dark m-0">Please download and fill your {{displayMessage[currentStep]}}.</p>
+
+      <div class="ml-2 mt-2">
+        <a href="#">sample_i983.pdf</a>
+      </div>
+    </ng-template>
+
+  </div>
+
+  <div *ngIf='visaStatusManagement.comments && visaStatusManagement.comments !== ""'
+    class="top-split-line p-3">
+    <p class="color-light">Your HR leave you the following comment:</p>
+    <p class="m-0">{{visaStatusManagement.comments}}</p>
+  </div>
+
+  <div class="top-split-line p-3">
+    <label class="m-0" for="upload">
+      <span class="btn btn-primary upload-btn">Upload documentation</span>
+    </label>
+
+    <input type="file" class="" id="upload" name="upload"
+      accept="application/pdf"
+      required 
+      hidden
+      (change)=onFileSelected($event)>
+
+    <span class="color-red type-support ml-2">Notice: Please upload your document in PDF format.</span>
+  </div>
+
+</div>

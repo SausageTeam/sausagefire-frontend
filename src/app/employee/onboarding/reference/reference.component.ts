@@ -72,7 +72,7 @@ export class ReferenceComponent implements OnInit {
 
       console.log(this.onboardingReference);
 
-      this.onboardingReference.postOnboardingReferenceService(this.onboardingPerson).subscribe(
+      this.onboardingService.postOnboardingReferenceService(this.onboardingReference).subscribe(
         (res) => {
           // console.log(res);
         }

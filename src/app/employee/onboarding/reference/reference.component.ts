@@ -20,8 +20,8 @@ export class ReferenceComponent implements OnInit {
   ifPhoneEnter: boolean = true;
   ifEmailEnter: boolean = true;
 
-  ifAddressLine1Enter : boolean = true;
-  ifAddressLine2Enter : boolean = true;
+  ifAddressLineOneEnter : boolean = true;
+  ifAddressLineTwoEnter : boolean = true;
   ifAddressCityEnter : boolean = true;
   ifAddessStateSelect : boolean = true;
   ifAddressZipcodeEnter : boolean = true;
@@ -74,7 +74,7 @@ export class ReferenceComponent implements OnInit {
 
       this.onboardingService.postOnboardingReferenceService(this.onboardingReference).subscribe(
         (res) => {
-          // console.log(res);
+           console.log(res);
         }
       )
     }
@@ -97,7 +97,7 @@ export class ReferenceComponent implements OnInit {
       this.onboardingReference.cellPhone,
       this.onboardingReference.email,
 
-      this.onboardingReference.address.addressLine1,
+      this.onboardingReference.address.addressLineOne,
       this.onboardingReference.address.city,
       this.onboardingReference.address.stateAbbr,
       this.onboardingReference.address.zipcode,
@@ -113,7 +113,7 @@ export class ReferenceComponent implements OnInit {
     if(!this.onboardingReference.cellPhone || this.onboardingReference.cellPhone === '') this.ifPhoneEnter = false;
     if(!this.onboardingReference.email || this.onboardingReference.email === '') this.ifEmailEnter = false;
 
-    if(!this.onboardingReference.address.addressLine1 || this.onboardingReference.address.addressLine1 === '') this.ifAddressLine1Enter = false;
+    if(!this.onboardingReference.address.addressLineOne || this.onboardingReference.address.addressLineOne === '') this.ifAddressLineOneEnter = false;
     if(!this.onboardingReference.address.city || this.onboardingReference.address.city === '') this.ifAddressCityEnter = false;
     if(!this.onboardingReference.address.stateAbbr || this.onboardingReference.address.stateAbbr === '') this.ifAddessStateSelect = false;
     if(!this.onboardingReference.address.zipcode || this.onboardingReference.address.zipcode === '') this.ifAddressZipcodeEnter = false;
@@ -157,12 +157,12 @@ export class ReferenceComponent implements OnInit {
     }
   }
 
-  onAddressLine1Edit(event: any): void {
-    if (!this.onboardingReference.address.addressLine1 || this.onboardingReference.address.addressLine1 === '') {
-      this.ifAddressLine1Enter = false;
+  onAddressLineOneEdit(event: any): void {
+    if (!this.onboardingReference.address.addressLineOne || this.onboardingReference.address.addressLineOne === '') {
+      this.ifAddressLineOneEnter = false;
       this.ifUnclockNext = false;
     } else {
-      this.ifAddressLine1Enter = true;
+      this.ifAddressLineOneEnter = true;
     }
   }
 

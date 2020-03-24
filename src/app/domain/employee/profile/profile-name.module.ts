@@ -4,7 +4,7 @@ export class ProfileName {
   lastName : string = "";
   middleName : string = "";
   preferredName : string = "";
-  avatar : File = null;
+  avatarUri : string = "";
   dob : string = "";
   age : number = 0;
   gender : string = "";

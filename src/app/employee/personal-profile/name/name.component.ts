@@ -11,6 +11,7 @@ export class NameComponent implements OnInit {
 
   profileName : ProfileName = new ProfileName();
 
+  imageSrc : any = "assets/default-avatar.jpg";
   fullName : string  = "";
   displaySSN : string = "";
 
@@ -19,18 +20,19 @@ export class NameComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.profileName.firstName = "Cara";
-    this.profileName.lastName = "jiang";
+    this.personalProfileService.getNameService().subscribe(
+      (res) => {
+        console.log(res.profileName);
+        this.profileName = res.profileName;
 
-    this.profileName.dob = "1999-12-31";
-    this.profileName.age = 11;
-    this.profileName.gender = "female";
-    this.profileName.ssn = "00000001234"
+        this.profileName.preferredName = "Superman";
 
-    this.profileName.preferredName = "kiki";
-
-    this.fullName = this.profileName.firstName + ' ' + this.profileName.lastName;
-    this.displaySSN = this.convertSSN(this.profileName.ssn);
+        this.fullName = this.profileName.firstName + ' ' + this.profileName.lastName;
+        this.displaySSN = this.convertSSN(this.profileName.ssn);
+        this.imageSrc = res.profileName.avatarUri ? res.profileName.avatarUri : "assets/default-avatar.jpg";
+      }
+    )
+    
   }
 
   convertSSN(ssn : string) : string {

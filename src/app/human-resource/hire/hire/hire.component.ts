@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HireComponent implements OnInit {
 
+  errorMsg : string = "";
+
   constructor() { }
 
   ngOnInit(): void {
+    // this.errorMsg = "this is a test";
   }
 
 }

@@ -1,1 +1,23 @@
-<p>hire works!</p>
+<div class="box-shadow bg-white m-3">
+
+  <div class="p-3">
+    <h5 class="color-dark mb-1">Generate Token</h5>
+    <p class="color-light m-0 section-desc">Please enter the new hired employee email then click the 'generate Token' button below.</p>
+    <p class="color-light m-0 section-desc">It will generate a token for his registration process and send to the input email.</p>
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+    <div class="d-flex">
+      <input type="text" class="form-control mr-3">
+      <button class="btn btn-primary generate-btn">
+        Generate Token
+      </button>
+    </div>
+    <p class="error-msg color-red m-0 pt-2"
+      *ngIf='errorMsg && errorMsg !== ""'>
+      {{errorMsg}}
+    </p>
+  </div>
+</div>

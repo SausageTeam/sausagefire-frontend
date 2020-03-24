@@ -1,4 +1,4 @@
-export class EmployeeProfileDomain {
+export class EmployeeRecord {
 
   name : string = "";
   ssn: string = "";

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { EmployeeProfileDomain } from 'src/app/domain/hr/employee-profile/employee-profile-domain.module';
+import { EmployeeRecord } from 'src/app/domain/hr/employee-profile/employee-record.module';
 import { DataTableDirective } from 'angular-datatables';
 
 @Component({
@@ -15,9 +15,8 @@ export class EmployeeProfileComponent implements OnInit {
   search: string = "";
 
   dtOptions: DataTables.Settings = {};
-  displayColumn: string[] = ['Name', 'Social Security Number', 'Starting Date', 'Visa Status'];
 
-  employeesProfile : Array<EmployeeProfileDomain> = null;
+  employeesProfile : Array<EmployeeRecord> = null;
 
   constructor() { }
 
@@ -50,11 +49,11 @@ export class EmployeeProfileComponent implements OnInit {
 
 }
 
-function makeEmployeesProfileMork() : Array<EmployeeProfileDomain> {
-  let employeesProfileMork = new Array<EmployeeProfileDomain>();
+function makeEmployeesProfileMork() : Array<EmployeeRecord> {
+  let employeesProfileMork = new Array<EmployeeRecord>();
 
   for(let i = 0; i < 10; i++) {
-    let e = new EmployeeProfileDomain();
+    let e = new EmployeeRecord();
     e.name = "bob" + i;
     e.ssn = "123123123" + i;
     e.startDate = "1990-01-1" + i;
@@ -63,7 +62,7 @@ function makeEmployeesProfileMork() : Array<EmployeeProfileDomain> {
   }
 
   for(let i = 0; i < 10; i++) {
-    let e = new EmployeeProfileDomain();
+    let e = new EmployeeRecord();
     e.name = "jack" + i;
     e.ssn = "444555666" + i;
     e.startDate = "1993-02-1" + i;

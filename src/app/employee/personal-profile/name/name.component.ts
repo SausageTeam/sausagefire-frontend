@@ -22,7 +22,7 @@ export class NameComponent implements OnInit {
   ngOnInit(): void {
     this.personalProfileService.getNameService().subscribe(
       (res) => {
-        console.log(res.profileName);
+        // console.log(res.profileName);
         this.profileName = res.profileName;
 
         this.profileName.preferredName = "Superman";
@@ -31,7 +31,7 @@ export class NameComponent implements OnInit {
         this.displaySSN = this.convertSSN(this.profileName.ssn);
         this.imageSrc = res.profileName.avatarUri ? res.profileName.avatarUri : "assets/default-avatar.jpg";
       }
-    )
+    );
     
   }
 

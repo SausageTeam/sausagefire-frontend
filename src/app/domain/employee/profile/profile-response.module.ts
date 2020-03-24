@@ -4,6 +4,7 @@ import { ProfileContact } from './profile-contact.module';
 import { ProfileEmployment } from './profile-employment.module';
 import { ProfileEmergencyContact } from './profile-emergency-contact.module';
 import { ProfileDocument } from './profile-document.module';
+import { ProfileAddress } from './profile-address.module';
 
 export class ProfileNameResponse {
   serviceStatus: ServiceStatus;
@@ -12,7 +13,7 @@ export class ProfileNameResponse {
 
 export class ProfileAddressResponse {
   serviceStatus: ServiceStatus;
-  profileContact: ProfileContact;
+  profileAddress: ProfileAddress;
 }
 
 export class ProfileContactResponse {

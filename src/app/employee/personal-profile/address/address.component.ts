@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileAddress } from 'src/app/domain/employee/profile/profile-address.module';
+import { PersonalProfileService } from 'src/app/service/personal-profile.service';
 
 @Component({
   selector: 'app-address',
@@ -12,16 +13,24 @@ export class AddressComponent implements OnInit {
 
   displayAddressLineTwo : string = "";
 
-  constructor() { }
+  constructor(
+    private personalProfileService : PersonalProfileService
+  ) { }
 
   ngOnInit(): void {
-    this.profileAddrees.addressLineOne = "123 SW Broadway";
-    this.profileAddrees.addressLineTwo = "";
-    this.profileAddrees.city = "East windsor";
-    this.profileAddrees.stateAbbr = "NJ";
-    this.profileAddrees.zipCode = "08520";
 
-    this.displayAddressLineTwo = !this.profileAddrees.addressLineTwo || this.profileAddrees.addressLineTwo == "" ? "-" : this.profileAddrees.addressLineTwo;
+    this.personalProfileService.getAddressService().subscribe(
+      (res) => {
+
+        console.log(res);
+
+        this.profileAddrees = res.profileAddress;
+
+        this.displayAddressLineTwo = !this.profileAddrees.addressLineTwo || this.profileAddrees.addressLineTwo == "" ? "-" : this.profileAddrees.addressLineTwo;
+
+      }
+    )
+
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileEmployment } from 'src/app/domain/employee/profile/profile-employment.module';
+import { PersonalProfileService } from 'src/app/service/personal-profile.service';
 
 @Component({
   selector: 'app-employment',
@@ -14,22 +15,25 @@ export class EmploymentComponent implements OnInit {
   displayVisaStartDate : string = "";
   displayVisaEndDate : string = "";
 
-  constructor() { }
+  constructor(
+    private personalProfileService : PersonalProfileService
+  ) { }
 
   ngOnInit(): void {
-    this.profileEmployment.title = "Software Engineer";
-    this.profileEmployment.startDate = "2000-01-01";
-    this.profileEmployment.endDate = "2020-03-22";
-    this.profileEmployment.visaType = "F1";
-    this.profileEmployment.visaStartDate = "2000-01-02";
-    this.profileEmployment.visaEndDate = "2020-03-23";
 
-    if((this.profileEmployment.visaType && this.profileEmployment.visaType === "Green Card") ||
-       (this.profileEmployment.visaType && this.profileEmployment.visaType === "Citizen")) {
-      this.displayVisaType = "-";
-      this.displayVisaStartDate = "-";
-      this.displayVisaEndDate = "-";
-    }
+    this.personalProfileService.getEmploymentService().subscribe(
+      (res) => {
+        this.profileEmployment = res.profileEmployment;
+
+        if((this.profileEmployment.visaType && this.profileEmployment.visaType === "Green Card") ||
+          (this.profileEmployment.visaType && this.profileEmployment.visaType === "Citizen")) {
+          this.displayVisaType = "-";
+          this.displayVisaStartDate = "-";
+          this.displayVisaEndDate = "-";
+        }
+      }
+    );
+    
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileContact } from 'src/app/domain/employee/profile/profile-contact.module';
+import { PersonalProfileService } from 'src/app/service/personal-profile.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,14 +13,19 @@ export class ContactComponent implements OnInit {
 
   displayalternatePhone : string = "";
 
-  constructor() { }
+  constructor(
+    private personalProfileService : PersonalProfileService
+  ) { }
 
   ngOnInit(): void {
-    this.profileContact.personalEmail = "cara@sausage.com";
-    this.profileContact.cellPhone = "5031231234";
-    this.profileContact.alternatePhone = "";
+    this.personalProfileService.getContactService().subscribe(
+      (res) => {
+        this.profileContact = res.profileContact;
 
-    this.displayalternatePhone = !this.profileContact.alternatePhone || this.profileContact.alternatePhone == "" ? "-" : this.profileContact.alternatePhone;
+        this.displayalternatePhone = !this.profileContact.alternatePhone || this.profileContact.alternatePhone == "" ? "-" : this.profileContact.alternatePhone;
+
+      }
+    );
   }
 
 }

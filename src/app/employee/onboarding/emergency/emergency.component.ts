@@ -20,7 +20,7 @@ export class EmergencyComponent implements OnInit {
   ifPhoneEnter: boolean = true;
   ifEmailEnter: boolean = true;
 
-  ifAddressLine1Enter : boolean = true;
+  ifAddressLineOneEnter : boolean = true;
   ifAddressLine2Enter : boolean = true;
   ifAddressCityEnter : boolean = true;
   ifAddessStateSelect : boolean = true;
@@ -98,7 +98,7 @@ export class EmergencyComponent implements OnInit {
       this.onboardingEmergency.cellPhone,
       this.onboardingEmergency.email,
 
-      this.onboardingEmergency.address.addressLine1,
+      this.onboardingEmergency.address.addressLineOne,
       this.onboardingEmergency.address.city,
       this.onboardingEmergency.address.stateAbbr,
       this.onboardingEmergency.address.zipcode,
@@ -114,7 +114,7 @@ export class EmergencyComponent implements OnInit {
     if(!this.onboardingEmergency.cellPhone || this.onboardingEmergency.cellPhone === '') this.ifPhoneEnter = false;
     if(!this.onboardingEmergency.email || this.onboardingEmergency.email === '') this.ifEmailEnter = false;
 
-    if(!this.onboardingEmergency.address.addressLine1 || this.onboardingEmergency.address.addressLine1 === '') this.ifAddressLine1Enter = false;
+    if(!this.onboardingEmergency.address.addressLineOne || this.onboardingEmergency.address.addressLineOne === '') this.ifAddressLineOneEnter = false;
     if(!this.onboardingEmergency.address.city || this.onboardingEmergency.address.city === '') this.ifAddressCityEnter = false;
     if(!this.onboardingEmergency.address.stateAbbr || this.onboardingEmergency.address.stateAbbr === '') this.ifAddessStateSelect = false;
     if(!this.onboardingEmergency.address.zipcode || this.onboardingEmergency.address.zipcode === '') this.ifAddressZipcodeEnter = false;
@@ -158,12 +158,12 @@ export class EmergencyComponent implements OnInit {
     }
   }
 
-  onAddressLine1Edit(event: any): void {
+  onAddressLineOneEdit(event: any): void {
     if (!this.onboardingEmergency.address.addressLineOne || this.onboardingEmergency.address.addressLineOne === '') {
-      this.ifAddressLine1Enter = false;
+      this.ifAddressLineOneEnter = false;
       this.ifUnclockNext = false;
     } else {
-      this.ifAddressLine1Enter = true;
+      this.ifAddressLineOneEnter = true;
     }
   }
 

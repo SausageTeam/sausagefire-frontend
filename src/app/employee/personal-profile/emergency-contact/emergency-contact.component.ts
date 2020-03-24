@@ -24,7 +24,7 @@ export class EmergencyContactComponent implements OnInit {
     this.profileEmergencyContact.addressDomain.addressLineTwo = "Apt 1";
     this.profileEmergencyContact.addressDomain.city = "East Windsor";
     this.profileEmergencyContact.addressDomain.stateAbbr = "NJ";
-    this.profileEmergencyContact.addressDomain.zipcode = "08520";
+    this.profileEmergencyContact.addressDomain.zipCode = "08520";
 
     this.fullName = this.profileEmergencyContact.firstName + this.profileEmergencyContact.lastName;
     this.displayAddress = this.getFullAddress(this.profileEmergencyContact.addressDomain);
@@ -41,7 +41,7 @@ export class EmergencyContactComponent implements OnInit {
 
     fullAddress += ", " + addressDomain.city;
     fullAddress += ", " + addressDomain.stateAbbr;
-    fullAddress += ", " + addressDomain.zipcode;
+    fullAddress += ", " + addressDomain.zipCode;
 
     return fullAddress;
   }

@@ -19,7 +19,7 @@ export class AddressComponent implements OnInit {
     this.profileAddrees.addressLineTwo = "";
     this.profileAddrees.city = "East windsor";
     this.profileAddrees.stateAbbr = "NJ";
-    this.profileAddrees.zipcode = "08520";
+    this.profileAddrees.zipCode = "08520";
 
     this.displayAddressLineTwo = !this.profileAddrees.addressLineTwo || this.profileAddrees.addressLineTwo == "" ? "-" : this.profileAddrees.addressLineTwo;
   }

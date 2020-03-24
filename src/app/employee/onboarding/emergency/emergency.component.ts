@@ -97,7 +97,7 @@ export class EmergencyComponent implements OnInit {
       this.onboardingEmergency.addressDomain.addressLineOne,
       this.onboardingEmergency.addressDomain.city,
       this.onboardingEmergency.addressDomain.stateAbbr,
-      this.onboardingEmergency.addressDomain.zipcode,
+      this.onboardingEmergency.addressDomain.zipCode,
 
       this.onboardingEmergency.relationship
     ].every(test);
@@ -113,7 +113,7 @@ export class EmergencyComponent implements OnInit {
     if(!this.onboardingEmergency.addressDomain.addressLineOne || this.onboardingEmergency.addressDomain.addressLineOne === '') this.ifAddressLineOneEnter = false;
     if(!this.onboardingEmergency.addressDomain.city || this.onboardingEmergency.addressDomain.city === '') this.ifAddressCityEnter = false;
     if(!this.onboardingEmergency.addressDomain.stateAbbr || this.onboardingEmergency.addressDomain.stateAbbr === '') this.ifAddessStateSelect = false;
-    if(!this.onboardingEmergency.addressDomain.zipcode || this.onboardingEmergency.addressDomain.zipcode === '') this.ifAddressZipcodeEnter = false;
+    if(!this.onboardingEmergency.addressDomain.zipCode || this.onboardingEmergency.addressDomain.zipCode === '') this.ifAddressZipcodeEnter = false;
     
     if(!this.onboardingEmergency.relationship || this.onboardingEmergency.relationship === '') this.ifRelationshipEnter = false;
   }
@@ -182,7 +182,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onZipcodeEdit(event: any): void {
-    if (!this.onboardingEmergency.addressDomain.zipcode || this.onboardingEmergency.addressDomain.zipcode === '') {
+    if (!this.onboardingEmergency.addressDomain.zipCode || this.onboardingEmergency.addressDomain.zipCode === '') {
       this.ifAddressZipcodeEnter = false;
       this.ifUnclockNext = false;
     } else {

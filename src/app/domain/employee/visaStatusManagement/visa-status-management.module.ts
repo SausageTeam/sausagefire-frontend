@@ -1,3 +1,5 @@
+import { VisaStatusRecord } from '../../hr/visa-status/visa-status-record.module';
+
 export class VisaStatusManagement {
 
   status : number = 0;
@@ -5,7 +7,6 @@ export class VisaStatusManagement {
   comments : string = "";
   emptyForm : File = null;
   sampleForm : File = null;
-  visaStatusRecordList: import("/Users/martin/Documents/sausagefire-frontend/src/app/domain/hr/visa-status/visa-status-record.module").VisaStatusRecord[];
 
   constructor() {}
 }

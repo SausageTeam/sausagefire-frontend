@@ -30,7 +30,7 @@ export class OnboardingService {
   };
 
   getOnboardingAvatarService(onboardingAvatar: OnboardingAvatar) {
-    return this.http.post('http://localhost:4200/api/employee/onboarding/avatar/', { onboardingAvatar }).map((res: OnboardingAvatarResponse) => {
+    return this.http.get('http://localhost:4200/api/employee/onboarding/avatar/').map((res: OnboardingAvatarResponse) => {
       console.log("get");
       console.log(res);
       return res;

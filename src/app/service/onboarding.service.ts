@@ -7,6 +7,8 @@ import { OnboardingPersonResponse, OnboardingAvatarResponse } from "src/app/doma
 import { OnboardingVisaResponse, OnboardingDrivingResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
 import { OnboardingAvatar } from '../domain/employee/onboarding/onboarding-avator.module';
 import { OnboardingDriving } from '../domain/employee/onboarding/onboarding-driving.module';
+import { OnboardingReference } from '../domain/employee/onboarding/onboarding-reference.module';
+import { OnboardingEmergency } from '../domain/employee/onboarding/onboarding-emergency.module';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +76,38 @@ export class OnboardingService {
 
   postOnboardingDrivingService(onboardingDriving: OnboardingDriving) {
     return this.http.post("http://localhost:4200/api/employee/onboarding/driving", { onboardingDriving }).map((res : OnboardingDrivingResponse) => {
+      console.log("post");  
+      console.log(res);
+      return res;
+    })
+   }
+
+   getOnboardingReferenceService(onboardingReference: OnboardingReference) {
+    return this.http.get("http://localhost:4200/api/employee/onboarding/reference").map((res: OnboardingReferenceResponse) => {
+      console.log("get");
+      console.log(res);
+      return res;
+    })
+  }
+
+  postOnboardingReferenceService(onboardingReference: OnboardingReference) {
+    return this.http.post("http://localhost:4200/api/employee/onboarding/reference", { onboardingReference }).map((res : OnboardingReferenceResponse) => {
+      console.log("post");  
+      console.log(res);
+      return res;
+    })
+   }
+
+   getOnboardingEmergencyService(onboardingEmergency: OnboardingEmergency) {
+    return this.http.get("http://localhost:4200/api/employee/onboarding/emergency").map((res: OnboardingEmergencyResponse) => {
+      console.log("get");
+      console.log(res);
+      return res;
+    })
+  }
+
+  postOnboardingEmergencyService(onboardingEmergency: OnboardingEmergency) {
+    return this.http.post("http://localhost:4200/api/employee/onboarding/emergency", { onboardingEmergency }).map((res : OnboardingEmergencyResponse) => {
       console.log("post");  
       console.log(res);
       return res;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnboardingReference } from 'src/app/domain/employee/onboarding/onboarding-reference.module';
 import { AddressState } from 'src/app/common/constant/addressState.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-reference',
@@ -30,28 +31,27 @@ export class ReferenceComponent implements OnInit {
   ifUnclockNext: boolean = false;
 
   constructor(
+    private onboardingService : OnboardingService,
     private router: Router,
     private addressState: AddressState
   ) { }
 
   ngOnInit(): void {
-    // this.onboardingService.getOnboardingService(this.onboardingPerson).subscribe(
-    //   (res) => {
-    //     this.onboardingPerson.firstName = res.onboardingPerson.firstName;
-    //     this.onboardingPerson.middleName = res.onboardingPerson.middleName;
-    //     this.onboardingPerson.lastName = res.onboardingPerson.lastName;
-    //     this.onboardingPerson.email = res.onboardingPerson.email;
-    //     this.onboardingPerson.cellPhone = res.onboardingPerson.cellPhone;
-    //     this.onboardingPerson.alternatePhone = res.onboardingPerson.alternatePhone;
-    //     this.onboardingPerson.gender = res.onboardingPerson.gender;
-    //     this.onboardingPerson.dob = res.onboardingPerson.dob;
-    //     this.onboardingPerson.ssn = res.onboardingPerson.ssn;
+    this.onboardingService.getOnboardingReferenceService(this.onboardingReference).subscribe(
+      (res) => {
+        this.onboardingReference.firstName = res.onboardingReference.firstName;
+        this.onboardingReference.middleName = res.onboardingReference.middleName;
+        this.onboardingReference.lastName = res.onboardingReference.lastName;
+        this.onboardingReference.email = res.onboardingReference.email;
+        this.onboardingReference.cellPhone = res.onboardingReference.cellPhone;
+        this.onboardingReference.relationship = res.onboardingReference.relationship;
+        this.onboardingReference.address = res.onboardingReference.address;
 
-    //     if(this.nextCheck()) {
-    //       this.ifUnclockNext = true;
-    //     }
-    //   }
-    // )
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
+      }
+    )
   }
 
   onSaveClick(): void { 
@@ -72,11 +72,11 @@ export class ReferenceComponent implements OnInit {
 
       console.log(this.onboardingReference);
 
-      // this.onboardingService.postOnboardingService(this.onboardingPerson).subscribe(
-      //   (res) => {
-      //     // console.log(res);
-      //   }
-      // )
+      this.onboardingReference.postOnboardingReferenceService(this.onboardingPerson).subscribe(
+        (res) => {
+          // console.log(res);
+        }
+      )
     }
   }
 

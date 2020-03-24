@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OnboardingEmergency } from 'src/app/domain/employee/onboarding/onboarding-emergency.module';
 import { Router } from '@angular/router';
 import { AddressState } from 'src/app/common/constant/addressState.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-emergency',
@@ -31,28 +32,23 @@ export class EmergencyComponent implements OnInit {
   ifUnclockNext: boolean = false;
 
   constructor(
+    private onboardingService : OnboardingService,
     private router: Router,
     private addressState: AddressState
   ) { }
 
   ngOnInit(): void {
-    // this.onboardingService.getOnboardingService(this.onboardingPerson).subscribe(
-    //   (res) => {
-    //     this.onboardingPerson.firstName = res.onboardingPerson.firstName;
-    //     this.onboardingPerson.middleName = res.onboardingPerson.middleName;
-    //     this.onboardingPerson.lastName = res.onboardingPerson.lastName;
-    //     this.onboardingPerson.email = res.onboardingPerson.email;
-    //     this.onboardingPerson.cellPhone = res.onboardingPerson.cellPhone;
-    //     this.onboardingPerson.alternatePhone = res.onboardingPerson.alternatePhone;
-    //     this.onboardingPerson.gender = res.onboardingPerson.gender;
-    //     this.onboardingPerson.dob = res.onboardingPerson.dob;
-    //     this.onboardingPerson.ssn = res.onboardingPerson.ssn;
+    this.onboardingService.getOnboardingEmergencyService(this.onboardingEmergency).subscribe(
+      (res) => {
+        this.onboardingEmergency = res.onboardingEmergency;
 
-    //     if(this.nextCheck()) {
-    //       this.ifUnclockNext = true;
-    //     }
-    //   }
-    // )
+        // this.state
+
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
+      }
+    )
   }
 
   onSaveClick(): void { 
@@ -71,13 +67,13 @@ export class EmergencyComponent implements OnInit {
       });
       this.onboardingEmergency.addressDomain.stateName = stateName;
 
-      console.log(this.onboardingEmergency);
+      // console.log(this.onboardingEmergency);
 
-      // this.onboardingService.postOnboardingService(this.onboardingPerson).subscribe(
-      //   (res) => {
-      //     // console.log(res);
-      //   }
-      // )
+      this.onboardingService.postOnboardingEmergencyService(this.onboardingEmergency).subscribe(
+        (res) => {
+          // console.log(res);
+        }
+      )
     }
   }
 

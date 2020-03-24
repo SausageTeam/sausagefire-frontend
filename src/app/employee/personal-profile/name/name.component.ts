@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileName } from 'src/app/domain/employee/profile/profile-name.module';
+import { PersonalProfileService } from 'src/app/service/personal-profile.service';
 
 @Component({
   selector: 'app-name',
@@ -13,17 +14,20 @@ export class NameComponent implements OnInit {
   fullName : string  = "";
   displaySSN : string = "";
 
-  constructor() { }
+  constructor(
+    private personalProfileService : PersonalProfileService
+  ) { }
 
   ngOnInit(): void {
     this.profileName.firstName = "Cara";
     this.profileName.lastName = "jiang";
-    this.profileName.preferredName = "kiki";
 
     this.profileName.dob = "1999-12-31";
     this.profileName.age = 11;
     this.profileName.gender = "female";
     this.profileName.ssn = "00000001234"
+
+    this.profileName.preferredName = "kiki";
 
     this.fullName = this.profileName.firstName + ' ' + this.profileName.lastName;
     this.displaySSN = this.convertSSN(this.profileName.ssn);

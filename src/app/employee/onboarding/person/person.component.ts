@@ -49,7 +49,7 @@ export class PersonComponent implements OnInit {
           this.ifUnclockNext = true;
         }
       }
-    )
+    );
   }
 
   onSaveClick(): void { 

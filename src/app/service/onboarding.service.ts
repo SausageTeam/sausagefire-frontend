@@ -3,8 +3,9 @@ import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import { OnboardingPerson } from "src/app/domain/employee/onboarding/onboarding-person.module"
 import { OnboardingVisa } from "src/app/domain/employee/onboarding/onboarding-visa.module"
-import { OnboardingPersonResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
+import { OnboardingPersonResponse, OnboardingAvatarResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
 import { OnboardingVisaResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
+import { OnboardingAvatar } from '../domain/employee/onboarding/onboarding-avator.module';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,24 @@ export class OnboardingService {
     })
   };
 
+  getOnboardingAvatarService(onboardingAvatar: OnboardingAvatar) {
+    return this.http.post('http://localhost:4200/api/employee/onboarding/avatar/', { onboardingAvatar }).map((res: OnboardingAvatarResponse) => {
+      console.log("get");
+      console.log(res);
+      return res;
+    })
+  };
+
+  postOnboardingAvatarService(avatar : File) {
+    let formData: FormData = new FormData();
+    formData.append('avatar', avatar);
+    return this.http.post('http://localhost:4200/api/employee/onboarding/person/', formData).map((res: OnboardingPersonResponse) => {
+      console.log("post");
+      console.log(res);
+      return res;
+    })
+  };
+
   getOnboardingVisaService(onboardingVisa: OnboardingVisa) {
     return this.http.get("http://localhost:4200/api/employee/onboarding/visa").map((res: OnboardingVisaResponse) => {
       console.log("get");
@@ -43,5 +62,4 @@ export class OnboardingService {
       return res;
     })
    }
-
 }

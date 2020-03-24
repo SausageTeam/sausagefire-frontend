@@ -159,7 +159,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onAddressLine1Edit(event: any): void {
-    if (!this.onboardingEmergency.address.addressLine1 || this.onboardingEmergency.address.addressLine1 === '') {
+    if (!this.onboardingEmergency.address.addressLineOne || this.onboardingEmergency.address.addressLineOne === '') {
       this.ifAddressLine1Enter = false;
       this.ifUnclockNext = false;
     } else {

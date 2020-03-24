@@ -5,6 +5,7 @@ import { OnboardingPerson } from "src/app/domain/employee/onboarding/onboarding-
 import { OnboardingVisa } from "src/app/domain/employee/onboarding/onboarding-visa.module"
 import { OnboardingPersonResponse, OnboardingAvatarResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
 import { OnboardingVisaResponse, OnboardingDrivingResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
+import { OnboardingReferenceResponse, OnboardingEmergencyResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
 import { OnboardingAvatar } from '../domain/employee/onboarding/onboarding-avator.module';
 import { OnboardingDriving } from '../domain/employee/onboarding/onboarding-driving.module';
 import { OnboardingReference } from '../domain/employee/onboarding/onboarding-reference.module';

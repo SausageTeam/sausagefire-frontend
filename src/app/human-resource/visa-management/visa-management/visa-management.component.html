@@ -1,1 +1,26 @@
-<p>visa-management works!</p>
+<div class="box-shadow bg-white m-3">
+
+  <div class="p-3">
+    <h5 class="color-dark mb-1">Visa Status Management</h5>
+    <p class="color-light m-0 section-desc">Please click the plus btn to expand the detail section.</p>
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3 visa-status-table-header">
+    <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-2">Name</div>
+      <div class="col-3">Work Authorization</div>
+      <div class="col-3">Expiration Date</div>
+      <div class="col-3">Day Left</div>
+    </div>
+  </div>
+
+
+  <div *ngFor="let visaStatusRecord of visaStatusManagement.visaStatusRecordList">
+    <app-visa-management-record [visaStatusRecord]="visaStatusRecord">
+    </app-visa-management-record>
+  </div>
+</div>

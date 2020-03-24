@@ -7,7 +7,7 @@ export class OnboardingEmergency {
   middleName : string = "";
   cellPhone : string = "";
   email : string = "";
-  address: AddressDomain = new AddressDomain();
+  addressDomain: AddressDomain = new AddressDomain();
   relationship : string = "";
 
   constructor() {}

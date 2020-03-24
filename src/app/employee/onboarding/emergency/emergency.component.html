@@ -92,7 +92,7 @@
         <label class="color-dark" for="street-addres">Street Address: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="street-addres" name="street-addres"
           required 
-          [(ngModel)]="onboardingEmergency.address.addressLineOne"
+          [(ngModel)]="onboardingEmergency.addressDomain.addressLineOne"
           (ngModelChange)="onAddressLineOneEdit($event)"
           [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLineOneEnter === false}"
           #sa="ngModel">
@@ -108,7 +108,7 @@
         <input type="text" class="form-control" id="street-addres-2" name="street-addres-2"
           required 
           placeholder="Apt, Suite, Bldg. (optional)"
-          [(ngModel)]="onboardingEmergency.address.addressLineTwo">
+          [(ngModel)]="onboardingEmergency.addressDomain.addressLineTwo">
       </div>
 
       <!-- city -->
@@ -116,7 +116,7 @@
         <label class="color-dark" for="city">City: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="city" name="city"
           required 
-          [(ngModel)]="onboardingEmergency.address.city"
+          [(ngModel)]="onboardingEmergency.addressDomain.city"
           (ngModelChange)="onCityEdit($event)"
           [ngClass]="{'error-input':(!aCity.valid && !aCity.pristine) || ifAddressCityEnter === false}"
           #aCity="ngModel">
@@ -132,7 +132,7 @@
         
         <select class="form-control" id="state" name="state"
           required
-          [(ngModel)]="onboardingEmergency.address.stateAbbr"
+          [(ngModel)]="onboardingEmergency.addressDomain.stateAbbr"
           (ngModelChange)="onStateSelect($event)"
           [ngClass]="{'error-input': ifAddessStateSelect === false}">
           <option *ngFor="let s of state" 
@@ -152,7 +152,7 @@
         <label class="color-dark" for="zipcode">Zipcode: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="zipcode" name="zipcode"
           required 
-          [(ngModel)]="onboardingEmergency.address.zipcode"
+          [(ngModel)]="onboardingEmergency.addressDomain.zipcode"
           (ngModelChange)="onZipcodeEdit($event)"
           [ngClass]="{'error-input':(!aZipcode.valid && !aZipcode.pristine) || ifAddressZipcodeEnter === false}"
           #aZipcode="ngModel">

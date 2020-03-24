@@ -63,13 +63,13 @@ export class EmergencyComponent implements OnInit {
       this.ifUnclockNext = true;
 
       // search the state full name (stateName)
-      var stateAbbr : string = this.onboardingEmergency.address.stateAbbr;
+      var stateAbbr : string = this.onboardingEmergency.addressDomain.stateAbbr;
       var stateName : string = "";
       this.state.forEach(function(entry){
         if(entry.name === stateAbbr)
           stateName = entry.value;
       });
-      this.onboardingEmergency.address.stateName = stateName;
+      this.onboardingEmergency.addressDomain.stateName = stateName;
 
       console.log(this.onboardingEmergency);
 
@@ -98,10 +98,10 @@ export class EmergencyComponent implements OnInit {
       this.onboardingEmergency.cellPhone,
       this.onboardingEmergency.email,
 
-      this.onboardingEmergency.address.addressLineOne,
-      this.onboardingEmergency.address.city,
-      this.onboardingEmergency.address.stateAbbr,
-      this.onboardingEmergency.address.zipcode,
+      this.onboardingEmergency.addressDomain.addressLineOne,
+      this.onboardingEmergency.addressDomain.city,
+      this.onboardingEmergency.addressDomain.stateAbbr,
+      this.onboardingEmergency.addressDomain.zipcode,
 
       this.onboardingEmergency.relationship
     ].every(test);
@@ -114,10 +114,10 @@ export class EmergencyComponent implements OnInit {
     if(!this.onboardingEmergency.cellPhone || this.onboardingEmergency.cellPhone === '') this.ifPhoneEnter = false;
     if(!this.onboardingEmergency.email || this.onboardingEmergency.email === '') this.ifEmailEnter = false;
 
-    if(!this.onboardingEmergency.address.addressLineOne || this.onboardingEmergency.address.addressLineOne === '') this.ifAddressLineOneEnter = false;
-    if(!this.onboardingEmergency.address.city || this.onboardingEmergency.address.city === '') this.ifAddressCityEnter = false;
-    if(!this.onboardingEmergency.address.stateAbbr || this.onboardingEmergency.address.stateAbbr === '') this.ifAddessStateSelect = false;
-    if(!this.onboardingEmergency.address.zipcode || this.onboardingEmergency.address.zipcode === '') this.ifAddressZipcodeEnter = false;
+    if(!this.onboardingEmergency.addressDomain.addressLineOne || this.onboardingEmergency.addressDomain.addressLineOne === '') this.ifAddressLineOneEnter = false;
+    if(!this.onboardingEmergency.addressDomain.city || this.onboardingEmergency.addressDomain.city === '') this.ifAddressCityEnter = false;
+    if(!this.onboardingEmergency.addressDomain.stateAbbr || this.onboardingEmergency.addressDomain.stateAbbr === '') this.ifAddessStateSelect = false;
+    if(!this.onboardingEmergency.addressDomain.zipcode || this.onboardingEmergency.addressDomain.zipcode === '') this.ifAddressZipcodeEnter = false;
     
     if(!this.onboardingEmergency.relationship || this.onboardingEmergency.relationship === '') this.ifRelationshipEnter = false;
   }
@@ -159,7 +159,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onAddressLineOneEdit(event: any): void {
-    if (!this.onboardingEmergency.address.addressLineOne || this.onboardingEmergency.address.addressLineOne === '') {
+    if (!this.onboardingEmergency.addressDomain.addressLineOne || this.onboardingEmergency.addressDomain.addressLineOne === '') {
       this.ifAddressLineOneEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -168,7 +168,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onCityEdit(event: any): void {
-    if (!this.onboardingEmergency.address.city || this.onboardingEmergency.address.city === '') {
+    if (!this.onboardingEmergency.addressDomain.city || this.onboardingEmergency.addressDomain.city === '') {
       this.ifAddressCityEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -177,7 +177,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onStateSelect(event: any): void {
-    if (!this.onboardingEmergency.address.stateAbbr || this.onboardingEmergency.address.stateAbbr === '') {
+    if (!this.onboardingEmergency.addressDomain.stateAbbr || this.onboardingEmergency.addressDomain.stateAbbr === '') {
       this.ifAddessStateSelect = false;
       this.ifUnclockNext = false;
     } else {
@@ -186,7 +186,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onZipcodeEdit(event: any): void {
-    if (!this.onboardingEmergency.address.zipcode || this.onboardingEmergency.address.zipcode === '') {
+    if (!this.onboardingEmergency.addressDomain.zipcode || this.onboardingEmergency.addressDomain.zipcode === '') {
       this.ifAddressZipcodeEnter = false;
       this.ifUnclockNext = false;
     } else {

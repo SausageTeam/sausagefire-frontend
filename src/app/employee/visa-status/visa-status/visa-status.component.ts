@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VisaStatusManagement } from 'src/app/domain/employee/visaStatusManagement/visa-status-management.module';
+import { EMVisaStatusManagementService } from 'src/app/service/em-visa-status-management.service';
 
 @Component({
   selector: 'app-visa-status',
@@ -23,13 +24,24 @@ export class VisaStatusComponent implements OnInit {
 
   currentStep : number = 0;
 
-  constructor() { }
+  constructor(
+    private visaStatusManagementService : EMVisaStatusManagementService
+  ) { }
 
   ngOnInit(): void {
-    this.visaStatusManagement.status = 3;
-    this.visaStatusManagement.comments = "Hello Trump, you dumbass.";
 
-    this.currentStep = this.visaStatusManagement.status;
+    this.visaStatusManagementService.getEMVisaStatusManagementService(this.visaStatusManagement).subscribe (
+      (res) => {
+
+        console.log(res);
+
+        this.visaStatusManagement = res.visaStatusManagement;
+
+        this.currentStep = this.visaStatusManagement.status + 1;
+
+      }
+    );
+    
   }
 
   onFileSelected(event : any) {

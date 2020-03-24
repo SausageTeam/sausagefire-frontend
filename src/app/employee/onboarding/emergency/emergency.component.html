@@ -147,18 +147,18 @@
         </div>
       </div>
 
-      <!-- zipcode -->
+      <!-- zipCode -->
       <div class="form-group col-md-4">
-        <label class="color-dark" for="zipcode">Zipcode: <span class="color-red">*</span></label>
-        <input type="text" class="form-control" id="zipcode" name="zipcode"
+        <label class="color-dark" for="zipCode">Zipcode: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="zipCode" name="zipCode"
           required 
-          [(ngModel)]="onboardingEmergency.address.zipcode"
+          [(ngModel)]="onboardingEmergency.address.zipCode"
           (ngModelChange)="onZipcodeEdit($event)"
           [ngClass]="{'error-input':(!aZipcode.valid && !aZipcode.pristine) || ifAddressZipcodeEnter === false}"
           #aZipcode="ngModel">
         <div [hidden]="ifAddressZipcodeEnter&&(aZipcode.valid||aZipcode.pristine)" class="error color-red">
           <i class="fas fa-exclamation-circle mr-2"></i>
-          <span>Please enter the zipcode</span>
+          <span>Please enter the zipCode</span>
         </div>
       </div>
 

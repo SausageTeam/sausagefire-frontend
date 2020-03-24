@@ -3,7 +3,7 @@ export class AddressDomain {
   addressLineOne : string = "";
   addressLineTwo : string = "";
   city : string = "";
-  zipcode : string = "";
+  zipCode : string = "";
   stateName : string = "";
   stateAbbr : string = "";
 

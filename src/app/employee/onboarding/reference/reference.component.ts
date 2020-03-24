@@ -96,7 +96,7 @@ export class ReferenceComponent implements OnInit {
       this.onboardingReference.addressDomain.addressLineOne,
       this.onboardingReference.addressDomain.city,
       this.onboardingReference.addressDomain.stateAbbr,
-      this.onboardingReference.addressDomain.zipcode,
+      this.onboardingReference.addressDomain.zipCode,
 
       this.onboardingReference.relationship
     ].every(test);
@@ -112,7 +112,7 @@ export class ReferenceComponent implements OnInit {
     if(!this.onboardingReference.addressDomain.addressLineOne || this.onboardingReference.addressDomain.addressLineOne === '') this.ifAddressLineOneEnter = false;
     if(!this.onboardingReference.addressDomain.city || this.onboardingReference.addressDomain.city === '') this.ifAddressCityEnter = false;
     if(!this.onboardingReference.addressDomain.stateAbbr || this.onboardingReference.addressDomain.stateAbbr === '') this.ifAddessStateSelect = false;
-    if(!this.onboardingReference.addressDomain.zipcode || this.onboardingReference.addressDomain.zipcode === '') this.ifAddressZipcodeEnter = false;
+    if(!this.onboardingReference.addressDomain.zipCode || this.onboardingReference.addressDomain.zipCode === '') this.ifAddressZipcodeEnter = false;
     
     if(!this.onboardingReference.relationship || this.onboardingReference.relationship === '') this.ifRelationshipEnter = false;
   }
@@ -181,7 +181,7 @@ export class ReferenceComponent implements OnInit {
   }
 
   onZipcodeEdit(event: any): void {
-    if (!this.onboardingReference.addressDomain.zipcode || this.onboardingReference.addressDomain.zipcode === '') {
+    if (!this.onboardingReference.addressDomain.zipCode || this.onboardingReference.addressDomain.zipCode === '') {
       this.ifAddressZipcodeEnter = false;
       this.ifUnclockNext = false;
     } else {

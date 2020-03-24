@@ -10,19 +10,25 @@ export class VisaManagementComponent implements OnInit {
 
   visaStatusManagement : VisaStatusManagement = new VisaStatusManagement();
 
-  constructor() { }
+  constructor(
+    private visaStatusManagementService : HRVisaStatusManagementService
+  ) { }
 
   ngOnInit(): void {
 
-    this.visaStatusManagement = visaStatusManagementMosk();
-
-    console.log(this.visaStatusManagement);
+    this.visaStatusManagementService.getHRVisaStatusManagementService(this.visaStatusManagement).subscribe(
+      (res) => {
+        console.log(res);
+        this.visaStatusManagement = res.visaStatusManagement;
+      }
+    );
   }
 
 }
 
 
 import { VisaStatusRecord } from 'src/app/domain/hr/visa-status/visa-status-record.module';
+import { HRVisaStatusManagementService } from 'src/app/service/hr-visa-status-management.service';
 
 function visaStatusManagementMosk() {
   let visaStatusManagement : VisaStatusManagement = new VisaStatusManagement();

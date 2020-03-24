@@ -4,5 +4,9 @@ export class OnboardingDriving {
   driverLicenseExpirationDate : string = "";
   driverLicenseDoc : File = null;
 
+  maker : string = "";
+  model : string = "";
+  color : string = "";
+
   constructor() {}
 }

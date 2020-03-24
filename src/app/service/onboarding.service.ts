@@ -40,7 +40,7 @@ export class OnboardingService {
   postOnboardingAvatarService(avatar : File) {
     let formData: FormData = new FormData();
     formData.append('avatar', avatar);
-    return this.http.post('http://localhost:4200/api/employee/onboarding/person/', formData).map((res: OnboardingPersonResponse) => {
+    return this.http.post('http://localhost:4200/api/employee/onboarding/avatar/', formData).map((res: OnboardingPersonResponse) => {
       console.log("post");
       console.log(res);
       return res;

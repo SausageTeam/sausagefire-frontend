@@ -92,7 +92,7 @@ export class VisaComponent implements OnInit {
       this.internationalSelect = this.onboardingVisa.visaType;
 
       if(this.onboardingVisa.visaType === "Others") {
-        
+        this.customVisa = this.onboardingVisa.customType;
       }
 
       this.startDate = this.onboardingVisa.visaStartDate;

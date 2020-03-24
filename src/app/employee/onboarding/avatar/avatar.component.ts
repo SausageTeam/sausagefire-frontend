@@ -54,15 +54,15 @@ export class AvatarComponent implements OnInit {
 
   onSaveClick() : void {
 
-
     this.onboardingService.postOnboardingAvatarService(this.avatar).subscribe(
       (res) => {
         // console.log(res);
-        this.router.navigate(['/employee/onboarding/avatar']);
+        location.reload();
+        // this.ifUnclockNext = true;
+
       }
     )
 
-    this.ifUnclockNext = true;
   }
 
   onSkipClick() : void {

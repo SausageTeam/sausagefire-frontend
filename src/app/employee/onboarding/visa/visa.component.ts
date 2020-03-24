@@ -22,8 +22,8 @@ export class VisaComponent implements OnInit {
 
   localOptionsIndex: number = 0;
   localOptions = [
-    "Green Card",
-    "Citizen"
+    "Citizen",
+    "Green Card"
   ];
 
   ifInternationalSelect: boolean = true;
@@ -75,12 +75,12 @@ export class VisaComponent implements OnInit {
 
   readVisaData() {
 
-    if(this.onboardingVisa.visaType === "Green Card") {
+    if(this.onboardingVisa.visaType === "Citizen") {
 
       this.citizenOptionsIndex = 0;
-      this.localOptionsIndex = 1;
+      this.localOptionsIndex = 0;
 
-    } else if(this.onboardingVisa.visaType === "Citizen") {
+    } else if(this.onboardingVisa.visaType === "Green Card") {
 
       this.citizenOptionsIndex = 0;
       this.localOptionsIndex = 1;

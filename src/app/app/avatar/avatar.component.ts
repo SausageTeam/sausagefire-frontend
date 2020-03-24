@@ -17,7 +17,6 @@ export class AvatarComponent implements OnInit {
   ngOnInit(): void {
     this.appService.getAvatarService().subscribe(
       (res) => {
-        console.log(res);
         this.imageSrc = res.appDomain.avatarUri ? res.appDomain.avatarUri : "assets/default-avatar.jpg";
       }
     );

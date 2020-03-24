@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AvatarContainerComponent } from './app/avatar-container/avatar-container.component';
+import { AvatarComponent } from './app/avatar/avatar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    AvatarContainerComponent,
+    AvatarComponent,
   ],
   imports: [
     BrowserModule,

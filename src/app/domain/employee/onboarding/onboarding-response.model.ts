@@ -1,12 +1,8 @@
 import { OnboardingPerson } from 'src/app/domain/employee/onboarding/onboarding-person.module';
 import { OnboardingVisa } from 'src/app/domain/employee/onboarding/onboarding-visa.module'
 import { OnboardingAvatar } from './onboarding-avator.module';
+import { ServiceStatus } from '../../common/service-status.module';
 
-export class ServiceStatus{
-    statusCode: string;
-    success: boolean;
-    errorMessage: string
-}
 
 export class OnboardingPersonResponse {
     serviceStatus: ServiceStatus;

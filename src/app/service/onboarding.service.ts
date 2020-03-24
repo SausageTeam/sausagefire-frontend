@@ -15,24 +15,24 @@ export class OnboardingService {
 
   getOnboardingPersonService(onboardingPerson: OnboardingPerson) {
     return this.http.get('http://localhost:4200/api/employee/onboarding/person/').map((res: OnboardingPersonResponse) => {
-      console.log("get");
-      console.log(res);
+      // console.log("get");
+      // console.log(res);
       return res;
     })
   };
 
   postOnboardingPersonService(onboardingPerson: OnboardingPerson) {
     return this.http.post('http://localhost:4200/api/employee/onboarding/person/', { onboardingPerson }).map((res: OnboardingPersonResponse) => {
-      console.log("post");
-      console.log(res);
+      // console.log("post");
+      // console.log(res);
       return res;
     })
   };
 
   getOnboardingAvatarService(onboardingAvatar: OnboardingAvatar) {
     return this.http.get('http://localhost:4200/api/employee/onboarding/avatar/').map((res: OnboardingAvatarResponse) => {
-      console.log("get");
-      console.log(res);
+      // console.log("get");
+      // console.log(res);
       return res;
     })
   };

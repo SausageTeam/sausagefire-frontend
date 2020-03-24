@@ -10,17 +10,9 @@ import { EmployeeProfileResponse } from '../domain/hr/employee-profile/employee-
   export class EmployeeProfileService {
     constructor(private http: HttpClient) { }
 
-    getEmployeeProfileService(employeeProfile: EmployeeProfile) {
+    getEmployeeProfileService() {
         return this.http.get('http://localhost:4200/api/hr/employee-profile/').map((res: EmployeeProfileResponse) => {
           // console.log("get");
-          // console.log(res);
-          return res;
-        })
-      };
-    
-      postEmployeeProfileService(employeeProfile: EmployeeProfile) {
-        return this.http.post('http://localhost:4200/api/hr/employee-profile/', { employeeProfile }).map((res: EmployeeProfileResponse) => {
-          // console.log("post");
           // console.log(res);
           return res;
         })

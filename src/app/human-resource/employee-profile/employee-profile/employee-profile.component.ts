@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeRecord } from 'src/app/domain/hr/employee-profile/employee-record.module';
 import { DataTableDirective } from 'angular-datatables';
+import { EmployeeProfileService } from 'src/app/service/employee-profile-service';
 
 @Component({
   selector: 'app-employee-profile',
@@ -18,14 +19,25 @@ export class EmployeeProfileComponent implements OnInit {
 
   employeesProfile : Array<EmployeeRecord> = null;
 
-  constructor() { }
+  constructor(
+    private employeeProfileService : EmployeeProfileService
+  ) { }
 
   ngOnInit(): void {
+
+    this.employeeProfileService.getEmployeeProfileService().subscribe(
+      (res) => {
+        console.log(res);
+        this.employeesProfile = res.employeeProfile.employeeRecordList;
+      }
+    );
 
     // custom filter
     $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
 
       const test = (field : string) => field.includes(this.search);
+
+      console.log(data);
 
       return data.some(test);
     });
@@ -36,10 +48,7 @@ export class EmployeeProfileComponent implements OnInit {
       // searching: false,
       scrollY: "50vh"
     }
-
-    this.employeesProfile = makeEmployeesProfileMork();
   }
-
 
   onSearchEdit(event: any) {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -47,28 +56,4 @@ export class EmployeeProfileComponent implements OnInit {
     });
   }
 
-}
-
-function makeEmployeesProfileMork() : Array<EmployeeRecord> {
-  let employeesProfileMork = new Array<EmployeeRecord>();
-
-  for(let i = 0; i < 10; i++) {
-    let e = new EmployeeRecord();
-    e.name = "bob" + i;
-    e.ssn = "123123123" + i;
-    e.startDate = "1990-01-1" + i;
-    e.visaStatus = "F1";
-    employeesProfileMork.push(e);
-  }
-
-  for(let i = 0; i < 10; i++) {
-    let e = new EmployeeRecord();
-    e.name = "jack" + i;
-    e.ssn = "444555666" + i;
-    e.startDate = "1993-02-1" + i;
-    e.visaStatus = "H1";
-    employeesProfileMork.push(e);
-  }
-
-  return employeesProfileMork;
 }

@@ -18,14 +18,24 @@ export class DashboardComponent implements OnInit {
   dtHeight : string = "";
   dtOptions: DataTables.Settings = {};
 
-  constructor() { }
+  constructor(
+    private dashboardService : DashboardService
+  ) { }
 
   ngOnInit(): void {
 
-    this.dashboard = makeEmployeesProfileMork();
+    this.dashboardService.getDashboardnService(this.dashboard).subscribe(
+      (res) => {
+        this.dashboard = res.dashboard;
 
-    this.ifWaitingListShow = this.dashboard.waitingList && this.dashboard.waitingList.length !== 0;
-    this.ifNotifyListShow = this.dashboard.notifyList && this.dashboard.notifyList.length !== 0;
+        this.ifWaitingListShow = this.dashboard.waitingList && this.dashboard.waitingList.length !== 0;
+        this.ifNotifyListShow = this.dashboard.notifyList && this.dashboard.notifyList.length !== 0;
+      }
+    );
+    
+    // this.dashboard = makeEmployeesProfileMork();
+
+    
 
     this.dtHeight = this.ifNotifyListShow && this.ifWaitingListShow ? "17vh" : "60vh";
 
@@ -43,13 +53,14 @@ export class DashboardComponent implements OnInit {
   }
 
   getFullName(firstName : string, middleName : string, lastName : string) : string {
-    return middleName || middleName === "" ? firstName + " " + lastName : firstName + " " + middleName  + " " + lastName;
+    return !middleName || middleName === "" ? firstName + " " + lastName : firstName + " " + middleName  + " " + lastName;
   }
 
 }
 
 import { Trouble } from 'src/app/domain/hr/dashboard/trouble.module';
 import { DataTableDirective } from 'angular-datatables';
+import { DashboardService } from 'src/app/service/dashboard-service';
 
 function makeEmployeesProfileMork() {
 

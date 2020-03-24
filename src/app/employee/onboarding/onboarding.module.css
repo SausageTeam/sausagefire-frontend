@@ -1,0 +1,24 @@
+.next-btn, .save-btn, .skip-btn, .submit-btn {
+  border-radius: 2px;
+  line-height: 1;
+  font-size: 14px;
+  padding: 10px 20px;
+  color: white;
+}
+
+.save-btn {
+  background-color: #29C178;
+}
+
+.next-btn {
+  background-color: #3EC5F2;
+}
+
+.skip-btn {
+  background-color: #3F66A1;
+}
+
+.submit-btn {
+  background-color: #F35C5C;
+  font-weight: bold;
+}

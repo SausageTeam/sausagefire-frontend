@@ -1,6 +1,6 @@
 <div class="my-3 mx-auto box-shadow bg-white">
 
-  <h3 class="color-dark m-0 p-3">Reference Person Information</h3>
+  <h5 class="color-dark m-0 p-3">Reference Person Information</h5>
 
   <div class="bottom-split-line"></div>
 
@@ -92,11 +92,11 @@
         <label class="color-dark" for="street-addres">Street Address: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="street-addres" name="street-addres"
           required 
-          [(ngModel)]="onboardingReference.address.addressLine1"
-          (ngModelChange)="onAddressLine1Edit($event)"
-          [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLine1Enter === false}"
+          [(ngModel)]="onboardingReference.addressDomain.addressLineOne"
+          (ngModelChange)="onAddressLineOneEdit($event)"
+          [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLineOneEnter === false}"
           #sa="ngModel">
-        <div [hidden]="ifAddressLine1Enter&&(sa.valid||sa.pristine)" class="error color-red">
+        <div [hidden]="ifAddressLineOneEnter&&(sa.valid||sa.pristine)" class="error color-red">
           <i class="fas fa-exclamation-circle mr-2"></i>
           <span>Please enter the street address</span>
         </div>
@@ -108,7 +108,7 @@
         <input type="text" class="form-control" id="street-addres-2" name="street-addres-2"
           required 
           placeholder="Apt, Suite, Bldg. (optional)"
-          [(ngModel)]="onboardingReference.address.addressLine2">
+          [(ngModel)]="onboardingReference.addressDomain.addressLineTwo">
       </div>
 
       <!-- city -->
@@ -116,7 +116,7 @@
         <label class="color-dark" for="city">City: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="city" name="city"
           required 
-          [(ngModel)]="onboardingReference.address.city"
+          [(ngModel)]="onboardingReference.addressDomain.city"
           (ngModelChange)="onCityEdit($event)"
           [ngClass]="{'error-input':(!aCity.valid && !aCity.pristine) || ifAddressCityEnter === false}"
           #aCity="ngModel">
@@ -132,7 +132,7 @@
         
         <select class="form-control" id="state" name="state"
           required
-          [(ngModel)]="onboardingReference.address.stateAbbr"
+          [(ngModel)]="onboardingReference.addressDomain.stateAbbr"
           (ngModelChange)="onStateSelect($event)"
           [ngClass]="{'error-input': ifAddessStateSelect === false}">
           <option *ngFor="let s of state" 
@@ -147,18 +147,18 @@
         </div>
       </div>
 
-      <!-- zipcode -->
+      <!-- zipCode -->
       <div class="form-group col-md-4">
-        <label class="color-dark" for="zipcode">Zipcode: <span class="color-red">*</span></label>
-        <input type="text" class="form-control" id="zipcode" name="zipcode"
+        <label class="color-dark" for="zipCode">Zipcode: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="zipCode" name="zipCode"
           required 
-          [(ngModel)]="onboardingReference.address.zipcode"
+          [(ngModel)]="onboardingReference.addressDomain.zipCode"
           (ngModelChange)="onZipcodeEdit($event)"
           [ngClass]="{'error-input':(!aZipcode.valid && !aZipcode.pristine) || ifAddressZipcodeEnter === false}"
           #aZipcode="ngModel">
         <div [hidden]="ifAddressZipcodeEnter&&(aZipcode.valid||aZipcode.pristine)" class="error color-red">
           <i class="fas fa-exclamation-circle mr-2"></i>
-          <span>Please enter the zipcode</span>
+          <span>Please enter the zipCode</span>
         </div>
       </div>
 

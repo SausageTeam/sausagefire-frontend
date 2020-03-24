@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingDriving } from 'src/app/domain/onboarding-driving.module';
+import { OnboardingDriving } from 'src/app/domain/employee/onboarding/onboarding-driving.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-driving',
   templateUrl: './driving.component.html',
-  styleUrls: ['./driving.component.css']
+  styleUrls: ['./driving.component.css', '../onboarding.module.css']
 })
 export class DrivingComponent implements OnInit {
 
@@ -42,10 +43,21 @@ export class DrivingComponent implements OnInit {
   ifColorEnter : boolean = true;
 
   constructor(
+    private onboardingService : OnboardingService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.onboardingService.getOnboardingDrivingService(this.onboardingDriving).subscribe(
+      (res) => {
+        this.onboardingDriving = res.onboardingDriving;
+
+        this.readDrivingData();
+
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
+      })
   }
 
   selectDriverLisenseOption(i : number) {
@@ -60,6 +72,46 @@ export class DrivingComponent implements OnInit {
       this.ifUnclockNext = false;
     }
     this.carOptionsIndex = i;
+  }
+
+  saveDrivingData() {
+    if (this.driverLisenseOptionsIndex === 0) {
+      this.onboardingDriving.driverLicense = this.driverLicense;
+      this.onboardingDriving.driverLicenseExpirationDate = this.driverLicenseExpirationDate;
+    } else {
+      this.onboardingDriving.driverLicense = "";
+      this.onboardingDriving.driverLicenseExpirationDate = "";
+    }
+
+    if (this.carOptionsIndex === 0) {
+      this.onboardingDriving.maker = this.maker;
+      this.onboardingDriving.model = this.model;
+      this.onboardingDriving.color = this.color;
+    } else {
+      this.onboardingDriving.maker = "";
+      this.onboardingDriving.model = "";
+      this.onboardingDriving.color = "";
+    }
+  }
+
+  readDrivingData() {
+
+    if(!this.onboardingDriving.driverLicense || this.onboardingDriving.driverLicense === "") {
+      this.driverLisenseOptionsIndex = 1;
+    } else {
+      this.driverLisenseOptionsIndex = 0;
+      this.driverLicense = this.onboardingDriving.driverLicense;
+      this.driverLicenseExpirationDate = this.onboardingDriving.driverLicenseExpirationDate;
+    }
+
+    if(!this.onboardingDriving.maker || this.onboardingDriving.maker === "") {
+      this.carOptionsIndex = 1;
+    } else {
+      this.carOptionsIndex = 0;
+      this.maker = this.onboardingDriving.maker;
+      this.model = this.onboardingDriving.model;
+      this.color = this.onboardingDriving.color;
+    }
   }
 
   inputCheck() : void {
@@ -94,6 +146,15 @@ export class DrivingComponent implements OnInit {
 
     if(this.nextCheck()) {
       this.ifUnclockNext = true;
+
+      this.saveDrivingData();
+
+      console.log(this.onboardingDriving);
+
+      this.onboardingService.postOnboardingDrivingService(this.onboardingDriving).subscribe(
+        (res) => {
+          //  console.log(res);
+      });
     }
   }
 

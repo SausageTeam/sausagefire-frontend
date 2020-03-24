@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { OnboardingEmergency } from 'src/app/domain/onboarding-emergency.module';
+import { OnboardingEmergency } from 'src/app/domain/employee/onboarding/onboarding-emergency.module';
 import { Router } from '@angular/router';
-import { AddressState } from 'src/app/shared/constant/addressState.module';
+import { AddressState } from 'src/app/common/constant/addressState.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-emergency',
   templateUrl: './emergency.component.html',
-  styleUrls: ['./emergency.component.css']
+  styleUrls: ['./emergency.component.css', '../onboarding.module.css']
 })
 export class EmergencyComponent implements OnInit {
 
@@ -20,8 +21,8 @@ export class EmergencyComponent implements OnInit {
   ifPhoneEnter: boolean = true;
   ifEmailEnter: boolean = true;
 
-  ifAddressLine1Enter : boolean = true;
-  ifAddressLine2Enter : boolean = true;
+  ifAddressLineOneEnter : boolean = true;
+  ifAddressLineTwoEnter : boolean = true;
   ifAddressCityEnter : boolean = true;
   ifAddessStateSelect : boolean = true;
   ifAddressZipcodeEnter : boolean = true;
@@ -31,28 +32,23 @@ export class EmergencyComponent implements OnInit {
   ifUnclockNext: boolean = false;
 
   constructor(
+    private onboardingService : OnboardingService,
     private router: Router,
     private addressState: AddressState
   ) { }
 
   ngOnInit(): void {
-    // this.onboardingService.getOnboardingService(this.onboardingPerson).subscribe(
-    //   (res) => {
-    //     this.onboardingPerson.firstName = res.onboardingPerson.firstName;
-    //     this.onboardingPerson.middleName = res.onboardingPerson.middleName;
-    //     this.onboardingPerson.lastName = res.onboardingPerson.lastName;
-    //     this.onboardingPerson.email = res.onboardingPerson.email;
-    //     this.onboardingPerson.cellPhone = res.onboardingPerson.cellPhone;
-    //     this.onboardingPerson.alternatePhone = res.onboardingPerson.alternatePhone;
-    //     this.onboardingPerson.gender = res.onboardingPerson.gender;
-    //     this.onboardingPerson.dob = res.onboardingPerson.dob;
-    //     this.onboardingPerson.ssn = res.onboardingPerson.ssn;
+    this.onboardingService.getOnboardingEmergencyService(this.onboardingEmergency).subscribe(
+      (res) => {
+        this.onboardingEmergency = res.onboardingEmergency;
 
-    //     if(this.nextCheck()) {
-    //       this.ifUnclockNext = true;
-    //     }
-    //   }
-    // )
+        // this.state
+
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
+      }
+    )
   }
 
   onSaveClick(): void { 
@@ -63,21 +59,21 @@ export class EmergencyComponent implements OnInit {
       this.ifUnclockNext = true;
 
       // search the state full name (stateName)
-      var stateAbbr : string = this.onboardingEmergency.address.stateAbbr;
+      var stateAbbr : string = this.onboardingEmergency.addressDomain.stateAbbr;
       var stateName : string = "";
       this.state.forEach(function(entry){
         if(entry.name === stateAbbr)
           stateName = entry.value;
       });
-      this.onboardingEmergency.address.stateName = stateName;
+      this.onboardingEmergency.addressDomain.stateName = stateName;
 
-      console.log(this.onboardingEmergency);
+      // console.log(this.onboardingEmergency);
 
-      // this.onboardingService.postOnboardingService(this.onboardingPerson).subscribe(
-      //   (res) => {
-      //     // console.log(res);
-      //   }
-      // )
+      this.onboardingService.postOnboardingEmergencyService(this.onboardingEmergency).subscribe(
+        (res) => {
+          // console.log(res);
+        }
+      )
     }
   }
 
@@ -98,10 +94,10 @@ export class EmergencyComponent implements OnInit {
       this.onboardingEmergency.cellPhone,
       this.onboardingEmergency.email,
 
-      this.onboardingEmergency.address.addressLine1,
-      this.onboardingEmergency.address.city,
-      this.onboardingEmergency.address.stateAbbr,
-      this.onboardingEmergency.address.zipcode,
+      this.onboardingEmergency.addressDomain.addressLineOne,
+      this.onboardingEmergency.addressDomain.city,
+      this.onboardingEmergency.addressDomain.stateAbbr,
+      this.onboardingEmergency.addressDomain.zipCode,
 
       this.onboardingEmergency.relationship
     ].every(test);
@@ -114,10 +110,10 @@ export class EmergencyComponent implements OnInit {
     if(!this.onboardingEmergency.cellPhone || this.onboardingEmergency.cellPhone === '') this.ifPhoneEnter = false;
     if(!this.onboardingEmergency.email || this.onboardingEmergency.email === '') this.ifEmailEnter = false;
 
-    if(!this.onboardingEmergency.address.addressLine1 || this.onboardingEmergency.address.addressLine1 === '') this.ifAddressLine1Enter = false;
-    if(!this.onboardingEmergency.address.city || this.onboardingEmergency.address.city === '') this.ifAddressCityEnter = false;
-    if(!this.onboardingEmergency.address.stateAbbr || this.onboardingEmergency.address.stateAbbr === '') this.ifAddessStateSelect = false;
-    if(!this.onboardingEmergency.address.zipcode || this.onboardingEmergency.address.zipcode === '') this.ifAddressZipcodeEnter = false;
+    if(!this.onboardingEmergency.addressDomain.addressLineOne || this.onboardingEmergency.addressDomain.addressLineOne === '') this.ifAddressLineOneEnter = false;
+    if(!this.onboardingEmergency.addressDomain.city || this.onboardingEmergency.addressDomain.city === '') this.ifAddressCityEnter = false;
+    if(!this.onboardingEmergency.addressDomain.stateAbbr || this.onboardingEmergency.addressDomain.stateAbbr === '') this.ifAddessStateSelect = false;
+    if(!this.onboardingEmergency.addressDomain.zipCode || this.onboardingEmergency.addressDomain.zipCode === '') this.ifAddressZipcodeEnter = false;
     
     if(!this.onboardingEmergency.relationship || this.onboardingEmergency.relationship === '') this.ifRelationshipEnter = false;
   }
@@ -158,17 +154,17 @@ export class EmergencyComponent implements OnInit {
     }
   }
 
-  onAddressLine1Edit(event: any): void {
-    if (!this.onboardingEmergency.address.addressLine1 || this.onboardingEmergency.address.addressLine1 === '') {
-      this.ifAddressLine1Enter = false;
+  onAddressLineOneEdit(event: any): void {
+    if (!this.onboardingEmergency.addressDomain.addressLineOne || this.onboardingEmergency.addressDomain.addressLineOne === '') {
+      this.ifAddressLineOneEnter = false;
       this.ifUnclockNext = false;
     } else {
-      this.ifAddressLine1Enter = true;
+      this.ifAddressLineOneEnter = true;
     }
   }
 
   onCityEdit(event: any): void {
-    if (!this.onboardingEmergency.address.city || this.onboardingEmergency.address.city === '') {
+    if (!this.onboardingEmergency.addressDomain.city || this.onboardingEmergency.addressDomain.city === '') {
       this.ifAddressCityEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -177,7 +173,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onStateSelect(event: any): void {
-    if (!this.onboardingEmergency.address.stateAbbr || this.onboardingEmergency.address.stateAbbr === '') {
+    if (!this.onboardingEmergency.addressDomain.stateAbbr || this.onboardingEmergency.addressDomain.stateAbbr === '') {
       this.ifAddessStateSelect = false;
       this.ifUnclockNext = false;
     } else {
@@ -186,7 +182,7 @@ export class EmergencyComponent implements OnInit {
   }
 
   onZipcodeEdit(event: any): void {
-    if (!this.onboardingEmergency.address.zipcode || this.onboardingEmergency.address.zipcode === '') {
+    if (!this.onboardingEmergency.addressDomain.zipCode || this.onboardingEmergency.addressDomain.zipCode === '') {
       this.ifAddressZipcodeEnter = false;
       this.ifUnclockNext = false;
     } else {

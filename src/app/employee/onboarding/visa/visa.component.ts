@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingVisa } from 'src/app/domain/onboarding-visa.module';
-import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
+import { OnboardingVisa } from 'src/app/domain/employee/onboarding/onboarding-visa.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-visa',
   templateUrl: './visa.component.html',
-  styleUrls: ['./visa.component.css']
+  styleUrls: ['./visa.component.css', '../onboarding.module.css']
 })
 export class VisaComponent implements OnInit {
 
@@ -22,8 +22,8 @@ export class VisaComponent implements OnInit {
 
   localOptionsIndex: number = 0;
   localOptions = [
-    "Green Card",
-    "Citizen"
+    "Citizen",
+    "Green Card"
   ];
 
   ifInternationalSelect: boolean = true;
@@ -38,11 +38,11 @@ export class VisaComponent implements OnInit {
 
   startDate: string = "";
   endDate: string = "";
-  otherVisa: string = "";
+  customVisa: string = "";
 
   ifStartDate: boolean = true;
   ifEndDate: boolean = true;
-  ifOtherVisa: boolean = true;
+  ifCustomVisa: boolean = true;
 
   constructor(
     private onboardingService: OnboardingService,
@@ -52,9 +52,11 @@ export class VisaComponent implements OnInit {
   ngOnInit(): void {
     this.onboardingService.getOnboardingVisaService(this.onboardingVisa).subscribe(
       (res) => {
-        this.onboardingVisa.visaType = res.onboardingVisa.visaType,
-          this.onboardingVisa.visaStartDate = res.onboardingVisa.visaStartDate,
-          this.onboardingVisa.visaEndDate = res.onboardingVisa.visaEndDate
+        this.onboardingVisa.visaType = res.onboardingVisa.visaType;
+        this.onboardingVisa.visaStartDate = res.onboardingVisa.visaStartDate;
+        this.onboardingVisa.visaEndDate = res.onboardingVisa.visaEndDate;
+
+        this.readVisaData();
 
         if (this.nextCheck()) {
           this.ifUnclockNext = true;
@@ -71,7 +73,34 @@ export class VisaComponent implements OnInit {
     this.localOptionsIndex = i;
   }
 
-  inputVisaData() {
+  readVisaData() {
+
+    if(this.onboardingVisa.visaType === "Citizen") {
+
+      this.citizenOptionsIndex = 0;
+      this.localOptionsIndex = 0;
+
+    } else if(this.onboardingVisa.visaType === "Green Card") {
+
+      this.citizenOptionsIndex = 0;
+      this.localOptionsIndex = 1;
+
+    } else {
+
+      this.citizenOptionsIndex = 1;
+
+      this.internationalSelect = this.onboardingVisa.visaType;
+
+      if(this.onboardingVisa.visaType === "Others") {
+        this.customVisa = this.onboardingVisa.customType;
+      }
+
+      this.startDate = this.onboardingVisa.visaStartDate;
+      this.endDate = this.onboardingVisa.visaEndDate;
+    }
+  }
+
+  saveVisaData() {
     if (this.citizenOptionsIndex === 0) {
       this.onboardingVisa.visaType = this.localOptions[this.localOptionsIndex];
       this.onboardingVisa.visaStartDate = "";
@@ -79,7 +108,7 @@ export class VisaComponent implements OnInit {
     } else {
       this.onboardingVisa.visaType = this.internationalSelect;
       if (this.internationalSelect === "Other") {
-        this.onboardingVisa.visaType = this.otherVisa;
+        this.onboardingVisa.customType = this.customVisa;
       }
       this.onboardingVisa.visaStartDate = this.startDate;
       this.onboardingVisa.visaEndDate = this.endDate;
@@ -97,9 +126,9 @@ export class VisaComponent implements OnInit {
     if (this.internationalSelect) {
 
       if (this.internationalSelect === "Other") {
-        if (!this.otherVisa || this.otherVisa === '') this.ifOtherVisa = false;
+        if (!this.customVisa || this.customVisa === '') this.ifCustomVisa = false;
       } else {
-        this.ifOtherVisa = true;
+        this.ifCustomVisa = true;
       }
 
       if (!this.startDate || this.startDate === '') this.ifStartDate = false;
@@ -120,7 +149,7 @@ export class VisaComponent implements OnInit {
     }
 
     if (this.internationalSelect === "Other") {
-      return [this.startDate, this.endDate, this.otherVisa].every(test);
+      return [this.startDate, this.endDate, this.customVisa].every(test);
     }
 
     return [this.startDate, this.endDate,].every(test);
@@ -133,7 +162,7 @@ export class VisaComponent implements OnInit {
     if (this.nextCheck()) {
       this.ifUnclockNext = true;
 
-      this.inputVisaData();
+      this.saveVisaData();
 
       this.onboardingService.postOnboardingVisaService(this.onboardingVisa).subscribe(
         (res) => {
@@ -162,11 +191,11 @@ export class VisaComponent implements OnInit {
   }
 
   onOtherVisaEdit(event: any) {
-    if (!this.otherVisa || this.otherVisa === '') {
-      this.ifOtherVisa = false;
+    if (!this.customVisa || this.customVisa === '') {
+      this.ifCustomVisa = false;
       this.ifUnclockNext = false;
     } else {
-      this.ifOtherVisa = true;
+      this.ifCustomVisa = true;
     }
   }
 

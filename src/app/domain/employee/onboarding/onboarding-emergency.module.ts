@@ -1,13 +1,13 @@
-import { AddressDomain } from './address-domain.module';
+import { AddressDomain } from '../../common/address-domain.module';
 
-export class OnboardingReference {
+export class OnboardingEmergency {
 
   firstName : string = "";
   lastName : string = "";
   middleName : string = "";
   cellPhone : string = "";
   email : string = "";
-  address: AddressDomain = new AddressDomain();
+  addressDomain: AddressDomain = new AddressDomain();
   relationship : string = "";
 
   constructor() {}

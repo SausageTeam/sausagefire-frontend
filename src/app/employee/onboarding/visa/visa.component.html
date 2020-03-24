@@ -1,5 +1,5 @@
 <div class="my-3 mx-auto box-shadow bg-white">
-  <h3 class="color-dark m-0 p-3">Work Authorization</h3>
+  <h5 class="color-dark m-0 p-3">Work Authorization</h5>
 
   <div class="bottom-split-line"></div>
 
@@ -27,7 +27,7 @@
   <div *ngIf="citizenOptionsIndex === 0" class="p-3">
     
     <p class="color-dark">
-      Choose either "Green Card" or "Citizen"
+      Choose either "Citizen" or "Green Card"
       <span class="color-red">*</span>
     </p>
 
@@ -74,11 +74,11 @@
       </label>
 
       <input type="text" class="form-control" id="other-international" name="other-international"
-        [(ngModel)]="otherVisa"
+        [(ngModel)]="customVisa"
         (ngModelChange)="onOtherVisaEdit($event)"
-        [ngClass]="{'error-input':(!oi.valid && !oi.pristine) || ifOtherVisa === false}"
+        [ngClass]="{'error-input':(!oi.valid && !oi.pristine) || ifCustomVisa === false}"
         #oi="ngModel">
-      <div [hidden]="ifOtherVisa&&(oi.valid||oi.pristine)" class="error color-red">
+      <div [hidden]="ifCustomVisa&&(oi.valid||oi.pristine)" class="error color-red">
         <i class="fas fa-exclamation-circle mr-2"></i>
         <span>Please specify the type</span>
       </div>

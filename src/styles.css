@@ -98,3 +98,22 @@ input[type=date].form-control.active, input[type=date].form-control:focus {
 .form-control[readonly]:focus, .form-control[readonly]:active {
     box-shadow: none;
 }
+
+.dataTables_filter {
+    display: none;
+}
+
+.dataTables_wrapper {
+    color: #515B5B;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #f35c5c;
+    border: 1px solid transparent;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #3F66A1;
+    border: 1px solid transparent;
+    color: white !important;
+}

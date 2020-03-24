@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingPerson } from 'src/app/domain/onboarding-person.module';
-import { OnboardingService } from 'src/app/shared/_service/onboarding.service';
+import { OnboardingPerson } from 'src/app/domain/employee/onboarding/onboarding-person.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css', '../onboarding.module.css']
 })
 export class PersonComponent implements OnInit {
 
@@ -49,7 +49,7 @@ export class PersonComponent implements OnInit {
           this.ifUnclockNext = true;
         }
       }
-    )
+    );
   }
 
   onSaveClick(): void { 

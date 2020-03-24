@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingReference } from 'src/app/domain/onboarding-reference.module';
-import { AddressState } from 'src/app/shared/constant/addressState.module';
+import { OnboardingReference } from 'src/app/domain/employee/onboarding/onboarding-reference.module';
+import { AddressState } from 'src/app/common/constant/addressState.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-reference',
   templateUrl: './reference.component.html',
-  styleUrls: ['./reference.component.css']
+  styleUrls: ['./reference.component.css', '../onboarding.module.css']
 })
 export class ReferenceComponent implements OnInit {
 
@@ -19,8 +20,8 @@ export class ReferenceComponent implements OnInit {
   ifPhoneEnter: boolean = true;
   ifEmailEnter: boolean = true;
 
-  ifAddressLine1Enter : boolean = true;
-  ifAddressLine2Enter : boolean = true;
+  ifAddressLineOneEnter : boolean = true;
+  ifAddressLineTwoEnter : boolean = true;
   ifAddressCityEnter : boolean = true;
   ifAddessStateSelect : boolean = true;
   ifAddressZipcodeEnter : boolean = true;
@@ -30,28 +31,23 @@ export class ReferenceComponent implements OnInit {
   ifUnclockNext: boolean = false;
 
   constructor(
+    private onboardingService : OnboardingService,
     private router: Router,
     private addressState: AddressState
   ) { }
 
   ngOnInit(): void {
-    // this.onboardingService.getOnboardingService(this.onboardingPerson).subscribe(
-    //   (res) => {
-    //     this.onboardingPerson.firstName = res.onboardingPerson.firstName;
-    //     this.onboardingPerson.middleName = res.onboardingPerson.middleName;
-    //     this.onboardingPerson.lastName = res.onboardingPerson.lastName;
-    //     this.onboardingPerson.email = res.onboardingPerson.email;
-    //     this.onboardingPerson.cellPhone = res.onboardingPerson.cellPhone;
-    //     this.onboardingPerson.alternatePhone = res.onboardingPerson.alternatePhone;
-    //     this.onboardingPerson.gender = res.onboardingPerson.gender;
-    //     this.onboardingPerson.dob = res.onboardingPerson.dob;
-    //     this.onboardingPerson.ssn = res.onboardingPerson.ssn;
+    this.onboardingService.getOnboardingReferenceService(this.onboardingReference).subscribe(
+      (res) => {
+        this.onboardingReference = res.onboardingReference;
 
-    //     if(this.nextCheck()) {
-    //       this.ifUnclockNext = true;
-    //     }
-    //   }
-    // )
+        // this.state
+
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
+      }
+    )
   }
 
   onSaveClick(): void { 
@@ -62,21 +58,21 @@ export class ReferenceComponent implements OnInit {
       this.ifUnclockNext = true;
 
       // search the state full name (stateName)
-      var stateAbbr : string = this.onboardingReference.address.stateAbbr;
+      var stateAbbr : string = this.onboardingReference.addressDomain.stateAbbr;
       var stateName : string = "";
       this.state.forEach(function(entry){
         if(entry.name === stateAbbr)
           stateName = entry.value;
       });
-      this.onboardingReference.address.stateName = stateName;
+      this.onboardingReference.addressDomain.stateName = stateName;
 
       console.log(this.onboardingReference);
 
-      // this.onboardingService.postOnboardingService(this.onboardingPerson).subscribe(
-      //   (res) => {
-      //     // console.log(res);
-      //   }
-      // )
+      this.onboardingService.postOnboardingReferenceService(this.onboardingReference).subscribe(
+        (res) => {
+           console.log(res);
+        }
+      )
     }
   }
 
@@ -97,10 +93,10 @@ export class ReferenceComponent implements OnInit {
       this.onboardingReference.cellPhone,
       this.onboardingReference.email,
 
-      this.onboardingReference.address.addressLine1,
-      this.onboardingReference.address.city,
-      this.onboardingReference.address.stateAbbr,
-      this.onboardingReference.address.zipcode,
+      this.onboardingReference.addressDomain.addressLineOne,
+      this.onboardingReference.addressDomain.city,
+      this.onboardingReference.addressDomain.stateAbbr,
+      this.onboardingReference.addressDomain.zipCode,
 
       this.onboardingReference.relationship
     ].every(test);
@@ -113,10 +109,10 @@ export class ReferenceComponent implements OnInit {
     if(!this.onboardingReference.cellPhone || this.onboardingReference.cellPhone === '') this.ifPhoneEnter = false;
     if(!this.onboardingReference.email || this.onboardingReference.email === '') this.ifEmailEnter = false;
 
-    if(!this.onboardingReference.address.addressLine1 || this.onboardingReference.address.addressLine1 === '') this.ifAddressLine1Enter = false;
-    if(!this.onboardingReference.address.city || this.onboardingReference.address.city === '') this.ifAddressCityEnter = false;
-    if(!this.onboardingReference.address.stateAbbr || this.onboardingReference.address.stateAbbr === '') this.ifAddessStateSelect = false;
-    if(!this.onboardingReference.address.zipcode || this.onboardingReference.address.zipcode === '') this.ifAddressZipcodeEnter = false;
+    if(!this.onboardingReference.addressDomain.addressLineOne || this.onboardingReference.addressDomain.addressLineOne === '') this.ifAddressLineOneEnter = false;
+    if(!this.onboardingReference.addressDomain.city || this.onboardingReference.addressDomain.city === '') this.ifAddressCityEnter = false;
+    if(!this.onboardingReference.addressDomain.stateAbbr || this.onboardingReference.addressDomain.stateAbbr === '') this.ifAddessStateSelect = false;
+    if(!this.onboardingReference.addressDomain.zipCode || this.onboardingReference.addressDomain.zipCode === '') this.ifAddressZipcodeEnter = false;
     
     if(!this.onboardingReference.relationship || this.onboardingReference.relationship === '') this.ifRelationshipEnter = false;
   }
@@ -157,17 +153,17 @@ export class ReferenceComponent implements OnInit {
     }
   }
 
-  onAddressLine1Edit(event: any): void {
-    if (!this.onboardingReference.address.addressLine1 || this.onboardingReference.address.addressLine1 === '') {
-      this.ifAddressLine1Enter = false;
+  onAddressLineOneEdit(event: any): void {
+    if (!this.onboardingReference.addressDomain.addressLineOne || this.onboardingReference.addressDomain.addressLineOne === '') {
+      this.ifAddressLineOneEnter = false;
       this.ifUnclockNext = false;
     } else {
-      this.ifAddressLine1Enter = true;
+      this.ifAddressLineOneEnter = true;
     }
   }
 
   onCityEdit(event: any): void {
-    if (!this.onboardingReference.address.city || this.onboardingReference.address.city === '') {
+    if (!this.onboardingReference.addressDomain.city || this.onboardingReference.addressDomain.city === '') {
       this.ifAddressCityEnter = false;
       this.ifUnclockNext = false;
     } else {
@@ -176,7 +172,7 @@ export class ReferenceComponent implements OnInit {
   }
 
   onStateSelect(event: any): void {
-    if (!this.onboardingReference.address.stateAbbr || this.onboardingReference.address.stateAbbr === '') {
+    if (!this.onboardingReference.addressDomain.stateAbbr || this.onboardingReference.addressDomain.stateAbbr === '') {
       this.ifAddessStateSelect = false;
       this.ifUnclockNext = false;
     } else {
@@ -185,7 +181,7 @@ export class ReferenceComponent implements OnInit {
   }
 
   onZipcodeEdit(event: any): void {
-    if (!this.onboardingReference.address.zipcode || this.onboardingReference.address.zipcode === '') {
+    if (!this.onboardingReference.addressDomain.zipCode || this.onboardingReference.addressDomain.zipCode === '') {
       this.ifAddressZipcodeEnter = false;
       this.ifUnclockNext = false;
     } else {

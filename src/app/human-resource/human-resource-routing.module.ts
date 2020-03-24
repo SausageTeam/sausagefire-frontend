@@ -19,7 +19,7 @@ const humanResourceRoutes: Routes = [
         loadChildren: () => import('./hire/hire.module').then(m => m.HireModule)
       },
       {
-        path: 'visas',
+        path: 'visa-status-mangement',
         loadChildren: () => import('./visa-management/visa-management.module').then(m => m.VisaManagementModule)
       },
       {

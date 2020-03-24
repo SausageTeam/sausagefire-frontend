@@ -41,6 +41,7 @@ const humanResourceRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(humanResourceRoutes)
+  
   ],
   exports: [
     RouterModule

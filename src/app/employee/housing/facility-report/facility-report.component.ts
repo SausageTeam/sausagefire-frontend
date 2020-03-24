@@ -34,6 +34,10 @@ export class FacilityReportComponent implements OnInit {
     }
   }
 
+  disableSubmit() : boolean {
+    return this.ifTitleEnter && this.ifDescriptionEnter;
+  }
+  
   onSubmitClick(): void { 
     this.inputCheck();
     this.facilityReportService.postFacilityReportService(this.facilityReport).subscribe(

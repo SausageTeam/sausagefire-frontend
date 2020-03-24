@@ -58,6 +58,7 @@ export class AvatarComponent implements OnInit {
     this.onboardingService.postOnboardingAvatarService(this.avatar).subscribe(
       (res) => {
         // console.log(res);
+        this.router.navigate(['/employee/onboarding/avatar']);
       }
     )
 

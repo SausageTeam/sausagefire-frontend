@@ -92,11 +92,11 @@
         <label class="color-dark" for="street-addres">Street Address: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="street-addres" name="street-addres"
           required 
-          [(ngModel)]="onboardingReference.address.addressLine1"
-          (ngModelChange)="onAddressLine1Edit($event)"
-          [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLine1Enter === false}"
+          [(ngModel)]="onboardingReference.address.addressLineOne"
+          (ngModelChange)="onAddressLineOneEdit($event)"
+          [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLineOneEnter === false}"
           #sa="ngModel">
-        <div [hidden]="ifAddressLine1Enter&&(sa.valid||sa.pristine)" class="error color-red">
+        <div [hidden]="ifAddressLineOneEnter&&(sa.valid||sa.pristine)" class="error color-red">
           <i class="fas fa-exclamation-circle mr-2"></i>
           <span>Please enter the street address</span>
         </div>
@@ -108,7 +108,7 @@
         <input type="text" class="form-control" id="street-addres-2" name="street-addres-2"
           required 
           placeholder="Apt, Suite, Bldg. (optional)"
-          [(ngModel)]="onboardingReference.address.addressLine2">
+          [(ngModel)]="onboardingReference.address.addressLineTwo">
       </div>
 
       <!-- city -->

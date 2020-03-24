@@ -20,8 +20,8 @@ export class EmergencyContactComponent implements OnInit {
     this.profileEmergencyContact.firstName = "Zack";
     this.profileEmergencyContact.lastName = "Yu";
     this.profileEmergencyContact.cellPhone = "9291231234";
-    this.profileEmergencyContact.addressDomain.addressLine1 = "81 Sheelly Cir";
-    this.profileEmergencyContact.addressDomain.addressLine2 = "Apt 1";
+    this.profileEmergencyContact.addressDomain.addressLineOne = "81 Sheelly Cir";
+    this.profileEmergencyContact.addressDomain.addressLineTwo = "Apt 1";
     this.profileEmergencyContact.addressDomain.city = "East Windsor";
     this.profileEmergencyContact.addressDomain.stateAbbr = "NJ";
     this.profileEmergencyContact.addressDomain.zipcode = "08520";
@@ -33,10 +33,10 @@ export class EmergencyContactComponent implements OnInit {
   getFullAddress(addressDomain : AddressDomain) : string {
     let fullAddress = "";
 
-    fullAddress += addressDomain.addressLine1;
+    fullAddress += addressDomain.addressLineOne;
 
-    if(addressDomain.addressLine2 && addressDomain.addressLine2 !== "") {
-      fullAddress += " " + addressDomain.addressLine2;
+    if(addressDomain.addressLineTwo && addressDomain.addressLineTwo !== "") {
+      fullAddress += " " + addressDomain.addressLineTwo;
     }
 
     fullAddress += ", " + addressDomain.city;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressDomain } from 'src/app/domain/common/address-domain.module';
 import { ProfileEmergencyContact } from 'src/app/domain/employee/profile/profile-emergency-contact.module';
+import { PersonalProfileService } from 'src/app/service/personal-profile.service';
 
 @Component({
   selector: 'app-emergency-contact',
@@ -14,20 +15,21 @@ export class EmergencyContactComponent implements OnInit {
   fullName : string = "";
   displayAddress : string = "";
 
-  constructor() { }
+  constructor(
+    private personalProfileService : PersonalProfileService
+  ) { }
 
   ngOnInit(): void {
-    this.profileEmergencyContact.firstName = "Zack";
-    this.profileEmergencyContact.lastName = "Yu";
-    this.profileEmergencyContact.cellPhone = "9291231234";
-    this.profileEmergencyContact.addressDomain.addressLineOne = "81 Sheelly Cir";
-    this.profileEmergencyContact.addressDomain.addressLineTwo = "Apt 1";
-    this.profileEmergencyContact.addressDomain.city = "East Windsor";
-    this.profileEmergencyContact.addressDomain.stateAbbr = "NJ";
-    this.profileEmergencyContact.addressDomain.zipCode = "08520";
 
-    this.fullName = this.profileEmergencyContact.firstName + this.profileEmergencyContact.lastName;
-    this.displayAddress = this.getFullAddress(this.profileEmergencyContact.addressDomain);
+    this.personalProfileService.getEmergencyContactService().subscribe(
+      (res) => {
+        this.profileEmergencyContact = res.profileEmergencyContact;
+
+        this.fullName = this.profileEmergencyContact.firstName + " " + this.profileEmergencyContact.lastName;
+        this.displayAddress = this.getFullAddress(this.profileEmergencyContact.addressDomain);
+      }
+    );
+
   }
 
   getFullAddress(addressDomain : AddressDomain) : string {

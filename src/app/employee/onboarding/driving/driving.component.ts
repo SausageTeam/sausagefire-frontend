@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnboardingDriving } from 'src/app/domain/employee/onboarding/onboarding-driving.module';
+import { OnboardingService } from 'src/app/service/onboarding.service';
 
 @Component({
   selector: 'app-driving',
@@ -42,10 +43,20 @@ export class DrivingComponent implements OnInit {
   ifColorEnter : boolean = true;
 
   constructor(
+    private onboardingService : OnboardingService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.onboardingService.getOnboardingDrivingService(this.onboardingDriving).subscribe(
+      (res) => {
+        this.onboardingDriving.driverLicense = res.onboardingDriving.driverLicense;
+        this.onboardingDriving.driverLicenseExpirationDate = res.onboardingDriving.driverLicenseExpirationDate;
+
+        if(this.nextCheck()) {
+          this.ifUnclockNext = true;
+        }
+      })
   }
 
   selectDriverLisenseOption(i : number) {
@@ -92,8 +103,14 @@ export class DrivingComponent implements OnInit {
 
     this.inputCheck();
 
+    console.log(this.onboardingDriving);
+
     if(this.nextCheck()) {
       this.ifUnclockNext = true;
+      this.onboardingService.postOnboardingDrivingService(this.onboardingDriving).subscribe(
+        (res) => {
+          //  console.log(res);
+        })
     }
   }
 

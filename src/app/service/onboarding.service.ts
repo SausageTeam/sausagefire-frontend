@@ -4,8 +4,9 @@ import 'rxjs/add/operator/map';
 import { OnboardingPerson } from "src/app/domain/employee/onboarding/onboarding-person.module"
 import { OnboardingVisa } from "src/app/domain/employee/onboarding/onboarding-visa.module"
 import { OnboardingPersonResponse, OnboardingAvatarResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
-import { OnboardingVisaResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
+import { OnboardingVisaResponse, OnboardingDrivingResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
 import { OnboardingAvatar } from '../domain/employee/onboarding/onboarding-avator.module';
+import { OnboardingDriving } from '../domain/employee/onboarding/onboarding-driving.module';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,22 @@ export class OnboardingService {
 
   postOnboardingVisaService(onboardingVisa: OnboardingVisa) {
     return this.http.post("http://localhost:4200/api/employee/onboarding/visa", { onboardingVisa }).map((res : OnboardingVisaResponse) => {
+      console.log("post");  
+      console.log(res);
+      return res;
+    })
+   }
+
+   getOnboardingDrivingService(onboardingDriving: OnboardingDriving) {
+    return this.http.get("http://localhost:4200/api/employee/onboarding/driving").map((res: OnboardingDrivingResponse) => {
+      console.log("get");
+      console.log(res);
+      return res;
+    })
+  }
+
+  postOnboardingDrivingService(onboardingDriving: OnboardingDriving) {
+    return this.http.post("http://localhost:4200/api/employee/onboarding/driving", { onboardingDriving }).map((res : OnboardingDrivingResponse) => {
       console.log("post");  
       console.log(res);
       return res;

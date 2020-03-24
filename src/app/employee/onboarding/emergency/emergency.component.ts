@@ -21,7 +21,7 @@ export class EmergencyComponent implements OnInit {
   ifEmailEnter: boolean = true;
 
   ifAddressLineOneEnter : boolean = true;
-  ifAddressLine2Enter : boolean = true;
+  ifAddressLineTwoEnter : boolean = true;
   ifAddressCityEnter : boolean = true;
   ifAddessStateSelect : boolean = true;
   ifAddressZipcodeEnter : boolean = true;

@@ -65,6 +65,10 @@ html, body {
     color: #c63316;
 }
 
+.color-green {
+    color: #29C178;
+}
+
 .error {
     padding: 5px;
     font-size: 14px;

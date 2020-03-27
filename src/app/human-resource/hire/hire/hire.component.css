@@ -3,10 +3,11 @@
 }
 
 .generate-btn {
-  width: 150px;
+  width: 140px;
+  height: 40px;
   font-size: 14px;
 }
 
-.error-msg {
+.error-msg, .success-msg {
   font-size: 13px;
 }

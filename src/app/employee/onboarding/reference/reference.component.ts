@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingReference } from 'src/app/_domain/employee/onboarding/onboarding-reference.module';
+import { OnboardingReference } from 'src/app/_common/_domain/employee/onboarding/onboarding-reference.module';
 import { AddressState } from 'src/app/_common/_constant/addressState.module';
 import { OnboardingService } from 'src/app/_service/employee/onboarding.service';
 

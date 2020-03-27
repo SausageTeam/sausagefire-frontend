@@ -1,5 +1,5 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { Dashboard } from 'src/app/_domain/hr/dashboard/dashboard.module';
+import { Dashboard } from 'src/app/_common/_domain/hr/dashboard/dashboard.module';
 
 @Component({
   selector: 'app-dashboard',
@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit {
 
 }
 
-import { Trouble } from 'src/app/_domain/hr/dashboard/trouble.module';
+import { Trouble } from 'src/app/_common/_domain/hr/dashboard/trouble.module';
 import { DataTableDirective } from 'angular-datatables';
 import { DashboardService } from 'src/app/_service/hr/dashboard-service';
 

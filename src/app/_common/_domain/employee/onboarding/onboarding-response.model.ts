@@ -1,5 +1,5 @@
-import { OnboardingPerson } from 'src/app/_domain/employee/onboarding/onboarding-person.module';
-import { OnboardingVisa } from 'src/app/_domain/employee/onboarding/onboarding-visa.module'
+import { OnboardingPerson } from 'src/app/_common/_domain/employee/onboarding/onboarding-person.module';
+import { OnboardingVisa } from 'src/app/_common/_domain/employee/onboarding/onboarding-visa.module'
 import { OnboardingAvatar } from './onboarding-avator.module';
 import { OnboardingDriving } from './onboarding-driving.module';
 import { OnboardingReference } from './onboarding-reference.module';

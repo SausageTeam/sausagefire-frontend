@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { VisaStatusManagementResponse } from "src/app/_domain/employee/visaStatusManagement/visa-status-management-response.module";
-import { VisaStatusManagement } from "src/app/_domain/employee/visaStatusManagement/visa-status-management.module";
+import { VisaStatusManagementResponse } from "src/app/_common/_domain/employee/visaStatusManagement/visa-status-management-response.module";
+import { VisaStatusManagement } from "src/app/_common/_domain/employee/visaStatusManagement/visa-status-management.module";
 
 @Injectable({
     providedIn: 'root'

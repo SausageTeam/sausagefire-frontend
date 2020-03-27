@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NavResponse, AuthResponse } from '../../_domain/app/app-response.model';
+import { NavResponse, AuthResponse } from '../../_common/_domain/app/app-response.model';
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
 

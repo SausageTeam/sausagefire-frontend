@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HireGenerateToken } from 'src/app/_domain/hr/hire/hire-generate-token.module';
+import { HireGenerateToken } from 'src/app/_common/_domain/hr/hire/hire-generate-token.module';
 import { HireService } from 'src/app/_service/hr/hire.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VisaStatusManagement } from 'src/app/_domain/hr/visa-status/visa-status-management.module';
+import { VisaStatusManagement } from 'src/app/_common/_domain/hr/visa-status/visa-status-management.module';
 
 @Component({
   selector: 'app-visa-management',
@@ -27,7 +27,7 @@ export class VisaManagementComponent implements OnInit {
 }
 
 
-import { VisaStatusRecord } from 'src/app/_domain/hr/visa-status/visa-status-record.module';
+import { VisaStatusRecord } from 'src/app/_common/_domain/hr/visa-status/visa-status-record.module';
 import { HRVisaStatusManagementService } from 'src/app/_service/hr/hr-visa-status-management.service';
 
 function visaStatusManagementMosk() {

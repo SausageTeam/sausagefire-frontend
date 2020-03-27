@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { Dashboard } from "src/app/_domain/hr/dashboard/dashboard.module";
-import { DashboardResponse } from '../../_domain/hr/dashboard/dashboard-response.module';
+import { Dashboard } from "src/app/_common/_domain/hr/dashboard/dashboard.module";
+import { DashboardResponse } from '../../_common/_domain/hr/dashboard/dashboard-response.module';
 
 @Injectable({
     providedIn: 'root'

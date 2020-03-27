@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/_service/app/app.service';
+import { AppService } from 'src/app/_common/_service/app/app.service';
+
 
 @Component({
   selector: 'app-avatar',

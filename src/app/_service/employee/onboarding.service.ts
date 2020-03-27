@@ -1,15 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { OnboardingPerson } from "src/app/domain/employee/onboarding/onboarding-person.module"
-import { OnboardingVisa } from "src/app/domain/employee/onboarding/onboarding-visa.module"
-import { OnboardingPersonResponse, OnboardingAvatarResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
-import { OnboardingVisaResponse, OnboardingDrivingResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
-import { OnboardingReferenceResponse, OnboardingEmergencyResponse } from "src/app/domain/employee/onboarding/onboarding-response.model"
-import { OnboardingAvatar } from '../domain/employee/onboarding/onboarding-avator.module';
-import { OnboardingDriving } from '../domain/employee/onboarding/onboarding-driving.module';
-import { OnboardingReference } from '../domain/employee/onboarding/onboarding-reference.module';
-import { OnboardingEmergency } from '../domain/employee/onboarding/onboarding-emergency.module';
+import { OnboardingPerson } from "src/app/_domain/employee/onboarding/onboarding-person.module"
+import { OnboardingVisa } from "src/app/_domain/employee/onboarding/onboarding-visa.module"
+import { OnboardingPersonResponse, OnboardingAvatarResponse } from "src/app/_domain/employee/onboarding/onboarding-response.model"
+import { OnboardingVisaResponse, OnboardingDrivingResponse } from "src/app/_domain/employee/onboarding/onboarding-response.model"
+import { OnboardingReferenceResponse, OnboardingEmergencyResponse } from "src/app/_domain/employee/onboarding/onboarding-response.model"
+import { OnboardingAvatar } from '../../_domain/employee/onboarding/onboarding-avator.module';
+import { OnboardingDriving } from '../../_domain/employee/onboarding/onboarding-driving.module';
+import { OnboardingReference } from '../../_domain/employee/onboarding/onboarding-reference.module';
+import { OnboardingEmergency } from '../../_domain/employee/onboarding/onboarding-emergency.module';
 
 @Injectable({
   providedIn: 'root'

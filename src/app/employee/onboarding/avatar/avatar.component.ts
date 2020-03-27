@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingService } from 'src/app/service/onboarding.service';
-import { OnboardingAvatar } from 'src/app/domain/employee/onboarding/onboarding-avator.module';
+import { OnboardingService } from 'src/app/_service/employee/onboarding.service';
+import { OnboardingAvatar } from 'src/app/_domain/employee/onboarding/onboarding-avator.module';
 
 @Component({
   selector: 'app-avatar',

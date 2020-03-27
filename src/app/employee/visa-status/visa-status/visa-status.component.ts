@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VisaStatusManagement } from 'src/app/domain/employee/visaStatusManagement/visa-status-management.module';
-import { EMVisaStatusManagementService } from 'src/app/service/em-visa-status-management.service';
+import { VisaStatusManagement } from 'src/app/_domain/employee/visaStatusManagement/visa-status-management.module';
+import { EMVisaStatusManagementService } from 'src/app/_service/employee/em-visa-status-management.service';
 
 @Component({
   selector: 'app-visa-status',

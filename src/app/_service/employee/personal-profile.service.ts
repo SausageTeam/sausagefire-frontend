@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AppResponse } from '../domain/app/app-response.model';
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { ProfileNameResponse, ProfileAddressResponse, ProfileContactResponse, ProfileEmploymentResponse, ProfileEmergencyContactResponse, ProfileDocumentResponse } from '../domain/employee/profile/profile-response.module';
+import { ProfileNameResponse, ProfileAddressResponse, ProfileContactResponse, ProfileEmploymentResponse, ProfileEmergencyContactResponse, ProfileDocumentResponse } from '../../_domain/employee/profile/profile-response.module';
 
 @Injectable({
   providedIn: 'root'

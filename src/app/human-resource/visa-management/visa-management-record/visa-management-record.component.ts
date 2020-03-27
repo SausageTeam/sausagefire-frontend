@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { VisaStatusRecord } from 'src/app/domain/hr/visa-status/visa-status-record.module';
+import { VisaStatusRecord } from 'src/app/_domain/hr/visa-status/visa-status-record.module';
 
 @Component({
   selector: 'app-visa-management-record',

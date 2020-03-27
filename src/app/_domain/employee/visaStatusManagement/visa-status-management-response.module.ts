@@ -1,4 +1,4 @@
-import { VisaStatusManagement } from "src/app/domain/employee/visaStatusManagement/visa-status-management.module";
+import { VisaStatusManagement } from "src/app/_domain/employee/visaStatusManagement/visa-status-management.module";
 
 import { ServiceStatus } from '../../common/service-status.module';
 

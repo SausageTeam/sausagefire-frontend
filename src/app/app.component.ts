@@ -9,13 +9,17 @@ import { AppService } from './_common/_service/app/app.service';
 export class AppComponent implements OnInit {
 
   constructor(
-    private appService : AppService
+    private appService : AppService,
   ) {}
 
   ngOnInit() : void {
     this.appService.getAuthService().subscribe(
       (res) => {
-        console.log(res);
+        if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
+          window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
+        } else {
+          console.log(res);
+        }
       }
     );
   }

@@ -11,7 +11,7 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   getAvatarService() {
-    return this.http.get('http://localhost:4200/api/app/nav').map((res: NavResponse) => {
+    return this.http.get('http://localhost:4200/api/app/nav/').map((res: NavResponse) => {
       // console.log("get");
       // console.log(res);
       return res;
@@ -19,7 +19,7 @@ export class AppService {
   };
 
   getAuthService() {
-    return this.http.get('http://localhost:4200/api/app/auth').map((res: AuthResponse) => {
+    return this.http.get('http://localhost:4200/api/app/auth/').map((res: AuthResponse) => {
       // console.log("get");
       // console.log(res);
       return res;

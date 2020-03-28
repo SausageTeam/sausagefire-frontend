@@ -1,0 +1,23 @@
+.edit-btn {
+  border-radius: 15px;
+  border: 1px solid #F5F5F5;
+  line-height: 1;
+  font-size: 12px;
+  height: 30px;
+  width: 80px;
+  color: #515B5B;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-title {
+  font-size: 12px;
+  margin: 0;
+  color : #909495;
+}
+
+.feature-value {
+  font-size: 15px;
+  color: #515B5B;
+  margin-bottom: 7px;
+}

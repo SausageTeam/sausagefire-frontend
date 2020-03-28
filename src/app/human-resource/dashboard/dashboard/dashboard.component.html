@@ -1,0 +1,91 @@
+
+<div *ngIf="ifNotifyListShow" class="box-shadow bg-white m-3">
+
+  <div class="p-3">
+    <h5 class="color-dark mb-1">Notify List</h5>
+    <p class="color-light m-0 section-desc">The following employees are currently OPT EAD and there are less than 100 days before the expiration date.</p>
+    <p class="color-light m-0 section-desc">Please notice them to submit the required document.</p>
+  </div>
+
+
+  <div class="bottom-split-line"></div>
+
+  <div class="px-3 pb-3 pt-1">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Work Auth.</th>
+          <th>Exp. Date</th>
+          <th>Day Left</th>
+          <th>Action Button</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let trouble of dashboard.notifyList">
+          <td>{{trouble.employeeId}}</td>
+          <td>{{getFullName(trouble.firstName, trouble.middleName, trouble.lastName)}}</td>
+          <td>{{trouble.workAuthorization}}</td>
+          <td>{{trouble.visaEndDate}}</td>
+          <td>{{trouble.dayLeft}}</td>
+          <td>
+            <button class="btn btn-primary notification-btn"
+              (click)="onSendClick(trouble.employeeId)">
+              Send Notification
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div *ngIf="ifWaitingListShow" class="box-shadow bg-white m-3">
+
+  <div class="p-3">
+    <h5 class="color-dark mb-1">Waiting List</h5>
+    <p class="color-light m-0 section-desc">The following employees has submitted new document.</p>
+    <p class="color-light m-0 section-desc">Please help them review it.</p>
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="px-3 pb-3 pt-1">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Work Auth.</th>
+          <th>Exp. Date</th>
+          <th>Day Left</th>
+          <th>Recent Submit</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let trouble of dashboard.waitingList">
+          <td>{{trouble.employeeId}}</td>
+          <td>{{getFullName(trouble.firstName, trouble.middleName, trouble.lastName)}}</td>
+          <td>{{trouble.workAuthorization}}</td>
+          <td>{{trouble.visaEndDate}}</td>
+          <td>{{trouble.dayLeft}}</td>
+          <td>{{trouble.fileName}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div *ngIf="!ifNotifyListShow && !ifWaitingListShow" class="empty-container d-flex">
+  <div class="font-weight-bold color-light m-auto text-center">
+    <i class="fas fa-thumbs-up empty-icon"></i>
+    <p class="m-0">Everything is clear.</p>
+  </div>
+</div>
+
+

@@ -1,0 +1,106 @@
+<div class="box-shadow bg-white m-3">
+
+  <div class="p-3 d-flex justify-content-between">
+    <div>
+      <h5 class="color-dark mb-1">Generate Token</h5>
+      <p class="color-light m-0 section-desc">Please enter the new hired employee email then click the 'generate Token' button below.</p>
+      <p class="color-light m-0 section-desc">It will generate a token for his registration process and send to the input email.</p>
+    </div>
+    
+    <button class="btn btn-primary generate-btn ml-auto mr-2 my-auto"
+      (click)="onSubmitClick()">
+      Generate Token
+    </button>
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <div class="row">
+
+      <!-- email -->
+      <div class="form-group col-md-6">
+
+        <label class="color-dark" for="email">Email: <span class="color-red">*</span></label>
+
+        <input type="text" class="form-control" id="email" name="email"
+          required 
+          [(ngModel)]="hireGenerateToken.email"
+          (ngModelChange)="onEmailEdit($event)"
+          [ngClass]="{'error-input':(!tEmail.valid && !tEmail.pristine) || ifEmailEnter === false}"
+          #tEmail="ngModel">
+
+        <div [hidden]="ifEmailEnter&&(tEmail.valid||tEmail.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the employee email</span>
+        </div>
+
+      </div>
+
+      <!-- title -->
+      <div class="form-group col-md-6">
+
+        <label class="color-dark" for="title">Title: <span class="color-red">*</span></label>
+
+        <input type="text" class="form-control" id="title" name="title"
+          required 
+          [(ngModel)]="hireGenerateToken.title"
+          (ngModelChange)="onTitleEdit($event)"
+          [ngClass]="{'error-input':(!tTitle.valid && !tTitle.pristine) || ifTitleEnter === false}"
+          #tTitle="ngModel">
+
+        <div [hidden]="ifTitleEnter&&(tTitle.valid||tTitle.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter the employee title</span>
+        </div>
+
+      </div>
+
+      <!-- start date -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="start-date">Start Date: <span class="color-red">*</span></label>
+        <input type="date" class="form-control" id="start-date" name="start-date" 
+          required 
+          [(ngModel)]="hireGenerateToken.startDate"
+          (ngModelChange)="onStartDateSelect($event)"
+          [ngClass]="{'error-input':(!sd.valid && !sd.pristine) || ifStartDateSelect === false, 'active': this.hireGenerateToken.startDate !== ''}"
+          #sd="ngModel">
+
+        <div [hidden]="ifStartDateSelect&&(sd.valid||sd.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select the employee start date</span>
+        </div>
+      </div>
+
+      <!-- end date -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="end-date">End Date: <span class="color-red">*</span></label>
+        <input type="date" class="form-control" id="end-date" name="end-date" 
+          required 
+          [(ngModel)]="hireGenerateToken.endDate"
+          (ngModelChange)="onEndDateSelect($event)"
+          [ngClass]="{'error-input':(!ed.valid && !ed.pristine) || ifEndDateSelect === false, 'active': this.hireGenerateToken.endDate !== ''}"
+          #ed="ngModel">
+
+        <div [hidden]="ifEndDateSelect&&(ed.valid||ed.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select the employee end date</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="top-split-line p-3" *ngIf='ifSubmit'>
+    <p class="error-msg color-red m-0" *ngIf='errorMsg && errorMsg !== ""; else success'>
+      {{errorMsg}}
+    </p>
+
+    <ng-template #success>
+      <p class="success-msg color-green m-0">Token generated successfully</p>
+    </ng-template> 
+  </div>
+  
+</div>

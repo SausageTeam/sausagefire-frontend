@@ -1,0 +1,13 @@
+.section-desc {
+  font-size: 12px;
+}
+
+.generate-btn {
+  width: 140px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.error-msg, .success-msg {
+  font-size: 13px;
+}

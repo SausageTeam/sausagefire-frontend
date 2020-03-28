@@ -9,68 +9,78 @@
 
   <ul class="nav flex-column">
 
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/employee/onboarding">
-        <i class="fas fa-pizza-slice"></i>
-        Onboarding
-      </a>
-    </li>
+    <ng-container *ngIf="ifOnboarding">
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/employee/onboarding">
+          <i class="fas fa-pizza-slice"></i>
+          Onboarding
+        </a>
+      </li>
+    </ng-container>
 
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/employee/dashboard" >
-        <i class="fas fa-home"></i>
-        Dashboard
-      </a>
-    </li>
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/employee/profile">
-        <i class="fas fa-id-card"></i>
-        Profile
-      </a>
-    </li>
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/employee/visa-status-management">
-        <i class="fas fa-globe-asia"></i>
-        Visa
-      </a>
-    </li>
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/employee/housing">
-        <i class="fas fa-building"></i>
-        Housing
-      </a>
-    </li>
+    <ng-container *ngIf="ifEmployee">
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/employee/dashboard" >
+          <i class="fas fa-home"></i>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/employee/profile">
+          <i class="fas fa-id-card"></i>
+          Profile
+        </a>
+      </li>
 
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/hr/dashboard" >
-        <i class="fas fa-home"></i>
-        Dashboard
-      </a>
-    </li>
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/hr/employees">
-        <i class="fas fa-users"></i>
-        Employees
-      </a>
-    </li>
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/hr/hire">
-        <i class="fab fa-hire-a-helper"></i>
-        Hire
-      </a>
-    </li>
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/hr/visa-status-mangement">
-        <i class="fas fa-globe"></i>
-        Visas
-      </a>
-    </li>
-    <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/hr/houses">
-        <i class="fas fa-city"></i>
-        Houses
-      </a>
-    </li>
+      <ng-container *ngIf="ifNeedVisa">
+        <li class="nav-item sidebar-item" routerLinkActive="active">
+          <a class="nav-link sidebar-link" routerLink="/employee/visa-status-management">
+            <i class="fas fa-globe-asia"></i>
+            Visa
+          </a>
+        </li>
+      </ng-container>
+      
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/employee/housing">
+          <i class="fas fa-building"></i>
+          Housing
+        </a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngIf="ifHr">
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/hr/dashboard" >
+          <i class="fas fa-home"></i>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/hr/employees">
+          <i class="fas fa-users"></i>
+          Employees
+        </a>
+      </li>
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/hr/hire">
+          <i class="fab fa-hire-a-helper"></i>
+          Hire
+        </a>
+      </li>
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/hr/visa-status-mangement">
+          <i class="fas fa-globe"></i>
+          Visas
+        </a>
+      </li>
+      <li class="nav-item sidebar-item" routerLinkActive="active">
+        <a class="nav-link sidebar-link" routerLink="/hr/houses">
+          <i class="fas fa-city"></i>
+          Houses
+        </a>
+      </li>
+    </ng-container>
 
   </ul>
 
@@ -78,21 +88,13 @@
 
 <nav class="main-navbar navbar flex-nowrap fixed-top py-0">
   <ul class="nav ml-auto mr-3">
+    
     <li class="nav-item text-nowrap">
-      <a class="nav-link main-navbar-link">
-        
+
         <app-nav-container>
           <app-nav></app-nav>
         </app-nav-container>
-        
-        <span class="my-auto mr-2">Rob Test</span>
-        <i class="fas fa-sort-down"></i>
-      </a>
-      <div style="display: none;">
-        <ul>
-          <li><a href="#">Logout</a></li>
-        </ul>
-      </div>
+
     </li>
 
     <div class="vertical-split-line mr-1"></div>

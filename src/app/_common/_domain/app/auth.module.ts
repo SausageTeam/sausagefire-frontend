@@ -1,4 +1,5 @@
 export class Auth {
   roleId : number;
-  applicationWorkFlowType : number;
+  onboardingStatus : number;
+  ifNeedVisa : boolean;
 }

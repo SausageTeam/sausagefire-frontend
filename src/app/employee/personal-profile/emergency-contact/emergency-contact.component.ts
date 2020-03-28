@@ -13,7 +13,7 @@ export class EmergencyContactComponent implements OnInit {
   profileEmergencyContact : ProfileEmergencyContact = new ProfileEmergencyContact();
 
   fullName : string = "";
-  displayAddress : string = "";
+  displayAddressLineTwo : string = "";
 
   constructor(
     private personalProfileService : PersonalProfileService
@@ -23,29 +23,18 @@ export class EmergencyContactComponent implements OnInit {
 
     this.personalProfileService.getEmergencyContactService().subscribe(
       (res) => {
+        
+        // console.log(res);
+
         this.profileEmergencyContact = res.profileEmergencyContact;
 
         this.fullName = this.profileEmergencyContact.firstName + " " + this.profileEmergencyContact.lastName;
-        this.displayAddress = this.getFullAddress(this.profileEmergencyContact.addressDomain);
+      
+
+        this.displayAddressLineTwo = !this.profileEmergencyContact.addressDomain.addressLineTwo || this.profileEmergencyContact.addressDomain.addressLineTwo === "" ? "-" : this.profileEmergencyContact.addressDomain.addressLineTwo;
       }
     );
 
-  }
-
-  getFullAddress(addressDomain : AddressDomain) : string {
-    let fullAddress = "";
-
-    fullAddress += addressDomain.addressLineOne;
-
-    if(addressDomain.addressLineTwo && addressDomain.addressLineTwo !== "") {
-      fullAddress += " " + addressDomain.addressLineTwo;
-    }
-
-    fullAddress += ", " + addressDomain.city;
-    fullAddress += ", " + addressDomain.stateAbbr;
-    fullAddress += ", " + addressDomain.zipCode;
-
-    return fullAddress;
   }
 
 }

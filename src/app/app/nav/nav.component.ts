@@ -9,6 +9,7 @@ import { AppService } from 'src/app/_common/_service/app/app.service';
 })
 export class NavComponent implements OnInit {
 
+  firstName : string = "Unknown";
   imageSrc : any = "assets/default-avatar.jpg";
 
   constructor(
@@ -18,7 +19,12 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.appService.getAvatarService().subscribe(
       (res) => {
-        this.imageSrc = res.nav.avatarUri ? res.nav.avatarUri : "assets/default-avatar.jpg";
+        if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
+          window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
+        } else {
+          this.imageSrc = res.nav.avatarUri ? res.nav.avatarUri : "assets/default-avatar.jpg";
+          this.firstName = res.nav.firstName ? res.nav.firstName : "Unknown";
+        }
       }
     );
   }

@@ -13,6 +13,7 @@ export class NameComponent implements OnInit {
 
   imageSrc : any = "assets/default-avatar.jpg";
   fullName : string  = "";
+  preferredName : string = "";
   displaySSN : string = "";
 
   constructor(
@@ -22,13 +23,12 @@ export class NameComponent implements OnInit {
   ngOnInit(): void {
     this.personalProfileService.getNameService().subscribe(
       (res) => {
-        // console.log(res.profileName);
+        // console.log(res);
         this.profileName = res.profileName;
 
-        this.profileName.preferredName = "Superman";
-
         this.fullName = this.profileName.firstName + ' ' + this.profileName.lastName;
-        this.displaySSN = this.convertSSN(this.profileName.ssn);
+        this.preferredName = res.profileName.preferredName ? res.profileName.preferredName : "-";
+        this.displaySSN = this.profileName.ssn ? this.convertSSN(this.profileName.ssn) : "-";
         this.imageSrc = res.profileName.avatarUri ? res.profileName.avatarUri : "assets/default-avatar.jpg";
       }
     );

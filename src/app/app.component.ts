@@ -12,6 +12,11 @@ export class AppComponent implements OnInit {
     private appService : AppService,
   ) {}
 
+  ifOnboarding : boolean = false;
+  ifEmployee : boolean = false;
+  ifNeedVisa : boolean = false;
+  ifHr : boolean = false;
+
   ngOnInit() : void {
     this.appService.getAuthService().subscribe(
       (res) => {
@@ -19,6 +24,23 @@ export class AppComponent implements OnInit {
           window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
         } else {
           console.log(res);
+          // this.ifOnboarding = true;
+          // this.ifEmployee = true;
+          // this.ifHr = true;
+          // this.ifNeedVisa = true;
+
+          if(res.auth.onboardingStatus !== 2) {
+            this.ifOnboarding = true;
+          } else {
+            if(res.auth.roleId === 1) {
+              this.ifHr = true;
+            } else {
+              this.ifEmployee = true;
+              if(res.auth.ifNeedVisa) {
+                this.ifNeedVisa = true;
+              }
+            }
+          }
         }
       }
     );

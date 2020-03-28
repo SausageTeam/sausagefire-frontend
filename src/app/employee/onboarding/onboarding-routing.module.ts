@@ -9,6 +9,7 @@ import { ReferenceComponent } from './reference/reference.component';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { FinalComponent } from './final/final.component';
+import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.component';
 
 const onboardingRoutes: Routes = [
   { 
@@ -17,42 +18,40 @@ const onboardingRoutes: Routes = [
 
     children: [
       {
+        path: 'person', 
+        component: PersonComponent
+      },
+      {
+        path: 'avatar',
+        component: AvatarComponent
+      },
+      {
+        path: 'visa',
+        component: VisaComponent
+      },
+      {
+        path: 'driving',
+        component: DrivingComponent
+      },
+      {
+        path: 'reference',
+        component: ReferenceComponent
+      },
+      {
+        path: 'emergency',
+        component: EmergencyComponent
+      },
+      {
+        path: 'documentation',
+        component: DocumentationComponent
+      },
+      {
+        path: 'final',
+        component: FinalComponent
+      },
+      {
         path: '',
-        children: [
-          {
-            path: 'person', 
-            component: PersonComponent
-          },
-          {
-            path: 'avatar',
-            component: AvatarComponent
-          },
-          {
-            path: 'visa',
-            component: VisaComponent
-          },
-          {
-            path: 'driving',
-            component: DrivingComponent
-          },
-          {
-            path: 'reference',
-            component: ReferenceComponent
-          },
-          {
-            path: 'emergency',
-            component: EmergencyComponent
-          },
-          {
-            path: 'documentation',
-            component: DocumentationComponent
-          },
-          {
-            path: 'final',
-            component: FinalComponent
-          }
-        ]
-        
+        redirectTo: '/employee/onboarding/person'
       }
     ]
     

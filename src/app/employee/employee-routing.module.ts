@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { HousingComponent } from './housing/housing.component';
+import { PersonalProfileComponent } from './personal-profile/personal-profile/personal-profile.component';
+import { VisaStatusComponent } from './visa-status/visa-status.component';
 
 const employeeRoutes: Routes = [
 
@@ -15,15 +18,15 @@ const employeeRoutes: Routes = [
   },
   {
     path: 'housing',
-    loadChildren: () => import('./housing/housing.module').then(m => m.HousingModule)
+    component: HousingComponent
   },
   {
     path: 'profile',
-    loadChildren: () => import('./personal-profile/personal-profile.module').then(m => m.PersonalProfileModule)
+    component: PersonalProfileComponent
   },
   {
     path: 'visa-status-management',
-    loadChildren: () => import('./visa-status/visa-status.module').then(m => m.VisaStatusModule)
+    component: VisaStatusComponent
   },
   {
     path: '**',

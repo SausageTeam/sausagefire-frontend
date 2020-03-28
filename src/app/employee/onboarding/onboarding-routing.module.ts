@@ -12,50 +12,44 @@ import { FinalComponent } from './final/final.component';
 import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.component';
 
 const onboardingRoutes: Routes = [
-  { 
-    path: '',
-    component: OnboardingComponent,
 
-    children: [
-      {
-        path: 'person', 
-        component: PersonComponent
-      },
-      {
-        path: 'avatar',
-        component: AvatarComponent
-      },
-      {
-        path: 'visa',
-        component: VisaComponent
-      },
-      {
-        path: 'driving',
-        component: DrivingComponent
-      },
-      {
-        path: 'reference',
-        component: ReferenceComponent
-      },
-      {
-        path: 'emergency',
-        component: EmergencyComponent
-      },
-      {
-        path: 'documentation',
-        component: DocumentationComponent
-      },
-      {
-        path: 'final',
-        component: FinalComponent
-      },
-      {
-        path: '',
-        redirectTo: '/employee/onboarding/person'
-      }
-    ]
-    
+  {
+    path: 'person', 
+    component: PersonComponent
+  },
+  {
+    path: 'avatar',
+    component: AvatarComponent
+  },
+  {
+    path: 'visa',
+    component: VisaComponent
+  },
+  {
+    path: 'driving',
+    component: DrivingComponent
+  },
+  {
+    path: 'reference',
+    component: ReferenceComponent
+  },
+  {
+    path: 'emergency',
+    component: EmergencyComponent
+  },
+  {
+    path: 'documentation',
+    component: DocumentationComponent
+  },
+  {
+    path: 'final',
+    component: FinalComponent
+  },
+  {
+    path: '',
+    redirectTo: '/employee/onboarding/person'
   }
+
 ];
 
 @NgModule({

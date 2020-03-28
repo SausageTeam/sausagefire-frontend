@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnboardingService } from 'src/app/service/onboarding.service';
-import { OnboardingAvatar } from 'src/app/domain/employee/onboarding/onboarding-avator.module';
+import { OnboardingAvatar } from 'src/app/_common/_domain/employee/onboarding/onboarding-avator.module';
+import { OnboardingService } from 'src/app/_common/_service/employee/onboarding.service';
 
 @Component({
   selector: 'app-avatar',
@@ -23,7 +23,7 @@ export class AvatarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.onboardingService.getOnboardingAvatarService(this.onboardingAvatar).subscribe(
+    this.onboardingService.getOnboardingAvatarService().subscribe(
       (res) => {
         this.imageSrc = res.onboardingAvatar.avatarUri ? res.onboardingAvatar.avatarUri : "assets/default-avatar.jpg";
         

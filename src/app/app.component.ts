@@ -23,11 +23,7 @@ export class AppComponent implements OnInit {
         if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
           window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
         } else {
-          console.log(res);
-          // this.ifOnboarding = true;
-          // this.ifEmployee = true;
-          // this.ifHr = true;
-          // this.ifNeedVisa = true;
+          // console.log(res);
 
           if(res.auth.onboardingStatus !== 2) {
             this.ifOnboarding = true;

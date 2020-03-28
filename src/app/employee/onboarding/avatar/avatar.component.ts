@@ -59,7 +59,6 @@ export class AvatarComponent implements OnInit {
         // console.log(res);
         location.reload();
         // this.ifUnclockNext = true;
-
       }
     )
 

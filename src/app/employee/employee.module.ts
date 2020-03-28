@@ -9,6 +9,6 @@ import { EmployeeRoutingModule } from './employee-routing.module';
   imports: [
     CommonModule,
     EmployeeRoutingModule
-  ]
+  ],
 })
 export class EmployeeModule { }

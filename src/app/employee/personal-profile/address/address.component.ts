@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileAddress } from 'src/app/domain/employee/profile/profile-address.module';
-import { PersonalProfileService } from 'src/app/service/personal-profile.service';
+import { ProfileAddress } from 'src/app/_common/_domain/employee/profile/profile-address.module';
+import { PersonalProfileService } from 'src/app/_common/_service/employee/personal-profile.service';
 
 @Component({
   selector: 'app-address',

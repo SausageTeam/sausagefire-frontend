@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { EmployeeRecord } from 'src/app/domain/hr/employee-profile/employee-record.module';
+import { EmployeeRecord } from 'src/app/_common/_domain/hr/employee-profile/employee-record.module';
 import { DataTableDirective } from 'angular-datatables';
-import { EmployeeProfileService } from 'src/app/service/employee-profile-service';
+import { EmployeeProfileService } from 'src/app/_common/_service/hr/employee-profile-service';
 
 @Component({
   selector: 'app-employee-profile',

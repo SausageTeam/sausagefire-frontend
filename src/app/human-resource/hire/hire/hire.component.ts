@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HireGenerateToken } from 'src/app/domain/hr/hire/hire-generate-token.module';
-import { HireService } from 'src/app/service/hire.service';
+import { HireGenerateToken } from 'src/app/_common/_domain/hr/hire/hire-generate-token.module';
+import { HireService } from 'src/app/_common/_service/hr/hire.service';
 
 @Component({
   selector: 'app-hire',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VisaStatusManagement } from 'src/app/_common/_domain/hr/visa-status/visa-status-management.module';
+import { HRVisaStatusManagementService } from 'src/app/_common/_service/hr/hr-visa-status-management.service';
+import { VisaStatusManagement } from 'src/app/_common/_domain/employee/visaStatusManagement/visa-status-management.module';
 
 @Component({
   selector: 'app-visa-management',
@@ -16,7 +17,7 @@ export class VisaManagementComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.visaStatusManagementService.getHRVisaStatusManagementService(this.visaStatusManagement).subscribe(
+    this.visaStatusManagementService.getHRVisaStatusManagementService().subscribe(
       (res) => {
         console.log(res);
         this.visaStatusManagement = res.visaStatusManagement;
@@ -27,54 +28,53 @@ export class VisaManagementComponent implements OnInit {
 }
 
 
-import { VisaStatusRecord } from 'src/app/_common/_domain/hr/visa-status/visa-status-record.module';
-import { HRVisaStatusManagementService } from 'src/app/_service/hr/hr-visa-status-management.service';
+// import { VisaStatusRecord } from 'src/app/_common/_domain/hr/visa-status/visa-status-record.module';
 
-function visaStatusManagementMosk() {
-  let visaStatusManagement : VisaStatusManagement = new VisaStatusManagement();
+// function visaStatusManagementMosk() {
+//   let visaStatusManagement : VisaStatusManagement = new VisaStatusManagement();
 
-  let records = new Array<VisaStatusRecord>();
-  let record = new VisaStatusRecord();
+//   let records = new Array<VisaStatusRecord>();
+//   let record = new VisaStatusRecord();
 
-  record.employeeId = 1;
+//   record.employeeId = 1;
 
-  record.firstName = "Zack";
-  record.lastName = "Yu";
+//   record.firstName = "Zack";
+//   record.lastName = "Yu";
 
-  record.workAuthorization = "F1";
+//   record.workAuthorization = "F1";
 
-  record.dayLeft = 10;
+//   record.dayLeft = 10;
 
-  record.visaStatus = "F1";
+//   record.visaStatus = "F1";
 
-  record.visaStartDate = "2019-03-24";
-  record.visaEndDate = "2009-03-25";
+//   record.visaStartDate = "2019-03-24";
+//   record.visaEndDate = "2009-03-25";
 
-  record.nextStep = "OPT STEM EAD";
+//   record.nextStep = "OPT STEM EAD";
 
-  records.push(record);
+//   records.push(record);
 
-  record = new VisaStatusRecord();
+//   record = new VisaStatusRecord();
 
-  record.employeeId = 2;
+//   record.employeeId = 2;
 
-  record.firstName = "Zock";
-  record.lastName = "Yo";
+//   record.firstName = "Zock";
+//   record.lastName = "Yo";
 
-  record.workAuthorization = "F2";
+//   record.workAuthorization = "F2";
 
-  record.dayLeft = 11;
+//   record.dayLeft = 11;
 
-  record.visaStatus = "F1";
+//   record.visaStatus = "F1";
 
-  record.visaStartDate = "2019-03-24";
-  record.visaEndDate = "2019-03-25";
+//   record.visaStartDate = "2019-03-24";
+//   record.visaEndDate = "2019-03-25";
 
-  record.nextStep = "OPT STEM EAD";
+//   record.nextStep = "OPT STEM EAD";
 
-  records.push(record);
+//   records.push(record);
 
-  visaStatusManagement.visaStatusRecordList = records;
+//   visaStatusManagement.visaStatusRecordList = records;
 
-  return visaStatusManagement;
-}
+//   return visaStatusManagement;
+// }

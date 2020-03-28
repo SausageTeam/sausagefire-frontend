@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AvatarContainerComponent } from './avatar-container.component';
+import { NavContainerComponent } from './nav-container.component';
 
 describe('AvatarContainerComponent', () => {
-  let component: AvatarContainerComponent;
-  let fixture: ComponentFixture<AvatarContainerComponent>;
+  let component: NavContainerComponent;
+  let fixture: ComponentFixture<NavContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AvatarContainerComponent ]
+      declarations: [ NavContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AvatarContainerComponent);
+    fixture = TestBed.createComponent(NavContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

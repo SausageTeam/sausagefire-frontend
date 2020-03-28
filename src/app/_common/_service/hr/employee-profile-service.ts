@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { EmployeeProfile } from '../../_common/_domain/hr/employee-profile/employee-profile.module';
-import { EmployeeProfileResponse } from '../../_common/_domain/hr/employee-profile/employee-profile-response.module';
+import { EmployeeProfileResponse } from '../../_domain/hr/employee-profile/employee-profile-response.module';
 
 @Injectable({
     providedIn: 'root'

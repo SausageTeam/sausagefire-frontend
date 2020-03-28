@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { Dashboard } from "src/app/_common/_domain/hr/dashboard/dashboard.module";
-import { DashboardResponse } from '../../_common/_domain/hr/dashboard/dashboard-response.module';
+import { DashboardResponse } from '../../_domain/hr/dashboard/dashboard-response.module';
+import { Dashboard } from '../../_domain/hr/dashboard/dashboard.module';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +10,7 @@ import { DashboardResponse } from '../../_common/_domain/hr/dashboard/dashboard-
   export class DashboardService {
     constructor(private http: HttpClient) { }
 
-    getDashboardnService(dashboard: Dashboard) {
+    getDashboardnService() {
         return this.http.get('http://localhost:4200/api/hr/dashboard/').map((res: DashboardResponse) => {
           // console.log("get");
           // console.log(res);

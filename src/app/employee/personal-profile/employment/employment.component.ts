@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileEmployment } from 'src/app/_common/_domain/employee/profile/profile-employment.module';
-import { PersonalProfileService } from 'src/app/_service/employee/personal-profile.service';
+import { PersonalProfileService } from 'src/app/_common/_service/employee/personal-profile.service';
 
 @Component({
   selector: 'app-employment',

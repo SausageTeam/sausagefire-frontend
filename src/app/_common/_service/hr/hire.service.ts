@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { HireGenerateTokenPostResponse } from '../../_common/_domain/hr/hire/hire-generate-token-response.module';
-import { HireGenerateToken } from '../../_common/_domain/hr/hire/hire-generate-token.module';
+import { HireGenerateToken } from '../../_domain/hr/hire/hire-generate-token.module';
+import { HireGenerateTokenPostResponse } from '../../_domain/hr/hire/hire-generate-token-response.module';
 
 @Injectable({
   providedIn: 'root'

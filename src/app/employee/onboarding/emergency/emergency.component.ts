@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OnboardingEmergency } from 'src/app/_common/_domain/employee/onboarding/onboarding-emergency.module';
 import { Router } from '@angular/router';
 import { AddressState } from 'src/app/_common/_constant/addressState.module';
-import { OnboardingService } from 'src/app/_service/employee/onboarding.service';
+import { OnboardingService } from 'src/app/_common/_service/employee/onboarding.service';
 
 @Component({
   selector: 'app-emergency',
@@ -38,7 +38,7 @@ export class EmergencyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.onboardingService.getOnboardingEmergencyService(this.onboardingEmergency).subscribe(
+    this.onboardingService.getOnboardingEmergencyService().subscribe(
       (res) => {
         this.onboardingEmergency = res.onboardingEmergency;
 

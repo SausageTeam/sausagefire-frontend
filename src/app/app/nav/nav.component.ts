@@ -3,11 +3,11 @@ import { AppService } from 'src/app/_common/_service/app/app.service';
 
 
 @Component({
-  selector: 'app-avatar',
-  templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.css']
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class AvatarComponent implements OnInit {
+export class NavComponent implements OnInit {
 
   imageSrc : any = "assets/default-avatar.jpg";
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnboardingVisa } from 'src/app/_common/_domain/employee/onboarding/onboarding-visa.module';
-import { OnboardingService } from 'src/app/_service/employee/onboarding.service';
+import { OnboardingService } from 'src/app/_common/_service/employee/onboarding.service';
 
 @Component({
   selector: 'app-visa',
@@ -50,7 +50,7 @@ export class VisaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.onboardingService.getOnboardingVisaService(this.onboardingVisa).subscribe(
+    this.onboardingService.getOnboardingVisaService().subscribe(
       (res) => {
         this.onboardingVisa.visaType = res.onboardingVisa.visaType;
         this.onboardingVisa.visaStartDate = res.onboardingVisa.visaStartDate;

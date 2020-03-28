@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnboardingPerson } from 'src/app/_common/_domain/employee/onboarding/onboarding-person.module';
-import { OnboardingService } from 'src/app/_service/employee/onboarding.service';
+import { OnboardingService } from 'src/app/_common/_service/employee/onboarding.service';
 
 @Component({
   selector: 'app-person',
@@ -33,7 +33,7 @@ export class PersonComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.onboardingService.getOnboardingPersonService(this.onboardingPerson).subscribe(
+    this.onboardingService.getOnboardingPersonService().subscribe(
       (res) => {
         this.onboardingPerson.firstName = res.onboardingPerson.firstName;
         this.onboardingPerson.middleName = res.onboardingPerson.middleName;

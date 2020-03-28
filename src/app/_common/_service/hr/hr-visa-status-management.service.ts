@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { VisaStatusManagementResponse } from "src/app/_common/_domain/hr/visa-status/visa-status-management-response.module";
-import { VisaStatusManagement } from "src/app/_common/_domain/hr/visa-status/visa-status-management.module";
+import { VisaStatusManagementResponse } from '../../_domain/employee/visaStatusManagement/visa-status-management-response.module';
+import { VisaStatusManagement } from '../../_domain/employee/visaStatusManagement/visa-status-management.module';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +10,7 @@ import { VisaStatusManagement } from "src/app/_common/_domain/hr/visa-status/vis
   export class HRVisaStatusManagementService {
     constructor(private http: HttpClient) { }
 
-    getHRVisaStatusManagementService(visaStatusManagement: VisaStatusManagement) {
+    getHRVisaStatusManagementService() {
         return this.http.get('http://localhost:4200/api/hr/visa-status-management/').map((res: VisaStatusManagementResponse) => {
           // console.log("get");
           // console.log(res);

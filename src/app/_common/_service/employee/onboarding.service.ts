@@ -1,15 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { OnboardingPerson } from "src/app/_common/_domain/employee/onboarding/onboarding-person.module"
-import { OnboardingVisa } from "src/app/_common/_domain/employee/onboarding/onboarding-visa.module"
 import { OnboardingPersonResponse, OnboardingAvatarResponse } from "src/app/_common/_domain/employee/onboarding/onboarding-response.model"
 import { OnboardingVisaResponse, OnboardingDrivingResponse } from "src/app/_common/_domain/employee/onboarding/onboarding-response.model"
 import { OnboardingReferenceResponse, OnboardingEmergencyResponse } from "src/app/_common/_domain/employee/onboarding/onboarding-response.model"
-import { OnboardingAvatar } from '../../_common/_domain/employee/onboarding/onboarding-avator.module';
-import { OnboardingDriving } from '../../_common/_domain/employee/onboarding/onboarding-driving.module';
-import { OnboardingReference } from '../../_common/_domain/employee/onboarding/onboarding-reference.module';
-import { OnboardingEmergency } from '../../_common/_domain/employee/onboarding/onboarding-emergency.module';
+import { OnboardingPerson } from '../../_domain/employee/onboarding/onboarding-person.module';
+import { OnboardingVisa } from '../../_domain/employee/onboarding/onboarding-visa.module';
+import { OnboardingDriving } from '../../_domain/employee/onboarding/onboarding-driving.module';
+import { OnboardingReference } from '../../_domain/employee/onboarding/onboarding-reference.module';
+import { OnboardingEmergency } from '../../_domain/employee/onboarding/onboarding-emergency.module';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,7 @@ import { OnboardingEmergency } from '../../_common/_domain/employee/onboarding/o
 export class OnboardingService {
   constructor(private http: HttpClient) { }
 
-  getOnboardingPersonService(onboardingPerson: OnboardingPerson) {
+  getOnboardingPersonService() {
     return this.http.get('http://localhost:4200/api/employee/onboarding/person/').map((res: OnboardingPersonResponse) => {
       // console.log("get");
       // console.log(res);
@@ -33,7 +32,7 @@ export class OnboardingService {
     })
   };
 
-  getOnboardingAvatarService(onboardingAvatar: OnboardingAvatar) {
+  getOnboardingAvatarService() {
     return this.http.get('http://localhost:4200/api/employee/onboarding/avatar/').map((res: OnboardingAvatarResponse) => {
       // console.log("get");
       // console.log(res);
@@ -51,7 +50,7 @@ export class OnboardingService {
     })
   };
 
-  getOnboardingVisaService(onboardingVisa: OnboardingVisa) {
+  getOnboardingVisaService() {
     return this.http.get("http://localhost:4200/api/employee/onboarding/visa").map((res: OnboardingVisaResponse) => {
       console.log("get");
       console.log(res);
@@ -67,7 +66,7 @@ export class OnboardingService {
     })
    }
 
-   getOnboardingDrivingService(onboardingDriving: OnboardingDriving) {
+   getOnboardingDrivingService() {
     return this.http.get("http://localhost:4200/api/employee/onboarding/driving").map((res: OnboardingDrivingResponse) => {
       console.log("get");
       console.log(res);
@@ -83,7 +82,7 @@ export class OnboardingService {
     })
    }
 
-   getOnboardingReferenceService(onboardingReference: OnboardingReference) {
+   getOnboardingReferenceService() {
     return this.http.get("http://localhost:4200/api/employee/onboarding/reference").map((res: OnboardingReferenceResponse) => {
       console.log("get");
       console.log(res);
@@ -99,7 +98,7 @@ export class OnboardingService {
     })
    }
 
-   getOnboardingEmergencyService(onboardingEmergency: OnboardingEmergency) {
+   getOnboardingEmergencyService() {
     return this.http.get("http://localhost:4200/api/employee/onboarding/emergency").map((res: OnboardingEmergencyResponse) => {
       console.log("get");
       console.log(res);

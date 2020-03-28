@@ -20,8 +20,28 @@
     </div>
 
     <div>
-      <p class="feature-title">Addres</p>
-      <p class="feature-value">{{displayAddress}}</p>
+      <p class="feature-title">Street Address Line 1</p>
+      <p class="feature-value">{{profileEmergencyContact.addressDomain.addressLineOne}}</p>
+    </div>
+
+    <div>
+      <p class="feature-title">Street Address Line 2</p>
+      <p class="feature-value">{{displayAddressLineTwo}}</p>
+    </div>
+
+    <div>
+      <p class="feature-title">City</p>
+      <p class="feature-value">{{profileEmergencyContact.addressDomain.city}}</p>
+    </div>
+
+    <div>
+      <p class="feature-title">State</p>
+      <p class="feature-value">{{profileEmergencyContact.addressDomain.stateAbbr}}</p>
+    </div>
+
+    <div>
+      <p class="feature-title">ZipCode</p>
+      <p class="feature-value">{{profileEmergencyContact.addressDomain.zipCode}}</p>
     </div>
 
   </div>

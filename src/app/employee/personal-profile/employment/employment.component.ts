@@ -11,9 +11,9 @@ export class EmploymentComponent implements OnInit {
 
   profileEmployment : ProfileEmployment = new ProfileEmployment();
 
-  displayVisaType : string = "";
-  displayVisaStartDate : string = "";
-  displayVisaEndDate : string = "";
+  displayVisaType : string = "-";
+  displayVisaStartDate : string = "-";
+  displayVisaEndDate : string = "-";
 
   constructor(
     private personalProfileService : PersonalProfileService

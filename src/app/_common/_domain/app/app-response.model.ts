@@ -4,6 +4,7 @@ import { Auth } from './auth.module';
 
 export class NavResponse {
   serviceStatus: ServiceStatus;
+  redirectUrl: string;
   nav: Nav;
 }
 

@@ -28,10 +28,6 @@ const employeeRoutes: Routes = [
         loadChildren: () => import('./visa-status/visa-status.module').then(m => m.VisaStatusModule)
       },
       {
-        path: '',
-        redirectTo: '/employee/dashboard'
-      },
-      {
         path: '**',
         component: PageNotFoundComponent
       }

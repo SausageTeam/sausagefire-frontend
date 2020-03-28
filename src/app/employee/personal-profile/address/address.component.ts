@@ -22,11 +22,11 @@ export class AddressComponent implements OnInit {
     this.personalProfileService.getAddressService().subscribe(
       (res) => {
 
-        console.log(res);
+        // console.log(res);
 
         this.profileAddrees = res.profileAddress;
 
-        this.displayAddressLineTwo = !this.profileAddrees.addressLineTwo || this.profileAddrees.addressLineTwo == "" ? "-" : this.profileAddrees.addressLineTwo;
+        this.displayAddressLineTwo = !this.profileAddrees.addressLineTwo || this.profileAddrees.addressLineTwo === "" ? "-" : this.profileAddrees.addressLineTwo;
 
       }
     )

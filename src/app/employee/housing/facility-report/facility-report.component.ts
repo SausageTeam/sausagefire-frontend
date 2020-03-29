@@ -52,7 +52,7 @@ export class FacilityReportComponent implements OnInit {
       }
     );
     alert("Submit Successfully!");
-    //this.router.navigate(['employee/housing']);
+    this.router.navigate(['employee/housing']);
   }
 
   onTitleEdit(event: any): void {

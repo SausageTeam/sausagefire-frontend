@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './app/app/app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavContainerComponent } from './app/nav-container/nav-container.component';
 import { NavComponent } from './app/nav/nav.component';
+import { AuthGuardService } from './_common/_service/app/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { NavComponent } from './app/nav/nav.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

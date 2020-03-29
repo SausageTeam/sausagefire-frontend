@@ -1,41 +1,44 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { HireComponent } from './hire/hire.component';
+import { HouseManagementComponent } from './house-management/house-management.component';
+import { VisaManagementComponent } from './visa-management/visa-management/visa-management.component';
 
 const humanResourceRoutes: Routes = [
-  { 
+
+  {
+    path: 'dashboard', 
+    component: DashboardComponent
+  },
+  {
+    path: 'employees',
+    component: EmployeeProfileComponent
+  },
+  {
+    path: 'hire',
+    component: HireComponent
+  },
+  {
+    path: 'visa-status-mangement',
+    component: VisaManagementComponent
+  },
+  {
+    path: 'houses',
+    component: HouseManagementComponent
+  },
+  {
     path: '',
-    children: [
-      {
-        path: 'dashboard', 
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
-      {
-        path: 'employees',
-        loadChildren: () => import('./employee-profile/employee-profile.module').then(m => m.EmployeeProfileModule)
-      },
-      {
-        path: 'hire',
-        loadChildren: () => import('./hire/hire.module').then(m => m.HireModule)
-      },
-      {
-        path: 'visa-status-mangement',
-        loadChildren: () => import('./visa-management/visa-management.module').then(m => m.VisaManagementModule)
-      },
-      {
-        path: 'houses',
-        loadChildren: () => import('./house-management/house-management.module').then(m => m.HouseManagementModule)
-      },
-      {
-        path: '',
-        redirectTo: '/hr/dashboard'
-      },
-      {
-        path: '**',
-        component: PageNotFoundComponent
-      }
-    ]
+    pathMatch: 'full',
+    redirectTo: '/hr/dashboard'
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
+
 ];
 
 @NgModule({

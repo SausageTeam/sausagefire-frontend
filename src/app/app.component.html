@@ -29,7 +29,7 @@
       </a>
     </li>
     <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/employee/visa">
+      <a class="nav-link sidebar-link" routerLink="/employee/visa-status-management">
         <i class="fas fa-globe-asia"></i>
         Visa
       </a>
@@ -60,7 +60,7 @@
       </a>
     </li>
     <li class="nav-item sidebar-item" routerLinkActive="active">
-      <a class="nav-link sidebar-link" routerLink="/hr/visas">
+      <a class="nav-link sidebar-link" routerLink="/hr/visa-status-mangement">
         <i class="fas fa-globe"></i>
         Visas
       </a>
@@ -80,7 +80,11 @@
   <ul class="nav ml-auto mr-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link main-navbar-link">
-        <img class="avatar mr-2" src="assets/avatar.jpg">
+        
+        <app-avatar-container>
+          <app-avatar></app-avatar>
+        </app-avatar-container>
+        
         <span class="my-auto mr-2">Rob Test</span>
         <i class="fas fa-sort-down"></i>
       </a>

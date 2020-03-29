@@ -1,6 +1,6 @@
 <div class="my-3 mx-auto box-shadow bg-white">
 
-  <h3 class="color-dark m-0 p-3">Personal Information</h3>
+  <h5 class="color-dark m-0 p-3">Personal Information</h5>
 
   <div class="bottom-split-line"></div>
 
@@ -69,8 +69,8 @@
 
       <!-- alternate phone -->
       <div class="form-group col-md-6">
-        <label class="color-dark" for="phone">Alternate Phone:</label>
-        <input type="text" class="form-control" id="phone" name="alternatePhone"
+        <label class="color-dark" for="alternate-phone">Alternate Phone:</label>
+        <input type="text" class="form-control" id="alternate-phone" name="alternatePhone"
           placeholder="Optional"
           [(ngModel)]="onboardingPerson.alternatePhone">
       </div>
@@ -122,7 +122,7 @@
     <div class="row">
 
       <div class="form-group col-md-6">
-        <label class="color-dark" for="ssn">Social Security Number:</label>
+        <label class="color-dark" for="ssn">Social Security Number: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="ssn" name="ssn"
           required 
           [(ngModel)]="onboardingPerson.ssn"

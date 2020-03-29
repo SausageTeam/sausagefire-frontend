@@ -24,12 +24,12 @@ const employeeRoutes: Routes = [
         loadChildren: () => import('./personal-profile/personal-profile.module').then(m => m.PersonalProfileModule)
       },
       {
-        path: 'visa',
+        path: 'visa-status-management',
         loadChildren: () => import('./visa-status/visa-status.module').then(m => m.VisaStatusModule)
       },
       {
         path: '',
-        redirectTo: '/employ/dashboard'
+        redirectTo: '/employee/dashboard'
       },
       {
         path: '**',

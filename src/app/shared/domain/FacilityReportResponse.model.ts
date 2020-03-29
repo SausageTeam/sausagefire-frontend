@@ -1,3 +1,5 @@
+import { FacilityReport } from 'src/app/domain/facilityReport.module';
+
 export class ServiceStatus {
     statusCode: string;
     success: boolean;
@@ -6,5 +8,5 @@ export class ServiceStatus {
 
 export class FacilityReportResponse {
     serviceStatus : ServiceStatus;
-    redirectUrl : string
+    facilityReport : FacilityReport;
 }

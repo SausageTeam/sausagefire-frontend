@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FacilityReportService } from 'src/app/shared/_service/FacilityReport.service';
 import { Router } from '@angular/router';
 import { FacilityReport } from 'src/app/domain/facilityReport.module';
-import { MaintenanceHistory } from 'src/app/domain/MaintenanceHistory.module';
 
 @Component({
   selector: 'app-facility-report',
@@ -22,6 +21,12 @@ export class FacilityReportComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //  this.facilityReportService.postFacilityReportService(this.facilityReport).subscribe(
+    //    (res) => {
+    //      res.facilityReport.description = this.facilityReport.description;
+    //      res.facilityReport.title = this.facilityReport.title;
+    //    }
+    //  )
 
   }
 
@@ -40,13 +45,14 @@ export class FacilityReportComponent implements OnInit {
   
   onSubmitClick(): void { 
     this.inputCheck();
+    
     this.facilityReportService.postFacilityReportService(this.facilityReport).subscribe(
       (res) => {
         console.log(res);
       }
     );
     alert("Submit Successfully!");
-    this.router.navigate(['employee/housing']);
+    //this.router.navigate(['employee/housing']);
   }
 
   onTitleEdit(event: any): void {

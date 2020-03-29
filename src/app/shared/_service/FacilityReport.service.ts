@@ -14,6 +14,7 @@ export class FacilityReportService {
   postFacilityReportService(facilityReport : FacilityReport) {
     return this.http.post('http://localhost:4200/api/employee/housing/facilityReport/', { facilityReport }).map((res: FacilityReportResponse) => {
       console.log("post");
+      console.log(facilityReport);
       console.log(res);
       return res;
     })

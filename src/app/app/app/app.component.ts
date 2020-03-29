@@ -23,39 +23,44 @@ export class AppComponent implements OnInit {
 
   ngOnInit() : void {
 
-    this.appService.getAuthService().subscribe(
-      (res) => {
-        if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
-          window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
-        } else {
+    this.ifOnboarding = true;
+    this.ifEmployee  = true;
+    this.ifNeedVisa = true;
+    this.ifHr = true;
 
-          // check header
+    // this.appService.getAuthService().subscribe(
+    //   (res) => {
+    //     if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
+    //       window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
+    //     } else {
+
+    //       // check header
+
           
-          
-          // console.log(res);
+    //       // console.log(res);
           
 
-          if(res.auth.onboardingStatus !== 2) {
+    //       // if(res.auth.onboardingStatus !== 2) {
             
-            this.ifOnboarding = true;
-            this.router.navigate(['/onboarding/person']);
+    //       //   this.ifOnboarding = true;
+    //       //   this.router.navigate(['/onboarding/person']);
 
-          } else {
-            if(res.auth.roleId === 1) {
+    //       // } else {
+    //       //   if(res.auth.roleId === 1) {
 
-              this.ifHr = true;
-              this.router.navigate(['/hr/dashboard']);
+    //       //     this.ifHr = true;
+    //       //     this.router.navigate(['/hr/dashboard']);
 
-            } else {
-              this.ifEmployee = true;
-              if(res.auth.ifNeedVisa) {
-                this.ifNeedVisa = true;
-              }
-              this.router.navigate(['/employee/dashboard']);
-            }
-          }
-        }
-      }
-    );
+    //       //   } else {
+    //       //     this.ifEmployee = true;
+    //       //     if(res.auth.ifNeedVisa) {
+    //       //       this.ifNeedVisa = true;
+    //       //     }
+    //       //     this.router.navigate(['/employee/dashboard']);
+    //       //   }
+    //       // }
+    //     }
+    //   }
+    // );
   }
 }

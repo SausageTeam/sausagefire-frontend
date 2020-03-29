@@ -1,4 +1,4 @@
-import { AllHousesDetails } from 'src/app/domain/allHousesDetails.module';
+import { AllHousesDetails } from 'src/app/domain/hr/house-management/allHousesDetails.module';
 import { EmployeeInfo } from 'src/app/domain/employeeInfo.module';
 
 export class ServiceStatus {

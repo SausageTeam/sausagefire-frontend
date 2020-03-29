@@ -29,12 +29,12 @@ export class HouseManagementComponent implements OnInit {
     )
   }
 
-  onClick(id): void { 
-    this.router.navigate(['/hr/houses/house=' + id]);
-  }
+  // onClick(id): void { 
+  //   this.router.navigate(['/hr/houses/house=' + id]);
+  // }
 
-  goToPage(pageName:string) {
-    this.router.navigate([`${pageName}`])
-  }
+  // goToPage(pageName:string) {
+  //   this.router.navigate([`${pageName}`])
+  // }
 
 }

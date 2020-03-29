@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HouseManagementComponent } from './house-management/house-management.component';
+import { HouseDetailsComponent } from '../house-details/house-details.component';
 
 const houseManagementRoutes: Routes = [
   { 
@@ -9,10 +10,8 @@ const houseManagementRoutes: Routes = [
       {
         path: '', 
         children: [
-          {
-            path: '',
-            component: HouseManagementComponent
-          }
+          {path: '', component: HouseManagementComponent},
+          {path: 'house/:id', component: HouseDetailsComponent}
         ]
       }
     ]

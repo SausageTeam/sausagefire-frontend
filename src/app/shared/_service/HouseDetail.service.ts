@@ -11,11 +11,11 @@ export class AllHousesDetailsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllHousesDetailsService(allHousesDetailsList : AllHousesDetails[]) {
-    return this.http.get('http://localhost:4200/api/hr/housing/allHousesDetails/').map((res: AllHousesDetailsResponse) => {
-      console.log("get");
-      console.log(res);
-      return res;
-    })
-  };
+//   getHouseDetailsService(allHousesDetailsList : AllHousesDetails[]) {
+//     return this.http.get('http://localhost:4200/api/hr/housing/house/', id).map((res: HouseDetailsResponse) => {
+//       console.log("get");
+//       console.log(res);
+//       return res;
+//     })
+//   };
 }

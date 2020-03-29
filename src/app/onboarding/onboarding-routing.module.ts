@@ -14,41 +14,49 @@ import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.com
 const onboardingRoutes: Routes = [
 
   {
-    path: 'person', 
-    component: PersonComponent
-  },
-  {
-    path: 'avatar',
-    component: AvatarComponent
-  },
-  {
-    path: 'visa',
-    component: VisaComponent
-  },
-  {
-    path: 'driving',
-    component: DrivingComponent
-  },
-  {
-    path: 'reference',
-    component: ReferenceComponent
-  },
-  {
-    path: 'emergency',
-    component: EmergencyComponent
-  },
-  {
-    path: 'documentation',
-    component: DocumentationComponent
-  },
-  {
-    path: 'final',
-    component: FinalComponent
-  },
-  {
     path: '',
-    redirectTo: '/employee/onboarding/person'
+    component: OnboardingComponent,
+    
+    children: [
+      {
+        path: 'person', 
+        component: PersonComponent
+      },
+      {
+        path: 'avatar',
+        component: AvatarComponent
+      },
+      {
+        path: 'visa',
+        component: VisaComponent
+      },
+      {
+        path: 'driving',
+        component: DrivingComponent
+      },
+      {
+        path: 'reference',
+        component: ReferenceComponent
+      },
+      {
+        path: 'emergency',
+        component: EmergencyComponent
+      },
+      {
+        path: 'documentation',
+        component: DocumentationComponent
+      },
+      {
+        path: 'final',
+        component: FinalComponent
+      },
+      {
+        path: '',
+        redirectTo: '/employee/onboarding/person'
+      }
+    ]
   }
+  
 
 ];
 

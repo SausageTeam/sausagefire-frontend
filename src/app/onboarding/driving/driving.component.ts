@@ -159,11 +159,11 @@ export class DrivingComponent implements OnInit {
   }
 
   onPrevClick() : void {
-    this.router.navigate(['/employee/onboarding/visa']);
+    this.router.navigate(['/onboarding/visa']);
   }
 
   onNextClick() : void {
-    this.router.navigate(['/employee/onboarding/reference']);
+    this.router.navigate(['/onboarding/reference']);
   }
 
   onMakerEdit(event : any) {

@@ -9,10 +9,6 @@ import { VisaStatusComponent } from './visa-status/visa-status.component';
 const employeeRoutes: Routes = [
 
   {
-    path: 'onboarding',
-    loadChildren: () => import('./onboarding/onboarding.module').then(m => m.OnboardingModule)
-  },
-  {
     path: 'dashboard', 
     component: DashboardComponent
   },

@@ -35,10 +35,10 @@ export class DocumentationComponent implements OnInit {
   }
 
   onPrevClick() : void {
-    this.router.navigate(['/employee/onboarding/emergency']);
+    this.router.navigate(['/onboarding/emergency']);
   }
 
   onNextClick(): void {
-    this.router.navigate(['/employee/onboarding/final']);
+    this.router.navigate(['/onboarding/final']);
   }
 }

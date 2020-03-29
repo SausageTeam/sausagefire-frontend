@@ -68,7 +68,7 @@ export class PersonComponent implements OnInit {
   }
 
   onNextClick(): void {
-    this.router.navigate(['/employee/onboarding/avatar']);
+    this.router.navigate(['/onboarding/avatar']);
   }
 
   nextCheck() : boolean {

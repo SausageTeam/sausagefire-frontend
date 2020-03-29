@@ -78,11 +78,11 @@ export class EmergencyComponent implements OnInit {
   }
 
   onPrevClick() : void {
-    this.router.navigate(['/employee/onboarding/reference']);
+    this.router.navigate(['/onboarding/reference']);
   }
 
   onNextClick(): void {
-    this.router.navigate(['/employee/onboarding/documentation']);
+    this.router.navigate(['/onboarding/documentation']);
   }
 
   nextCheck() : boolean {

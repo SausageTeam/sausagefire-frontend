@@ -8,8 +8,12 @@ const appRoutes: Routes = [
   {
     path: '',
     canActivate:[AuthGuardService],
-    canActivateChild:[AuthGuardService],
+    // canActivateChild:[AuthGuardService],
     children : [
+      {
+        path: 'onboarding',
+        loadChildren: () => import('./onboarding/onboarding.module').then(m => m.OnboardingModule)
+      },
       {
         path: 'employee',
         loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
@@ -17,10 +21,6 @@ const appRoutes: Routes = [
       {
         path: 'hr',
         loadChildren: () => import('./human-resource/human-resource.module').then(m => m.HumanResourceModule)
-      },
-      {
-        path: '**',
-        component: PageNotFoundComponent
       }
     ]
   }

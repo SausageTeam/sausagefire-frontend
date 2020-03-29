@@ -1,6 +1,6 @@
-<div class="my-3 mx-auto box-shadow bg-white">
+<div class="m-3 mx-auto box-shadow bg-white">
 
-  <h5 class="color-dark m-0 p-3">Reference Person Information</h5>
+  <h5 class="color-dark m-0 p-3">Emergency Person Information</h5>
 
   <div class="bottom-split-line"></div>
 
@@ -14,7 +14,7 @@
         <label class="color-dark" for="first-name">First Name: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="first-name" name="firstName"
           required 
-          [(ngModel)]="onboardingReference.firstName"
+          [(ngModel)]="onboardingEmergency.firstName"
           (ngModelChange)="onFirstNameEdit($event)"
           [ngClass]="{'error-input':(!fn.valid && !fn.pristine) || ifFirstNameEnter === false}"
           #fn="ngModel">
@@ -28,7 +28,7 @@
       <div class="form-group col-md-4">
         <label class="color-dark" for="middle-name">Middle Name:</label>
         <input type="text" class="form-control" id="middle-name" name="middleName"
-          [(ngModel)]="onboardingReference.middleName"
+          [(ngModel)]="onboardingEmergency.middleName"
           placeholder="Optional">
       </div>
 
@@ -37,7 +37,7 @@
         <label class="color-dark" for="last-name">Last Name: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="last-name" name="lastName"
           required 
-          [(ngModel)]="onboardingReference.lastName"
+          [(ngModel)]="onboardingEmergency.lastName"
           (ngModelChange)="onLastNameEdit($event)"
           [ngClass]="{'error-input':(!ln.valid && !ln.pristine) || ifLastNameEnter === false}"
           #ln="ngModel">
@@ -57,7 +57,7 @@
         <label class="color-dark" for="phone">Phone: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="phone" name="cellPhone"
           required 
-          [(ngModel)]="onboardingReference.cellPhone"
+          [(ngModel)]="onboardingEmergency.cellPhone"
           (ngModelChange)="onCellPhoneEdit($event)"
           [ngClass]="{'error-input':(!cp.valid && !cp.pristine) || ifPhoneEnter === false}"
           #cp="ngModel">
@@ -72,7 +72,7 @@
         <label class="color-dark" for="phone">Email: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="email" name="email"
           required 
-          [(ngModel)]="onboardingReference.email"
+          [(ngModel)]="onboardingEmergency.email"
           (ngModelChange)="onEmailEdit($event)"
           [ngClass]="{'error-input':(!e.valid && !e.pristine) || ifEmailEnter === false}"
           #e="ngModel">
@@ -92,7 +92,7 @@
         <label class="color-dark" for="street-addres">Street Address: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="street-addres" name="street-addres"
           required 
-          [(ngModel)]="onboardingReference.addressDomain.addressLineOne"
+          [(ngModel)]="onboardingEmergency.addressDomain.addressLineOne"
           (ngModelChange)="onAddressLineOneEdit($event)"
           [ngClass]="{'error-input':(!sa.valid && !sa.pristine) || ifAddressLineOneEnter === false}"
           #sa="ngModel">
@@ -108,7 +108,7 @@
         <input type="text" class="form-control" id="street-addres-2" name="street-addres-2"
           required 
           placeholder="Apt, Suite, Bldg. (optional)"
-          [(ngModel)]="onboardingReference.addressDomain.addressLineTwo">
+          [(ngModel)]="onboardingEmergency.addressDomain.addressLineTwo">
       </div>
 
       <!-- city -->
@@ -116,7 +116,7 @@
         <label class="color-dark" for="city">City: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="city" name="city"
           required 
-          [(ngModel)]="onboardingReference.addressDomain.city"
+          [(ngModel)]="onboardingEmergency.addressDomain.city"
           (ngModelChange)="onCityEdit($event)"
           [ngClass]="{'error-input':(!aCity.valid && !aCity.pristine) || ifAddressCityEnter === false}"
           #aCity="ngModel">
@@ -132,7 +132,7 @@
         
         <select class="form-control" id="state" name="state"
           required
-          [(ngModel)]="onboardingReference.addressDomain.stateAbbr"
+          [(ngModel)]="onboardingEmergency.addressDomain.stateAbbr"
           (ngModelChange)="onStateSelect($event)"
           [ngClass]="{'error-input': ifAddessStateSelect === false}">
           <option *ngFor="let s of state" 
@@ -152,7 +152,7 @@
         <label class="color-dark" for="zipCode">Zipcode: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="zipCode" name="zipCode"
           required 
-          [(ngModel)]="onboardingReference.addressDomain.zipCode"
+          [(ngModel)]="onboardingEmergency.addressDomain.zipCode"
           (ngModelChange)="onZipcodeEdit($event)"
           [ngClass]="{'error-input':(!aZipcode.valid && !aZipcode.pristine) || ifAddressZipcodeEnter === false}"
           #aZipcode="ngModel">
@@ -171,7 +171,7 @@
         <label class="color-dark" for="relationship">Relationship: <span class="color-red">*</span></label>
         <input type="text" class="form-control" id="relationship" name="relationship"
           required 
-          [(ngModel)]="onboardingReference.relationship"
+          [(ngModel)]="onboardingEmergency.relationship"
           (ngModelChange)="onRelationshipEdit($event)"
           [ngClass]="{'error-input':(!r.valid && !r.pristine) || ifRelationshipEnter === false}"
           #r="ngModel">

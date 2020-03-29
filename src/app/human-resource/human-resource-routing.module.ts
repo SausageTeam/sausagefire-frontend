@@ -31,6 +31,7 @@ const humanResourceRoutes: Routes = [
   },
   {
     path: '',
+    pathMatch: 'full',
     redirectTo: '/hr/dashboard'
   },
   {

@@ -20,6 +20,6 @@ export class FinalComponent implements OnInit {
   }
 
   onPrevClick() : void {
-    this.router.navigate(['/employee/onboarding/documentation']);
+    this.router.navigate(['/onboarding/documentation']);
   }
 }

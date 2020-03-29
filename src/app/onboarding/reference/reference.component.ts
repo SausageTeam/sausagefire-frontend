@@ -77,11 +77,11 @@ export class ReferenceComponent implements OnInit {
   }
 
   onPrevClick() : void {
-    this.router.navigate(['/employee/onboarding/driving']);
+    this.router.navigate(['/onboarding/driving']);
   }
 
   onNextClick(): void {
-    this.router.navigate(['/employee/onboarding/emergency']);
+    this.router.navigate(['/onboarding/emergency']);
   }
 
   nextCheck() : boolean {

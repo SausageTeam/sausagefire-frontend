@@ -174,11 +174,11 @@ export class VisaComponent implements OnInit {
   }
 
   onPrevClick(): void {
-    this.router.navigate(['/employee/onboarding/avatar']);
+    this.router.navigate(['/onboarding/avatar']);
   }
 
   onNextClick(): void {
-    this.router.navigate(['/employee/onboarding/driving']);
+    this.router.navigate(['/onboarding/driving']);
   }
 
   selectInternationalOptions(event: any) {

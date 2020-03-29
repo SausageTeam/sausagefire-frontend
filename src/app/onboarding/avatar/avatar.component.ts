@@ -65,15 +65,15 @@ export class AvatarComponent implements OnInit {
   }
 
   onSkipClick() : void {
-    this.router.navigate(['/employee/onboarding/visa']);
+    this.router.navigate(['/onboarding/visa']);
   }
 
   onPrevClick() : void {
-    this.router.navigate(['/employee/onboarding/person']);
+    this.router.navigate(['/onboarding/person']);
   }
 
   onNextClick() : void {
-    this.router.navigate(['/employee/onboarding/visa']);
+    this.router.navigate(['/onboarding/visa']);
   }
 
 }

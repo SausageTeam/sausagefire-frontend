@@ -40,7 +40,12 @@ export class HousingComponent implements OnInit {
     )
   }
 
-  onButtonClick(): void { 
+  onReportClick(): void { 
     this.router.navigate(['/employee/housing/report']);
   }
+
+  onListClick(): void { 
+    this.router.navigate(['/employee/housing/report-list']);
+  }
+
 }

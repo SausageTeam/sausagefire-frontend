@@ -1,0 +1,15 @@
+.submit-btn, .cancel-btn {
+  border-radius: 2px;
+  line-height: 1;
+  font-size: 14px;
+  padding: 10px 20px;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #F35C5C;
+}
+
+.cancel-btn {
+  background-color: #909495;
+}

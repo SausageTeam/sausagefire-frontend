@@ -1,4 +1,5 @@
 import { HouseDetail } from './house-detail.module';
+import { FacilityReportsIssue } from './facility-reports-issue.module';
 
 export class HousingDetailResponse {
 
@@ -6,4 +7,9 @@ export class HousingDetailResponse {
 
     constructor() {}
     
+}
+
+export class FacilityReportsResponse {
+
+    facilityReportsIssue : FacilityReportsIssue;
 }

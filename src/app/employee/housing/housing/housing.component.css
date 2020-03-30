@@ -16,3 +16,19 @@
   font-weight: 600;
   margin-bottom: 7px;
 }
+
+.report-btn, .list-btn {
+  border-radius: 2px;
+  line-height: 1;
+  font-size: 14px;
+  padding: 10px 20px;
+  color: white;
+}
+
+.list-btn {
+  background-color: #3EC5F2;
+}
+
+.report-btn {
+  background-color: #3F66A1;
+}

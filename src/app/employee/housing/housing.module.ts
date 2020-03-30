@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HousingRoutingModule } from './housing-routing.module';
 import { HousingComponent } from './housing/housing.component';
 import { CommonModule } from '@angular/common';
+import { FacilityReportComponent } from './facility-report/facility-report.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
     FormsModule
   ],
   declarations: [
-    HousingComponent
+    HousingComponent,
+    FacilityReportComponent
   ],
 })
 export class HousingModule { }

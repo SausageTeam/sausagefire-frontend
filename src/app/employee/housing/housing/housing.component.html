@@ -1,0 +1,80 @@
+<div class="box-shadow bg-white m-3">
+  <h5 class="color-dark m-0 p-3">Housing Information</h5>
+
+  <div class="top-split-line">
+    <h6 class="color-dark m-0 p-3">
+      <i class="color-blue fas fa-map-marker-alt mr-2"></i>
+      <span>Address</span>
+    </h6>
+
+    <div class="p-3 top-split-line">
+      <div>
+        <p class="feature-title">Street Address Line 1</p>
+        <p class="feature-value">{{displayAddressLineOne}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">Street Address Line 2</p>
+        <p class="feature-value">{{displayAddressLineTwo}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">City</p>
+        <p class="feature-value">{{displayAddressCity}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">State</p>
+        <p class="feature-value">{{displayAddressState}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">ZipCode</p>
+        <p class="feature-value">{{displayAddressZipcode}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="top-split-line">
+    <h6 class="color-dark m-0 p-3">
+      <i class="color-blue fas fa-users mr-2"></i>
+      <span>Residents</span>
+    </h6>
+
+    <ng-template *ngIf="!houseDetail.residentList; then withoutResident; else withResident"></ng-template>
+
+    <ng-template #withoutResident>
+      <div class="p-3 top-split-line color-light">
+        The house is now temporary empty.
+      </div>
+    </ng-template>
+
+    <ng-template #withResident>
+      <div class="p-3 top-split-line" *ngFor="let resident of houseDetail.residentList; let i = index">
+        <p class="resident">
+          Resident #{{i+1}}
+        </p>
+        <div>
+          <p class="feature-title">Name</p>
+          <p class="feature-value">{{resident.name}}</p>
+        </div>
+        <div>
+          <p class="feature-title">Phone</p>
+          <p class="feature-value">{{resident.phone}}</p>
+        </div>        
+      </div>
+    </ng-template>
+    
+    
+    
+  </div>
+
+  <div class="top-split-line p-3">
+    <button class="btn report-btn" (click)="onReportClick()">Facility Report</button>
+    <button class="btn list-btn ml-2" (click)="onListClick()">View Report List</button>
+  </div>
+</div>
+
+  
+

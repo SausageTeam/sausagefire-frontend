@@ -1,0 +1,48 @@
+<div class="box-shadow bg-white m-3">
+
+  <h5 class="color-dark m-0 p-3">Report New Facility Issue</h5>
+
+  <div class="top-split-line p-3">
+    <!-- title -->
+    <div class="form-group">
+      <label class="color-dark" for="title">Title: <span class="color-red">*</span></label>
+      <input type="text" class="form-control" id="title" name="title"
+        required 
+        [(ngModel)]="facilityReport.title"
+        (ngModelChange)="onTitleEdit($event)"
+        [ngClass]="{'error-input':(!ft.valid && !ft.pristine) || ifTitleEnter === false}"
+        #ft="ngModel">
+      <div [hidden]="ifTitleEnter&&(ft.valid||ft.pristine)" class="error color-red">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        <span>Please enter title</span>
+      </div>
+    </div>
+
+    <!-- description -->
+    <div class="form-group">
+    <label class="color-dark" for="title">Description: <span class="color-red">*</span></label>
+    <input type="text" class="form-control" id="description" name="description"
+      required 
+      [(ngModel)]="facilityReport.description"
+      (ngModelChange)="onDescriptionEdit($event)"
+      [ngClass]="{'error-input':(!fd.valid && !fd.pristine) || ifDescriptionEnter === false}"
+      #fd="ngModel">
+    <div [hidden]="ifDescriptionEnter&&(fd.valid||fd.pristine)" class="error color-red">
+      <i class="fas fa-exclamation-circle mr-2"></i>
+      <span>Please enter description</span>
+    </div>
+    </div>
+  </div>
+  
+  <div class="top-split-line p-3">
+    <button class="btn submit-btn" (click)="onSubmitClick()">
+      Report Issue
+    </button>
+    <button class="btn cancel-btn ml-2" (click)="onCancelClick()">
+      Cancel
+    </button>
+  </div>
+
+</div>
+
+

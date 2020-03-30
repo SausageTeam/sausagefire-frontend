@@ -1,0 +1,161 @@
+<div class="m-3 mx-auto box-shadow bg-white">
+
+  <h5 class="color-dark m-0 p-3">Personal Information</h5>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <!-- first name, last name, middle name -->
+    <div class="row">
+
+      <!-- first name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="first-name">First Name: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="first-name" name="firstName"
+          required 
+          [(ngModel)]="onboardingPerson.firstName"
+          (ngModelChange)="onFirstNameEdit($event)"
+          [ngClass]="{'error-input':(!fn.valid && !fn.pristine) || ifFirstNameEnter === false}"
+          #fn="ngModel">
+        <div [hidden]="ifFirstNameEnter&&(fn.valid||fn.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter first name</span>
+        </div>
+      </div>
+
+      <!-- middle name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="middle-name">Middle Name:</label>
+        <input type="text" class="form-control" id="middle-name" name="middleName"
+          [(ngModel)]="onboardingPerson.middleName"
+          placeholder="Optional">
+      </div>
+
+      <!-- last name -->
+      <div class="form-group col-md-4">
+        <label class="color-dark" for="last-name">Last Name: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="last-name" name="lastName"
+          required 
+          [(ngModel)]="onboardingPerson.lastName"
+          (ngModelChange)="onLastNameEdit($event)"
+          [ngClass]="{'error-input':(!ln.valid && !ln.pristine) || ifLastNameEnter === false}"
+          #ln="ngModel">
+        <div [hidden]="ifLastNameEnter&&(ln.valid||ln.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter last name</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- phone, alternate phone -->
+    <div class="row">
+
+      <!-- phone -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="phone">Phone: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="phone" name="cellPhone"
+          required 
+          [(ngModel)]="onboardingPerson.cellPhone"
+          (ngModelChange)="onCellPhoneEdit($event)"
+          [ngClass]="{'error-input':(!cp.valid && !cp.pristine) || ifPhoneEnter === false}"
+          #cp="ngModel">
+        <div [hidden]="ifPhoneEnter&&(cp.valid||cp.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter your phone number</span>
+        </div>
+      </div>
+
+      <!-- alternate phone -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="alternate-phone">Alternate Phone:</label>
+        <input type="text" class="form-control" id="alternate-phone" name="alternatePhone"
+          placeholder="Optional"
+          [(ngModel)]="onboardingPerson.alternatePhone">
+      </div>
+
+    </div>
+
+    <!-- gender, dob -->
+    <div class="row">
+
+      <!-- gender -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="gender">Gender: <span class="color-red">*</span></label>
+        <select class="form-control" id="gender" name="gender"
+          required
+          [(ngModel)]="onboardingPerson.gender"
+          (ngModelChange)="onGenderSelect($event)"
+          [ngClass]="{'error-input': ifGenderSelect === false}">
+          <option *ngFor="let o of genderOptions" 
+            [value]="o.value">
+            {{o.name}}
+          </option>
+        </select>
+
+        <div [hidden]="ifGenderSelect" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select a gender</span>
+        </div>
+      </div>
+
+      <!-- dob -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="dob">Date of Birth: <span class="color-red">*</span></label>
+        <input type="date" class="form-control" id="dob" name="dob" 
+          required 
+          [(ngModel)]="onboardingPerson.dob"
+          (ngModelChange)="onDOBSelect($event)"
+          [ngClass]="{'error-input':(!birth.valid && !birth.pristine) || ifDobSelect === false, 'active': this.onboardingPerson.dob !== ''}"
+          #birth="ngModel">
+
+        <div [hidden]="ifDobSelect&&(birth.valid||birth.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select your date of birth</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ssn, email -->
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="ssn">Social Security Number: <span class="color-red">*</span></label>
+        <input type="text" class="form-control" id="ssn" name="ssn"
+          required 
+          [(ngModel)]="onboardingPerson.ssn"
+          (ngModelChange)="onSSNEdit($event)"
+          [ngClass]="{'error-input':(!s.valid && !s.pristine) || ifSSNEnter === false}"
+          #s="ngModel">
+        <div [hidden]="ifSSNEnter&&(s.valid||s.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter your SSN</span>
+        </div>
+      </div>
+
+      <!-- email -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="email">Email:</label>
+        <input type="text" class="form-control" style="transition: none; border: none;" id="email" name="email"
+          readonly
+          [(ngModel)]="onboardingPerson.email">
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+
+    <button (click)="onSaveClick()" class="btn save-btn mr-2">
+      Save
+    </button>
+
+    <button [disabled]="!ifUnclockNext" (click)="onNextClick()" class="btn next-btn">
+      Next
+    </button>
+  </div>
+</div>

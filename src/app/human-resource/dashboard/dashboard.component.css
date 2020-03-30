@@ -1,0 +1,22 @@
+.empty-container {
+  height: 85vh;
+}
+
+.empty-icon {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.section-desc {
+  font-size: 12px;
+}
+
+.search {
+  border: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+}
+
+.notification-btn {
+  font-size: 12px;
+}

@@ -1,0 +1,35 @@
+<div class="box-shadow bg-white m-3">
+
+  <h5 class="color-dark m-0 p-3">Employee Management</h5>
+
+  <input type="text" class="form-control search"
+    required 
+    [(ngModel)]="search"
+    placeholder="Search..."
+    (ngModelChange)="onSearchEdit($event)">
+
+  <div class="px-3 pb-3 pt-1">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Social Security Number</th>
+          <th>Starting Date</th>
+          <th>Visa Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let employee of employeesProfile; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{employee.firstName + " " + employee.lastName}}</td>
+          <td>{{employee.ssn}}</td>
+          <td>{{employee.startDate}}</td>
+          <td>{{employee.visaStatus}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

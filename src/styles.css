@@ -1,1 +1,123 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bellota+Text&display=swap');
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F6F8F6;
+}
+
+.box-shadow {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.01), 0 3px 1px -2px rgba(0,0,0,.05), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0,0,0,.14);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.navbar-holder {
+    height: 60px;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+.top-split-line {
+    border-top: 1px solid #F5F5F5;
+}
+
+.bottom-split-line {
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.left-split-line {
+    border-left: 1px solid #F5F5F5;
+}
+
+.right-split-line {
+    border-right: 1px solid #F5F5F5;
+}
+
+.color-title {
+    color: #909495;
+}
+
+.color-dark {
+    color: #515B5B;
+}
+
+.color-light {
+    color: #babec0;
+}
+
+.color-blue {
+    color: #3EC5F2;
+}
+
+.color-red {
+    color: #c63316;
+}
+
+.color-green {
+    color: #29C178;
+}
+
+.error {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.form-control {
+    border: 1px solid #F5F5F5;
+    border-radius: 2px !important;
+}
+
+.form-control:disabled, .form-control[read-only] {
+    background-color: #F5F5F5;
+}
+
+input[type=date].form-control, input.form-control::placeholder {
+    color: #F5F5F5;
+}
+
+input[type=date].form-control.active, input[type=date].form-control:focus {
+    color: #515B5B;
+}
+
+.error-input {
+    border: 1px solid #c63316 !important;
+}
+
+.form-control:focus, .form-control:active {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.01), 0 3px 1px -2px rgba(0,0,0,.05), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.form-control[readonly]:focus, .form-control[readonly]:active {
+    box-shadow: none;
+}
+
+.dataTables_filter {
+    display: none;
+}
+
+.dataTables_wrapper {
+    color: #515B5B;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #f35c5c;
+    border: 1px solid transparent;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #3F66A1;
+    border: 1px solid transparent;
+    color: white !important;
+}

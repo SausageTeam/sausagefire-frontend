@@ -1,0 +1,141 @@
+<div class="m-3 mx-auto box-shadow bg-white">
+  <h5 class="color-dark m-0 p-3">Work Authorization</h5>
+
+  <div class="bottom-split-line"></div>
+
+    <div class="p-3">
+
+      <p class="color-dark">
+        Are you a citizen or permanent resident of the U.S? 
+        <span class="color-red">*</span>
+      </p>
+
+      <ul class="work-auth-options">
+        <li *ngFor="let option of citizenOptions; let i = index">
+          <input id="option-{{i}}" type="checkbox" class="cursor-pointer mr-2"
+            [checked]="citizenOptionsIndex === i"
+            (click)="selectCitizenOptions(i)">
+
+          <label for="option-{{i}}" class="color-dark">{{option}}</label>
+        </li>
+      </ul>
+      
+    </div>
+    
+  <div class="bottom-split-line"></div>
+
+  <div *ngIf="citizenOptionsIndex === 0" class="p-3">
+    
+    <p class="color-dark">
+      Choose either "Citizen" or "Green Card"
+      <span class="color-red">*</span>
+    </p>
+
+    <ul class="work-auth-options">
+      <li *ngFor="let option of localOptions; let i = index">
+        <input id="option-{{i}}" type="checkbox" class="cursor-pointer mr-2"
+          [checked]="localOptionsIndex === i"
+          (click)="selectLocalOptions(i)">
+
+        <label for="option-{{i}}" class="color-dark">{{option}}</label>
+      </li>
+    </ul>
+
+  </div>
+
+  <div *ngIf="citizenOptionsIndex === 1" class="p-3">
+    
+    <label class="color-dark" for="international">
+      What is your work authorization?
+      <span class="color-red">*</span>
+    </label>
+
+    <div class="form-group">
+      <select class="form-control" id="international" name="international"
+        required
+        [(ngModel)]="internationalSelect"
+        (ngModelChange)="selectInternationalOptions($event)"
+        [ngClass]="{'error-input': ifInternationalSelect === false}">
+        <option *ngFor="let o of internationalOptions" 
+          [value]="o.value">
+          {{o.name}}
+        </option>
+      </select>
+
+      <div [hidden]="ifInternationalSelect" class="error color-red">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        <span>Please select a work authorization</span>
+      </div>
+    </div>
+
+    <div *ngIf='internationalSelect === "Other"' class="form-group">
+      <label class="color-dark" for="other-international">
+        Please specify your your authorization
+      </label>
+
+      <input type="text" class="form-control" id="other-international" name="other-international"
+        [(ngModel)]="customVisa"
+        (ngModelChange)="onOtherVisaEdit($event)"
+        [ngClass]="{'error-input':(!oi.valid && !oi.pristine) || ifCustomVisa === false}"
+        #oi="ngModel">
+      <div [hidden]="ifCustomVisa&&(oi.valid||oi.pristine)" class="error color-red">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        <span>Please specify the type</span>
+      </div>
+    </div>
+
+    <!-- start date, end date -->
+    <div class="row">
+
+      <!-- start date -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="start-date">Start Date: <span class="color-red">*</span></label>
+        <input type="date" class="form-control" id="start-date" name="start-date" 
+          required 
+          [(ngModel)]="startDate"
+          (ngModelChange)="onStartDateSelect($event)"
+          [ngClass]="{'error-input':(!sd.valid && !sd.pristine) || ifStartDate === false, 'active': startDate !== ''}"
+          #sd="ngModel">
+
+        <div [hidden]="ifStartDate&&(sd.valid||sd.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please enter your start date</span>
+        </div>
+      </div>
+
+      <!-- end date -->
+      <div class="form-group col-md-6">
+        <label class="color-dark" for="end-date">End Date: <span class="color-red">*</span></label>
+        <input type="date" class="form-control" id="end-date" name="end-date" 
+          required 
+          [(ngModel)]="endDate"
+          (ngModelChange)="onEndDateSelect($event)"
+          [ngClass]="{'error-input':(!ed.valid && !ed.pristine) || ifEndDate === false, 'active': endDate !== ''}"
+          #ed="ngModel">
+
+        <div [hidden]="ifEndDate&&(ed.valid||ed.pristine)" class="error color-red">
+          <i class="fas fa-exclamation-circle mr-2"></i>
+          <span>Please select your end date</span>
+        </div>
+      </div>
+
+    </div>  
+  </div>
+
+  <div class="bottom-split-line"></div>
+
+  <div class="p-3">
+    <button (click)="onSaveClick()" class="btn save-btn mr-2">
+      Save
+    </button>
+
+    <button (click)="onPrevClick()" class="btn next-btn mr-2">
+      Prev
+    </button>
+
+    <button [disabled]="!ifUnclockNext" (click)="onNextClick()" class="btn next-btn">
+      Next
+    </button>
+  </div>
+
+</div>

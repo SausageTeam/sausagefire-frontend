@@ -1,0 +1,11 @@
+.feature-title {
+  font-size: 12px;
+  margin: 0;
+  color : #909495;
+}
+
+.feature-value {
+  font-size: 15px;
+  color: #515B5B;
+  margin-bottom: 7px;
+}

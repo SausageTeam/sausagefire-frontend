@@ -4,7 +4,6 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { HireComponent } from './hire/hire.component';
-import { HouseManagementComponent } from './house-management/house-management.component';
 import { VisaManagementComponent } from './visa-management/visa-management/visa-management.component';
 
 const humanResourceRoutes: Routes = [
@@ -27,7 +26,7 @@ const humanResourceRoutes: Routes = [
   },
   {
     path: 'houses',
-    component: HouseManagementComponent
+    loadChildren: () => import('./house-management/house-management.module').then(m => m.HouseManagementModule)
   },
   {
     path: '**',
@@ -39,6 +38,7 @@ const humanResourceRoutes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(humanResourceRoutes)
+  
   ],
   exports: [
     RouterModule

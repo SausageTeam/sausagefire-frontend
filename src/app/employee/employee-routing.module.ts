@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
-import { HousingComponent } from './housing/housing.component';
 import { PersonalProfileComponent } from './personal-profile/personal-profile/personal-profile.component';
 import { VisaStatusComponent } from './visa-status/visa-status.component';
+import { HousingComponent } from './housing/housing/housing.component';
 
 const employeeRoutes: Routes = [
   {

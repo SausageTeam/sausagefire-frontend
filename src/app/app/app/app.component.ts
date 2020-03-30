@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() : void {
 
-    console.log("app on init");
+    // console.log("app on init");
 
     this.appService.getAuthService().subscribe(
       (res) => {

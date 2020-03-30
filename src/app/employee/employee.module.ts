@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeRoutingModule } from './employee-routing.module';
-import { HousingComponent } from './housing/housing.component';
 import { PersonalProfileComponent } from './personal-profile/personal-profile/personal-profile.component';
 import { NameComponent } from './personal-profile/name/name.component';
 import { AddressComponent } from './personal-profile/address/address.component';
@@ -17,7 +16,6 @@ import { VisaStatusComponent } from './visa-status/visa-status.component';
 @NgModule({
   declarations: [
     DashboardComponent,
-    HousingComponent,
     PersonalProfileComponent, 
     PersonalProfilePanelComponent,
     NameComponent, 

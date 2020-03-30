@@ -1,0 +1,62 @@
+<div class="box-shadow bg-white m-3">
+  <h5 class="color-dark m-0 p-3">Housing Information</h5>
+
+  <div class="top-split-line">
+    <h6 class="color-dark m-0 p-3">
+      <i class="color-blue fas fa-map-marker-alt mr-2"></i>
+      <span>Address</span>
+    </h6>
+
+    <div class="p-3 top-split-line">
+      <div>
+        <p class="feature-title">Street Address Line 1</p>
+        <p class="feature-value">{{displayAddressLineOne}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">Street Address Line 2</p>
+        <p class="feature-value">{{displayAddressLineTwo}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">City</p>
+        <p class="feature-value">{{displayAddressCity}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">State</p>
+        <p class="feature-value">{{displayAddressState}}</p>
+      </div>
+    
+      <div>
+        <p class="feature-title">ZipCode</p>
+        <p class="feature-value">{{displayAddressZipcode}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="top-split-line">
+    <h6 class="color-dark m-0 p-3">
+      <i class="color-blue fas fa-users mr-2"></i>
+      <span>Residents</span>
+    </h6>
+
+    <div class="p-3 top-split-line">
+      <ul>
+        <li *ngFor="let resident of residentList">
+          <p>{{resident.name}}</p>
+          <p>{{resident.phone}}</p>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+
+  <div class="top-split-line p-3">
+    <button class="btn btn-primary" (click)="onButtonClick()">Facility Report</button>
+  </div>
+</div>
+
+  
+

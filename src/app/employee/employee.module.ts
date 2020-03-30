@@ -12,6 +12,7 @@ import { EmploymentComponent } from './personal-profile/employment/employment.co
 import { EmergencyContactComponent } from './personal-profile/emergency-contact/emergency-contact.component';
 import { DocumentComponent } from './personal-profile/document/document.component';
 import { VisaStatusComponent } from './visa-status/visa-status.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { VisaStatusComponent } from './visa-status/visa-status.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     EmployeeRoutingModule,
   ],
   providers: [],

@@ -18,7 +18,6 @@ export class HousingComponent implements OnInit {
   displayAddressZipcode : string = "-";
 
   houseDetail : HouseDetail = new HouseDetail();
-  residentList : Array<Resident> = null;
 
   constructor(
     private housingService : HousingService,
@@ -36,7 +35,6 @@ export class HousingComponent implements OnInit {
           this.displayAddressCity = res.houseDetail.addressDomain.city ? res.houseDetail.addressDomain.city : "-";
           this.displayAddressState = res.houseDetail.addressDomain.stateAbbr ? res.houseDetail.addressDomain.stateAbbr : "-";
           this.displayAddressZipcode = res.houseDetail.addressDomain.zipCode ? res.houseDetail.addressDomain.zipCode : "-";
-          this.residentList = res.houseDetail.residentList;
         }
       }
     )

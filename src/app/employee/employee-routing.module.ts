@@ -4,7 +4,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { PersonalProfileComponent } from './personal-profile/personal-profile/personal-profile.component';
 import { VisaStatusComponent } from './visa-status/visa-status.component';
-import { HousingComponent } from './housing/housing/housing.component';
 
 const employeeRoutes: Routes = [
   {
@@ -16,7 +15,7 @@ const employeeRoutes: Routes = [
       },
       {
         path: 'housing',
-        component: HousingComponent
+        loadChildren: () => import('./housing/housing.module').then(m => m.HousingModule)
       },
       {
         path: 'profile',

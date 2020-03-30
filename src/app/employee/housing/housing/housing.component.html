@@ -42,14 +42,31 @@
       <span>Residents</span>
     </h6>
 
-    <div class="p-3 top-split-line">
-      <ul>
-        <li *ngFor="let resident of residentList">
-          <p>{{resident.name}}</p>
-          <p>{{resident.phone}}</p>
-        </li>
-      </ul>
-    </div>
+    <ng-template *ngIf="!houseDetail.residentList; then withoutResident; else withResident"></ng-template>
+
+    <ng-template #withoutResident>
+      <div class="p-3 top-split-line color-light">
+        The house is now temporary empty.
+      </div>
+    </ng-template>
+
+    <ng-template #withResident>
+      <div class="p-3 top-split-line" *ngFor="let resident of houseDetail.residentList; let i = index">
+        <p class="resident">
+          Resident #{{i+1}}
+        </p>
+        <div>
+          <p class="feature-title">Name</p>
+          <p class="feature-value">{{resident.name}}</p>
+        </div>
+        <div>
+          <p class="feature-title">Phone</p>
+          <p class="feature-value">{{resident.phone}}</p>
+        </div>        
+      </div>
+    </ng-template>
+    
+    
     
   </div>
 

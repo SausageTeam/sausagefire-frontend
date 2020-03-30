@@ -30,11 +30,6 @@ const humanResourceRoutes: Routes = [
     component: HouseManagementComponent
   },
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/hr/dashboard'
-  },
-  {
     path: '**',
     component: PageNotFoundComponent
   }

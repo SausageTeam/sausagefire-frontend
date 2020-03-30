@@ -30,7 +30,8 @@ import { VisaStatusComponent } from './visa-status/visa-status.component';
   ],
   imports: [
     CommonModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
   ],
+  providers: [],
 })
 export class EmployeeModule { }

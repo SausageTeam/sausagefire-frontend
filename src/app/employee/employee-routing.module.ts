@@ -7,28 +7,31 @@ import { PersonalProfileComponent } from './personal-profile/personal-profile/pe
 import { VisaStatusComponent } from './visa-status/visa-status.component';
 
 const employeeRoutes: Routes = [
-
   {
-    path: 'dashboard', 
-    component: DashboardComponent
-  },
-  {
-    path: 'housing',
-    component: HousingComponent
-  },
-  {
-    path: 'profile',
-    component: PersonalProfileComponent
-  },
-  {
-    path: 'visa-status-management',
-    component: VisaStatusComponent
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
+    path: '',
+    children: [
+      {
+        path: 'dashboard', 
+        component: DashboardComponent
+      },
+      {
+        path: 'housing',
+        component: HousingComponent
+      },
+      {
+        path: 'profile',
+        component: PersonalProfileComponent
+      },
+      {
+        path: 'visa-status-management',
+        component: VisaStatusComponent
+      },
+      {
+        path: '**',
+        component: PageNotFoundComponent
+      }
+    ]
   }
-
 ];
 
 @NgModule({

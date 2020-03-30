@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../_common/_service/app/app.service';
 import { Router } from '@angular/router';
-import { AuthGuardService } from 'src/app/_common/_service/app/auth-guard.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private appService : AppService,
-    private authGuardService : AuthGuardService,
     private router: Router
   ) {}
 
@@ -23,9 +21,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() : void {
 
+    console.log("app on init");
+
     this.appService.getAuthService().subscribe(
       (res) => {
-        // console.log(res.headers);
+
         const roleId = res.headers.get('roleid');
         const onboardingStatus = res.headers.get('onboardingstatus');
         const ifNeedVisa = res.headers.get('ifneedvisa');
@@ -33,28 +33,28 @@ export class AppComponent implements OnInit {
         if(onboardingStatus !== '2') {
 
           this.ifOnboarding = true;
-          this.router.navigate(['/onboarding/person']);
+          if(this.router.url === '/') {
+            this.router.navigate(['/onboarding/person']);
+          }
 
         } else {
 
           if(roleId === '1') {
 
             this.ifHr = true;
-            this.router.navigate(['/hr/dashboard']);
+          if(this.router.url === '/') {
+              this.router.navigate(['/hr/dashboard']);
+          }
 
           } else {
 
             this.ifEmployee = true;
-            if(ifNeedVisa) {
-            
+            if(ifNeedVisa === 'true') {
               this.ifNeedVisa = true;
-
-            } else {
-
-              this.router.navigate(['/employee/dashboard']);
-
             }
-
+            if(this.router.url === '/') {
+              this.router.navigate(['/employee/dashboard']);
+            }
           }
         }
       }

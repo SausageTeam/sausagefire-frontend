@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HousingComponent } from './housing/housing.component';
 import { FacilityReportComponent } from './facility-report/facility-report.component';
-// import { FacilityReportComponent } from './facility-report/facility-report.component';
-// import { MaintenanceHistoryComponent } from './maintenance-history/maintenance-history.component';
+import { FacilityReportListComponent } from './facility-report-list/facility-report-list.component';
 
 const housingRoutes: Routes = [
   {
@@ -17,13 +16,14 @@ const housingRoutes: Routes = [
         path: 'report',
         component: FacilityReportComponent
       },
+      {
+        path: 'report-list',
+        component: FacilityReportListComponent
+      }
     ]
   },
   
-  // {
-  //   path: 'report-list',
-  //   component: MaintenanceHistoryComponent
-  // }
+
 
 ];
 

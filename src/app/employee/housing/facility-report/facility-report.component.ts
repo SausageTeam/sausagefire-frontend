@@ -47,13 +47,14 @@ export class FacilityReportComponent implements OnInit {
     if(this.SubmitCheck()) {
       console.log("true");
     }
-    // this.facilityReportService.postFacilityReportService(this.facilityReport).subscribe(
-    //   (res) => {
-    //     console.log(res);
-    //   }
-    // );
-    // alert("Submit Successfully!");
-    // this.router.navigate(['employee/housing']);
+    this.housingService.postFacilityReportService(this.facilityReport).subscribe(
+      (res) => {
+        // console.log(res);
+        alert("Submit Successfully!");
+        this.router.navigate(['employee/housing']);
+      }
+    );
+    
   }
 
   onCancelClick() : void {

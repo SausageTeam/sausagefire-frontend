@@ -1,0 +1,23 @@
+.back-btn {
+  border-radius: 2px;
+  line-height: 1;
+  font-size: 14px;
+  padding: 10px 20px;
+  color: white;
+}
+
+.back-btn {
+  background-color: #3EC5F2;
+}
+
+.feature-title {
+  font-size: 12px;
+  margin: 0;
+  color : #909495;
+}
+
+.feature-value {
+  font-size: 15px;
+  color: #515B5B;
+  margin-bottom: 7px;
+}

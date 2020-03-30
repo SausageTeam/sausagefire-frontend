@@ -7,8 +7,7 @@ import { AuthGuardService } from './_common/_service/app/auth-guard.service';
 const appRoutes: Routes = [
   {
     path: '',
-    canActivate:[AuthGuardService],
-    // canActivateChild:[AuthGuardService],
+    canActivateChild:[AuthGuardService],
     children : [
       {
         path: 'onboarding',

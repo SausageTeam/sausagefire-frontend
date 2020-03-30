@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import { NavResponse } from '../../_domain/app/app-response.model';
+import { BehaviorSubject, of } from 'rxjs';
+import { tap, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
+
+  roleId: string;
 
   constructor(private http: HttpClient) { }
 

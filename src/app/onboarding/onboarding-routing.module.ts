@@ -52,7 +52,7 @@ const onboardingRoutes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/employee/onboarding/person'
+        redirectTo: '/onboarding/person'
       }
     ]
   }

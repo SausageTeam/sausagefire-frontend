@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, CanActivateChild, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router, CanActivateChild, ActivatedRouteSnapshot } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { AppService } from './app.service';
 
 @Injectable()
-export class AuthGuardService implements CanActivate, CanActivateChild {
+export class AuthGuardService implements CanActivateChild {
 
   constructor(
     private http: HttpClient,
@@ -13,18 +13,23 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     private appService : AppService
   ) {}
 
-  canActivate(): boolean {
+  canActivateChild(route : ActivatedRouteSnapshot): boolean {
+    console.log('canActivateChild on '+route.url);
 
-    // read from header
-    console.log("guard");
+    // console.log(this.appService.roleId);
+    
+    // console.
+    // const roleId = localStorage.getItem('roleId');
+    // const onboardingStatus = localStorage.getItem('onboardingStatus');
+    // const ifNeedVisa = localStorage.getItem('ifNeedVisa');
 
-    return true;
-  
-  }
+    // const roleId = headers.get('roleid');
+    // const onboardingStatus = res.headers.get('onboardingstatus');
+    // const ifNeedVisa = res.headers.get('ifneedvisa');
 
-  canActivateChild(): boolean {
-    // console.log('canActivateChild on '+route.url);
-
+    // console.log(roleId);
+    // console.log(onboardingStatus);
+    // console.log(ifNeedVisa);
     // console.log(this.auth);
 
     return true;

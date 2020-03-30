@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
     this.appService.getAuthService().subscribe(
       (res) => {
-        console.log(res.headers);
+        // console.log(res.headers);
         const roleId = res.headers.get('roleid');
         const onboardingStatus = res.headers.get('onboardingstatus');
         const ifNeedVisa = res.headers.get('ifneedvisa');
@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
         if(onboardingStatus !== '2') {
 
           this.ifOnboarding = true;
+          this.router.navigate(['/onboarding/person']);
 
         } else {
 

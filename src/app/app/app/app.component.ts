@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../_common/_service/app/app.service';
 import { Router } from '@angular/router';
-import { AuthGuardService } from 'src/app/_common/_service/app/auth-guard.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     private appService : AppService,
-    private authGuardService : AuthGuardService,
     private router: Router
   ) {}
 
@@ -23,44 +21,43 @@ export class AppComponent implements OnInit {
 
   ngOnInit() : void {
 
-    this.ifOnboarding = true;
-    this.ifEmployee  = true;
-    this.ifNeedVisa = true;
-    this.ifHr = true;
+    // console.log("app on init");
 
-    // this.appService.getAuthService().subscribe(
-    //   (res) => {
-    //     if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
-    //       window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
-    //     } else {
+    this.appService.getAuthService().subscribe(
+      (res) => {
 
-    //       // check header
+        const roleId = res.headers.get('roleid');
+        const onboardingStatus = res.headers.get('onboardingstatus');
+        const ifNeedVisa = res.headers.get('ifneedvisa');
 
-          
-    //       // console.log(res);
-          
+        if(onboardingStatus !== '2') {
 
-    //       // if(res.auth.onboardingStatus !== 2) {
-            
-    //       //   this.ifOnboarding = true;
-    //       //   this.router.navigate(['/onboarding/person']);
+          this.ifOnboarding = true;
+          if(this.router.url === '/') {
+            this.router.navigate(['/onboarding/person']);
+          }
 
-    //       // } else {
-    //       //   if(res.auth.roleId === 1) {
+        } else {
 
-    //       //     this.ifHr = true;
-    //       //     this.router.navigate(['/hr/dashboard']);
+          if(roleId === '1') {
 
-    //       //   } else {
-    //       //     this.ifEmployee = true;
-    //       //     if(res.auth.ifNeedVisa) {
-    //       //       this.ifNeedVisa = true;
-    //       //     }
-    //       //     this.router.navigate(['/employee/dashboard']);
-    //       //   }
-    //       // }
-    //     }
-    //   }
-    // );
+            this.ifHr = true;
+          if(this.router.url === '/') {
+              this.router.navigate(['/hr/dashboard']);
+          }
+
+          } else {
+
+            this.ifEmployee = true;
+            if(ifNeedVisa === 'true') {
+              this.ifNeedVisa = true;
+            }
+            if(this.router.url === '/') {
+              this.router.navigate(['/employee/dashboard']);
+            }
+          }
+        }
+      }
+    );
   }
 }

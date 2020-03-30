@@ -32,7 +32,13 @@ export class HireComponent implements OnInit {
       this.hireService.postHireService(this.hireGenerateToken).subscribe(
         (res) => {
           this.ifSubmit = true;
-          this.errorMsg = res.serviceStatus.errorMessage;
+          
+        },
+        (err: any) => {
+          if(err.status !== 409) {
+            return;
+          }
+          this.errorMsg = err.error;
         }
       )
     }

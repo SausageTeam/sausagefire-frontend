@@ -16,7 +16,7 @@ export class FinalComponent implements OnInit {
   }
 
   onSubmitClick(): void { 
-    this.router.navigate(['/employee/dashboard']);
+    this.router.navigate(['/']);
   }
 
   onPrevClick() : void {

@@ -2,5 +2,26 @@
     "/api/*":{
         "target": "http://localhost:8080",
         "secure": false
+    },
+
+    "/api/employee/housing/housingInfo":{
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/api/employee/housing/maintenanceHistory":{
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/api/employee/housing/facilityReport":{
+        "target": "http://localhost:8080",
+        "secure": false
+    },
+
+    "/api/hr/housing/allHousesDetails":{
+        "target": "http://localhost:8080",
+        "secure": false
     }
+
 }

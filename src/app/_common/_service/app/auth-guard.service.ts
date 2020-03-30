@@ -2,14 +2,10 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, CanActivateChild, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { AuthResponse } from '../../_domain/app/app-response.model';
-import { Auth } from '../../_domain/app/auth.module';
 import { AppService } from './app.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate, CanActivateChild {
-
-  auth : Auth = new Auth();
 
   constructor(
     private http: HttpClient,
@@ -17,7 +13,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     private appService : AppService
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot): boolean {
+  canActivate(): boolean {
 
     // read from header
     console.log("guard");
@@ -26,8 +22,8 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
   
   }
 
-  canActivateChild(route: ActivatedRouteSnapshot): boolean {
-    console.log('canActivateChild on '+route.url);
+  canActivateChild(): boolean {
+    // console.log('canActivateChild on '+route.url);
 
     // console.log(this.auth);
 

@@ -23,44 +23,40 @@ export class AppComponent implements OnInit {
 
   ngOnInit() : void {
 
-    this.ifOnboarding = true;
-    this.ifEmployee  = true;
-    this.ifNeedVisa = true;
-    this.ifHr = true;
+    this.appService.getAuthService().subscribe(
+      (res) => {
+        console.log(res.headers);
+        const roleId = res.headers.get('roleid');
+        const onboardingStatus = res.headers.get('onboardingstatus');
+        const ifNeedVisa = res.headers.get('ifneedvisa');
 
-    // this.appService.getAuthService().subscribe(
-    //   (res) => {
-    //     if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
-    //       window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
-    //     } else {
+        if(onboardingStatus !== '2') {
 
-    //       // check header
+          this.ifOnboarding = true;
 
-          
-    //       // console.log(res);
-          
+        } else {
 
-    //       // if(res.auth.onboardingStatus !== 2) {
+          if(roleId === '1') {
+
+            this.ifHr = true;
+            this.router.navigate(['/hr/dashboard']);
+
+          } else {
+
+            this.ifEmployee = true;
+            if(ifNeedVisa) {
             
-    //       //   this.ifOnboarding = true;
-    //       //   this.router.navigate(['/onboarding/person']);
+              this.ifNeedVisa = true;
 
-    //       // } else {
-    //       //   if(res.auth.roleId === 1) {
+            } else {
 
-    //       //     this.ifHr = true;
-    //       //     this.router.navigate(['/hr/dashboard']);
+              this.router.navigate(['/employee/dashboard']);
 
-    //       //   } else {
-    //       //     this.ifEmployee = true;
-    //       //     if(res.auth.ifNeedVisa) {
-    //       //       this.ifNeedVisa = true;
-    //       //     }
-    //       //     this.router.navigate(['/employee/dashboard']);
-    //       //   }
-    //       // }
-    //     }
-    //   }
-    // );
+            }
+
+          }
+        }
+      }
+    );
   }
 }

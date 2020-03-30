@@ -19,11 +19,9 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
     this.appService.getAvatarService().subscribe(
       (res) => {
-        if(!res.serviceStatus.success && res.serviceStatus.statusCode === "401") {
-          window.location.href = res.redirectUrl + "?redirect=" + window.location.href;
-        } else {
-          this.imageSrc = res.nav.avatarUri ? res.nav.avatarUri : "assets/default-avatar.jpg";
-          this.firstName = res.nav.firstName ? res.nav.firstName : "Unknown";
+        if(res && res.body && res.body.nav) {
+          this.imageSrc = res.body.nav.avatarUri ? res.body.nav.avatarUri : "assets/default-avatar.jpg";
+          this.firstName = res.body.nav.firstName ? res.body.nav.firstName : "Unknown";
         }
       }
     );
